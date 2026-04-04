@@ -110,7 +110,15 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-[#03045E] mb-1">{t('Localisation', 'Location')}</p>
-                    <p className="text-[#023E8A]">France</p>
+                    <a 
+                      href="https://www.google.com/maps/place/Ch%C3%A2teau-Landon,+77570+France/@48.1522,2.7006,13z"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#023E8A] hover:text-[#0077B6] transition-colors"
+                      data-testid="location-link"
+                    >
+                      Château-Landon 77570
+                    </a>
                   </div>
                 </div>
               </div>
@@ -220,6 +228,38 @@ const Contact = () => {
                   </button>
                 </div>
               </form>
+            </div>
+          </div>
+
+          {/* Google Maps Section */}
+          <div className="mt-16">
+            <h3 className="text-2xl sm:text-3xl font-serif font-semibold text-[#03045E] mb-6 text-center">
+              {t('Notre localisation', 'Our Location')}
+            </h3>
+            <div className="rounded-3xl overflow-hidden shadow-lg border-2 border-[#ADE8F4]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42358.66284573647!2d2.6806!3d48.1522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e5d8b0e5c5e5e5%3A0x5e5e5e5e5e5e5e5e!2zQ2jDonRlYXUtTGFuZG9uLCA3NzU3MCBGcmFuY2U!5e0!3m2!1sfr!2sus!4v1234567890123"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Sophie Lamour Location - Château-Landon"
+                data-testid="google-maps-embed"
+              />
+            </div>
+            <div className="text-center mt-4">
+              <a
+                href="https://www.google.com/maps/place/Ch%C3%A2teau-Landon,+77570+France/@48.1522,2.7006,13z"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[#0077B6] hover:text-[#0096C7] font-medium transition-colors"
+                data-testid="open-in-maps"
+              >
+                <MapPin size={18} />
+                {t('Ouvrir dans Google Maps', 'Open in Google Maps')}
+              </a>
             </div>
           </div>
         </div>

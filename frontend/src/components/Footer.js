@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Facebook, Instagram, Linkedin, Mail, Phone, MessageCircle } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Mail, Phone, MessageCircle, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -67,6 +67,18 @@ const Footer = () => {
                   data-testid="whatsapp-footer"
                 >
                   WhatsApp
+                </a>
+              </li>
+              <li className="flex items-center gap-3 text-white/80">
+                <MapPin size={18} />
+                <a 
+                  href="https://www.google.com/maps/place/Ch%C3%A2teau-Landon,+77570+France/@48.1522,2.7006,13z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#48CAE4] transition-colors"
+                  data-testid="location-footer"
+                >
+                  Château-Landon 77570
                 </a>
               </li>
             </ul>

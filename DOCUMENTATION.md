@@ -31,7 +31,8 @@ A modern, elegant life coaching website for Sophie Lamour, featuring a beautiful
 - **Email**: contact@sophielamour.com
 - **Phone**: +33 6 89 84 47 78
 - **WhatsApp**: https://wa.me/33689844778
-- **Location**: France
+- **Location**: Château-Landon 77570, France
+- **Google Maps**: https://www.google.com/maps/place/Château-Landon,+77570+France/@48.1522,2.7006,13z
 
 ---
 
