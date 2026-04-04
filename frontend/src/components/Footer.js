@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Facebook, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Mail, Phone, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -11,11 +11,9 @@ const Footer = () => {
       <div className="px-6 md:px-12 lg:px-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>
-            <img
-              src="https://sophielamour.com/wp-content/uploads/2025/05/logo-blanc-long-1.png"
-              alt="Sophie Lamour Logo"
-              className="h-12 w-auto mb-6"
-            />
+            <span className="text-2xl font-serif font-bold text-white mb-4 block">
+              Sophie Lamour
+            </span>
             <p className="text-white/80 leading-relaxed">
               {t(
                 'Accompagnement personnalisé en développement personnel et coaching de vie.',
@@ -49,11 +47,27 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-white/80">
                 <Mail size={18} />
-                <span>contact@sophielamour.com</span>
+                <a href="mailto:contact@sophielamour.com" className="hover:text-[#48CAE4] transition-colors">
+                  contact@sophielamour.com
+                </a>
               </li>
               <li className="flex items-center gap-3 text-white/80">
                 <Phone size={18} />
-                <span>+33 X XX XX XX XX</span>
+                <a href="tel:+33689844778" className="hover:text-[#48CAE4] transition-colors">
+                  +33 6 89 84 47 78
+                </a>
+              </li>
+              <li className="flex items-center gap-3 text-white/80">
+                <MessageCircle size={18} />
+                <a 
+                  href="https://wa.me/33689844778" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-[#48CAE4] transition-colors"
+                  data-testid="whatsapp-footer"
+                >
+                  WhatsApp
+                </a>
               </li>
             </ul>
             <div className="flex gap-4 mt-6">

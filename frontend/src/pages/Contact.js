@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
 import axios from 'axios';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -80,7 +80,27 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-[#03045E] mb-1">{t('Téléphone', 'Phone')}</p>
-                    <p className="text-[#023E8A]">+33 X XX XX XX XX</p>
+                    <a href="tel:+33689844778" className="text-[#023E8A] hover:text-[#0077B6] transition-colors">
+                      +33 6 89 84 47 78
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-[#25D366]/10 flex items-center justify-center flex-shrink-0">
+                    <MessageCircle className="w-5 h-5 text-[#25D366]" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[#03045E] mb-1">WhatsApp</p>
+                    <a 
+                      href="https://wa.me/33689844778" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-[#023E8A] hover:text-[#25D366] transition-colors"
+                      data-testid="whatsapp-contact"
+                    >
+                      {t('Discuter sur WhatsApp', 'Chat on WhatsApp')}
+                    </a>
                   </div>
                 </div>
 

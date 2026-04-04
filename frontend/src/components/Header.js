@@ -37,12 +37,9 @@ const Header = () => {
       <div className="px-6 md:px-12 lg:px-24 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center" data-testid="logo-link">
-            <img
-              src="https://sophielamour.com/wp-content/uploads/2025/05/logo-blanc-long-1.png"
-              alt="Sophie Lamour Logo"
-              className="h-12 w-auto"
-              style={{ filter: 'invert(9%) sepia(96%) saturate(7426%) hue-rotate(237deg) brightness(93%) contrast(107%)' }}
-            />
+            <span className="text-2xl md:text-3xl font-serif font-bold bg-gradient-to-r from-[#03045E] to-[#0077B6] bg-clip-text text-transparent">
+              Sophie Lamour
+            </span>
           </Link>
 
           <nav className="hidden lg:flex items-center space-x-8">
@@ -59,20 +56,19 @@ const Header = () => {
               >
                 {link.label}
               </Link>
-            ))}
-          </nav>
+            ))}           </nav>
 
           <div className="flex items-center gap-4">
             <button
               onClick={toggleLanguage}
-              className="text-sm font-medium tracking-wide"
+              className="text-sm font-medium tracking-wide px-3 py-1.5 rounded-lg bg-[#CAF0F8] hover:bg-[#ADE8F4] transition-colors"
               data-testid="language-toggle"
             >
-              <span className={language === 'fr' ? 'text-[#0077B6] font-bold' : 'text-[#90E0EF]'}>
+              <span className={language === 'fr' ? 'text-[#0077B6] font-bold' : 'text-[#023E8A]'}>
                 FR
               </span>
               {' / '}
-              <span className={language === 'en' ? 'text-[#0077B6] font-bold' : 'text-[#90E0EF]'}>
+              <span className={language === 'en' ? 'text-[#0077B6] font-bold' : 'text-[#023E8A]'}>
                 EN
               </span>
             </button>
