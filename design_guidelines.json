@@ -1,0 +1,144 @@
+{
+  "theme": "light",
+  "archetype": "Organic & Earthy",
+  "typography": {
+    "fonts": {
+      "heading": "Playfair Display",
+      "body": "Nunito",
+      "accent": "Playfair Display"
+    },
+    "hierarchy": {
+      "h1": "text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-tight font-serif text-[#2C2C2A]",
+      "h2": "text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-snug font-serif text-[#2C2C2A]",
+      "h3": "text-2xl sm:text-3xl font-serif text-[#2C2C2A]",
+      "h4": "text-xl font-serif text-[#2C2C2A]",
+      "body": "text-base lg:text-lg leading-relaxed text-[#5C5A56] font-sans",
+      "small": "text-sm uppercase tracking-[0.2em] font-bold text-[#9EAB9A]"
+    }
+  },
+  "colors": {
+    "background": {
+      "primary": "#FAF8F5",
+      "secondary": "#F3EFEA",
+      "tertiary": "#FFFFFF"
+    },
+    "text": {
+      "primary": "#2C2C2A",
+      "secondary": "#5C5A56",
+      "accent": "#9EAB9A"
+    },
+    "brand": {
+      "dustyRose": "#D9A098",
+      "sageGreen": "#9EAB9A",
+      "warmBeige": "#E5D9C5",
+      "terracotta": "#C48A7E"
+    },
+    "surface": {
+      "card": "#FFFFFF",
+      "hover": "#FDFBF9"
+    },
+    "border": "#E8E2D9"
+  },
+  "spacing_and_layout": {
+    "container_padding": "px-6 md:px-12 lg:px-24",
+    "section_spacing": "py-24 lg:py-32",
+    "grid_gap": "gap-8 lg:gap-12",
+    "border_radius": {
+      "card": "rounded-3xl",
+      "button": "rounded-full",
+      "image": "rounded-2xl"
+    },
+    "shadows": {
+      "ambient": "shadow-[0_8px_32px_rgba(44,44,42,0.04)]",
+      "hover": "shadow-[0_16px_48px_rgba(217,160,152,0.15)]"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#D9A098] text-white hover:bg-[#C48A7E] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md",
+      "secondary": "bg-transparent border border-[#9EAB9A] text-[#5C5A56] hover:bg-[#9EAB9A] hover:text-white rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide"
+    },
+    "cards": {
+      "service": "bg-white rounded-3xl p-8 lg:p-10 border border-[#E8E2D9] shadow-[0_8px_32px_rgba(44,44,42,0.04)] hover:shadow-[0_16px_48px_rgba(217,160,152,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-start"
+    },
+    "header": {
+      "style": "backdrop-blur-xl bg-[#FAF8F5]/80 border-b border-[#E8E2D9]/50 sticky top-0 z-50 transition-all duration-300"
+    },
+    "footer": {
+      "style": "bg-[#2C2C2A] text-[#FAF8F5] py-20 lg:py-32"
+    }
+  },
+  "media": {
+    "logo": {
+      "primary": "https://sophielamour.com/wp-content/uploads/2025/05/logo-blanc-long-1.png",
+      "alt": "Sophie Lamour Logo",
+      "note": "Since the logo is white, apply CSS filter (invert(1) brightness(0.2)) for light backgrounds like the header, or place it on a dark background in the footer."
+    },
+    "images": {
+      "hero": {
+        "url": "https://sophielamour.com/wp-content/uploads/2025/02/IMG-20250207-WA0001-e1740056629770.jpg",
+        "description": "Portrait of Sophie Lamour. Use in the hero section. Apply a soft arched mask or rounded-3xl corners to fit the feminine theme."
+      },
+      "about_portrait": {
+        "url": "https://images.unsplash.com/photo-1667723457637-c7e3c9b8b903?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwyfHx3b21hbiUyMGRyaW5raW5nJTIwdGVhJTIwY2FsbXxlbnwwfHx8fDE3NzUzMTU2NTR8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Woman drinking tea - serene mood setter for the Qui Suis-je section."
+      },
+      "services_context": {
+        "url": "https://images.unsplash.com/photo-1765371512971-9d4da531d004?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzR8MHwxfHNlYXJjaHwyfHxlbGVnYW50JTIwY296eSUyMG9mZmljZSUyMHBsYW50c3xlbnwwfHx8fDE3NzUzMTU2NTR8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Elegant cozy office - contextual image for home organising or professional coaching."
+      },
+      "meditation_zen": {
+        "url": "https://images.unsplash.com/photo-1583843870386-c22f7b00ce8f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwzfHx3b21hbiUyMGRyaW5raW5nJTIwdGVhJTIwY2FsbXxlbnwwfHx8fDE3NzUzMTU2NTR8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Calm atmosphere."
+      }
+    }
+  },
+  "pages_and_features": {
+    "home": {
+      "hero": "Asymmetric layout: Left text block (H1 + subtitle + dual buttons). Right image block (Sophie's portrait) with an abstract decorative shape or soft rounded corners.",
+      "services": "6 bento grid cards: Personnel, Professionnel, Parentalité, Home Organising, Ikigai, Art-Thérapie. Use lucide-react icons in soft sage green.",
+      "testimonials": "Use Embla Carousel or Shadcn Carousel. Soft sage green background section (`bg-[#9EAB9A]/10`). Large elegant quote marks in Playfair Display.",
+      "blog_preview": "3-column grid of recent blog posts. Minimal cards: image, date, title, 'Lire la suite' link.",
+      "social_feed": "Grid of 4 squares for Instagram placeholders. Subtle hover zoom effect.",
+      "appointment_cta": "Full width banner with dusty rose background (`bg-[#D9A098]`), white text, and white button linking to Rendez-vous page."
+    },
+    "about": {
+      "story": "Split layout: Text on left, image overlapping right. Very generous spacing.",
+      "timeline": "Vertical timeline of certifications using subtle borders and sage green dots."
+    },
+    "services_hub": {
+      "layout": "Individual sections or pages for the 6 services. Use alternating left/right layout (Text/Image) for visual rhythm."
+    },
+    "blog": {
+      "admin": "Simple admin dashboard at `/admin`. Password protected (mock login). Table listing posts with edit/delete buttons, and a 'New Post' button.",
+      "public": "Grid layout. Simple, clean, focus on typography and readability."
+    },
+    "testimonials_admin": {
+      "admin": "Section in `/admin` to add/edit client testimonials."
+    },
+    "booking": {
+      "calendly": "Embed Calendly widget in a centered container with `rounded-3xl` and `shadow-ambient` to blend with the soft site aesthetic."
+    },
+    "contact": {
+      "form": "Custom styled Shadcn form components. Rounded inputs (`rounded-xl`), floating labels, or clean placeholders. Dusty rose submit button."
+    },
+    "language_toggle": {
+      "style": "Minimal text toggle (FR / EN) in the header. Use bold weight for active language, light weight for inactive."
+    }
+  },
+  "motion": {
+    "hover": "Smooth scale up (`scale-105`) for images, `translate-y-1` for cards. `transition-all duration-300 ease-out`.",
+    "reveal": "Use `framer-motion` for simple fade-in-up on scroll for major sections to make the experience feel premium and calm."
+  },
+  "instructions_to_main_agent": [
+    "Install `lucide-react` for minimal, organic icons.",
+    "Install `framer-motion` for page transitions and scroll reveals.",
+    "Install `embla-carousel-react` for the testimonials carousel.",
+    "Use Tailwind arbitrary values for exact brand colors (e.g., `text-[#2C2C2A]`). DO NOT use default blue/purple colors.",
+    "The provided logo is white. On the light header, you MUST apply a CSS filter (`filter: invert(1) brightness(0.2)`) to make it visible. On the dark footer, use it as is.",
+    "Ensure all interactive elements have `data-testid` attributes (e.g., `data-testid='book-appointment-btn'`).",
+    "For the 6 services cards, map them exactly to: Personnel, Professionnel, Parentalité, Home Organising, Ikigai, Art-Thérapie.",
+    "Build a fully functioning frontend with a mock backend/state for the `/admin` area to manage blog posts and testimonials (can use localStorage or simple state for MVP).",
+    "Implement a language context (React Context) for the FR/EN toggle. Default to FR."
+  ]
+}
