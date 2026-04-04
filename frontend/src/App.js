@@ -1,53 +1,83 @@
-import { useEffect } from "react";
-import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
-  return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
+import { LanguageProvider } from './contexts/LanguageContext';
+import { AuthProvider } from './contexts/AuthContext';
+import { Toaster } from './components/ui/sonner';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import ProtectedRoute from './components/ProtectedRoute';
+import Home from './pages/Home';
+import About from './pages/About';
+import Services from './pages/Services';
+import ServicePersonnel from './pages/ServicePersonnel';
+import ServiceProfessionnel from './pages/ServiceProfessionnel';
+import ServiceParentalite from './pages/ServiceParentalite';
+import ServiceHomeOrganising from './pages/ServiceHomeOrganising';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
+import Testimonials from './pages/Testimonials';
+import Appointment from './pages/Appointment';
+import Contact from './pages/Contact';
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
+import BlogEditor from './pages/BlogEditor';
+import TestimonialEditor from './pages/TestimonialEditor';
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <HelmetProvider>
+      <LanguageProvider>
+        <AuthProvider>
+          <BrowserRouter>
+            <div className="App">
+              <Routes>
+                <Route path="/admin/login" element={<AdminLogin />} />
+                <Route path="/admin/dashboard" element={
+                  <ProtectedRoute>
+                    <AdminDashboard />
+                  </ProtectedRoute>
+                } />
+                <Route path="/admin/blog/new" element={
+                  <ProtectedRoute>
+                    <BlogEditor />
+                  </ProtectedRoute>
+                } />
+                <Route path="/admin/testimonials/new" element={
+                  <ProtectedRoute>
+                    <TestimonialEditor />
+                  </ProtectedRoute>
+                } />
+                <Route path="/*" element={
+                  <>
+                    <Header />
+                    <main>
+                      <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/qui-suis-je" element={<About />} />
+                        <Route path="/services" element={<Services />} />
+                        <Route path="/services/personnel" element={<ServicePersonnel />} />
+                        <Route path="/services/professionnel" element={<ServiceProfessionnel />} />
+                        <Route path="/services/parentalite" element={<ServiceParentalite />} />
+                        <Route path="/services/home-organising" element={<ServiceHomeOrganising />} />
+                        <Route path="/blog" element={<Blog />} />
+                        <Route path="/blog/:slug" element={<BlogPost />} />
+                        <Route path="/temoignages" element={<Testimonials />} />
+                        <Route path="/rendez-vous" element={<Appointment />} />
+                        <Route path="/contact" element={<Contact />} />
+                      </Routes>
+                    </main>
+                    <Footer />
+                  </>
+                } />
+              </Routes>
+              <Toaster />
+            </div>
+          </BrowserRouter>
+        </AuthProvider>
+      </LanguageProvider>
+    </HelmetProvider>
   );
 }
 

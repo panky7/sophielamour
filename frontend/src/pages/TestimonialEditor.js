@@ -1,0 +1,163 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import axios from 'axios';
+import { ArrowLeft } from 'lucide-react';
+
+const API_URL = process.env.REACT_APP_BACKEND_URL;
+
+const TestimonialEditor = () => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: '',
+    text_fr: '',
+    text_en: '',
+    rating: 5,
+    photo: ''
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    const value = e.target.name === 'rating' ? parseInt(e.target.value) : e.target.value;
+    setFormData({ ...formData, [e.target.name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    try {
+      await axios.post(`${API_URL}/api/testimonials`, formData, { withCredentials: true });
+      navigate('/admin/dashboard');
+    } catch (err) {
+      setError(err.response?.data?.detail || 'Erreur lors de la création du témoignage');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <>
+      <Helmet>
+        <title>Nouveau témoignage - Admin</title>
+      </Helmet>
+
+      <div className="min-h-screen bg-[#F3EFEA] py-12 px-6" data-testid="testimonial-editor">
+        <div className="max-w-4xl mx-auto">
+          <button
+            onClick={() => navigate('/admin/dashboard')}
+            className="flex items-center gap-2 text-[#9EAB9A] hover:text-[#D9A098] mb-6 transition-colors"
+          >
+            <ArrowLeft size={20} />
+            Retour au tableau de bord
+          </button>
+
+          <div className="bg-white rounded-3xl p-8 shadow-[0_8px_32px_rgba(44,44,42,0.04)]">
+            <h1 className="text-3xl font-serif text-[#2C2C2A] mb-8">Nouveau témoignage</h1>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Nom du client *</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  data-testid="testimonial-name-input"
+                  className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Témoignage (Français) *</label>
+                <textarea
+                  name="text_fr"
+                  value={formData.text_fr}
+                  onChange={handleChange}
+                  required
+                  rows={5}
+                  data-testid="testimonial-text-fr-input"
+                  className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors resize-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Testimonial (English) *</label>
+                <textarea
+                  name="text_en"
+                  value={formData.text_en}
+                  onChange={handleChange}
+                  required
+                  rows={5}
+                  data-testid="testimonial-text-en-input"
+                  className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors resize-none"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Évaluation *</label>
+                  <select
+                    name="rating"
+                    value={formData.rating}
+                    onChange={handleChange}
+                    required
+                    data-testid="testimonial-rating-select"
+                    className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors"
+                  >
+                    <option value={5}>5 étoiles</option>
+                    <option value={4}>4 étoiles</option>
+                    <option value={3}>3 étoiles</option>
+                    <option value={2}>2 étoiles</option>
+                    <option value={1}>1 étoile</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Photo (URL)</label>
+                  <input
+                    type="url"
+                    name="photo"
+                    value={formData.photo}
+                    onChange={handleChange}
+                    data-testid="testimonial-photo-input"
+                    placeholder="https://example.com/photo.jpg"
+                    className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors"
+                  />
+                </div>
+              </div>
+
+              {error && (
+                <div className="p-4 bg-red-50 text-red-600 rounded-xl" data-testid="testimonial-editor-error">
+                  {error}
+                </div>
+              )}
+
+              <div className="flex gap-4">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  data-testid="testimonial-submit-btn"
+                  className="flex-1 bg-[#D9A098] text-white hover:bg-[#C48A7E] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md disabled:opacity-50"
+                >
+                  {loading ? 'Création...' : 'Créer le témoignage'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => navigate('/admin/dashboard')}
+                  className="px-8 py-4 border border-[#E8E2D9] text-[#5C5A56] hover:bg-[#F3EFEA] rounded-full transition-colors"
+                >
+                  Annuler
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default TestimonialEditor;
