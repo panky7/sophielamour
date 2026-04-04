@@ -1,144 +1,111 @@
 {
   "theme": "light",
-  "archetype": "Organic & Earthy",
+  "archetype": "1_organic_and_earthy_oceanic_variant",
+  "domain": "life_coaching_wellness",
   "typography": {
-    "fonts": {
-      "heading": "Playfair Display",
-      "body": "Nunito",
-      "accent": "Playfair Display"
-    },
+    "heading_font": "Outfit",
+    "body_font": "Manrope",
     "hierarchy": {
-      "h1": "text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-tight font-serif text-[#2C2C2A]",
-      "h2": "text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-snug font-serif text-[#2C2C2A]",
-      "h3": "text-2xl sm:text-3xl font-serif text-[#2C2C2A]",
-      "h4": "text-xl font-serif text-[#2C2C2A]",
-      "body": "text-base lg:text-lg leading-relaxed text-[#5C5A56] font-sans",
-      "small": "text-sm uppercase tracking-[0.2em] font-bold text-[#9EAB9A]"
+      "h1": "text-5xl sm:text-6xl lg:text-7xl font-light tracking-tighter",
+      "h2": "text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight",
+      "h3": "text-2xl sm:text-3xl font-medium",
+      "h4": "text-xl sm:text-2xl font-medium",
+      "body": "text-base sm:text-lg leading-relaxed",
+      "overline": "text-xs sm:text-sm uppercase tracking-[0.2em] font-medium"
     }
   },
   "colors": {
     "background": {
-      "primary": "#FAF8F5",
-      "secondary": "#F3EFEA",
-      "tertiary": "#FFFFFF"
+      "primary": "#FFFFFF",
+      "secondary": "#F0F9FF",
+      "tertiary": "#CCFBF1"
     },
     "text": {
-      "primary": "#2C2C2A",
-      "secondary": "#5C5A56",
-      "accent": "#9EAB9A"
+      "primary": "#083344",
+      "secondary": "#164E63",
+      "muted": "#475569"
     },
     "brand": {
-      "dustyRose": "#D9A098",
-      "sageGreen": "#9EAB9A",
-      "warmBeige": "#E5D9C5",
-      "terracotta": "#C48A7E"
+      "deep_ocean_blue": "#083344",
+      "aqua": "#06B6D4",
+      "turquoise": "#14B8A6",
+      "seafoam": "#E0F2FE"
     },
-    "surface": {
-      "card": "#FFFFFF",
-      "hover": "#FDFBF9"
-    },
-    "border": "#E8E2D9"
+    "interactive": {
+      "button_primary_bg": "#06B6D4",
+      "button_primary_text": "#FFFFFF",
+      "button_primary_hover": "#0891B2",
+      "button_secondary_bg": "transparent",
+      "button_secondary_text": "#083344",
+      "button_secondary_border": "#06B6D4",
+      "button_secondary_hover_bg": "#F0F9FF"
+    }
   },
   "spacing_and_layout": {
     "container_padding": "px-6 md:px-12 lg:px-24",
-    "section_spacing": "py-24 lg:py-32",
-    "grid_gap": "gap-8 lg:gap-12",
-    "border_radius": {
-      "card": "rounded-3xl",
-      "button": "rounded-full",
-      "image": "rounded-2xl"
+    "section_spacing": "py-24 md:py-32 lg:py-40",
+    "grid_patterns": {
+      "services": "Bento Grid (Asymmetrical): grid-cols-1 md:grid-cols-12 gap-6 or gap-8. Mix of col-span-4, col-span-8 to create a modern, non-standard look.",
+      "about": "2-Column Split: Sticky portrait on the left (col-span-5), scrolling timeline/content on the right (col-span-7).",
+      "blog": "Standard 3-column with gap-8, items stretch to h-full."
     },
-    "shadows": {
-      "ambient": "shadow-[0_8px_32px_rgba(44,44,42,0.04)]",
-      "hover": "shadow-[0_16px_48px_rgba(217,160,152,0.15)]"
+    "border_radius": {
+      "cards": "rounded-3xl",
+      "buttons": "rounded-full",
+      "images": "rounded-[2rem]"
     }
   },
-  "components": {
-    "buttons": {
-      "primary": "bg-[#D9A098] text-white hover:bg-[#C48A7E] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md",
-      "secondary": "bg-transparent border border-[#9EAB9A] text-[#5C5A56] hover:bg-[#9EAB9A] hover:text-white rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide"
-    },
-    "cards": {
-      "service": "bg-white rounded-3xl p-8 lg:p-10 border border-[#E8E2D9] shadow-[0_8px_32px_rgba(44,44,42,0.04)] hover:shadow-[0_16px_48px_rgba(217,160,152,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-start"
-    },
-    "header": {
-      "style": "backdrop-blur-xl bg-[#FAF8F5]/80 border-b border-[#E8E2D9]/50 sticky top-0 z-50 transition-all duration-300"
-    },
-    "footer": {
-      "style": "bg-[#2C2C2A] text-[#FAF8F5] py-20 lg:py-32"
-    }
+  "surface_styles": {
+    "header": "Glassmorphism: backdrop-blur-xl bg-white/70 border-b border-white/20. Sticky top with z-50.",
+    "cards": "Flat background (white or seafoam) with no shadow or very diffuse ambient shadow (shadow-[0_8px_30px_rgb(0,0,0,0.04)]). 1px border of border-cyan-100.",
+    "overlays": "Hero overlay should be bg-black/20 to bg-black/40 max, ensuring text readability without mudding the image."
+  },
+  "motion_and_interactions": {
+    "scrolling": "Smooth scroll using Lenis is MANDATORY for the premium feel.",
+    "parallax": "Apply subtle y-axis parallax to hero image and abstract background blobs using framer-motion useScroll.",
+    "reveals": "Staggered fade-up animations (y: 30, opacity: 0 -> 1) for all section contents when in view using framer-motion whileInView.",
+    "hover_states": "Cards: slight lift (-translate-y-1) and shadow increase. Buttons: scale-105 or background slide effect."
+  },
+  "components_strategy": {
+    "navigation": "Sticky glass header with anchors (#services, #about, #blog, #testimonials, #contact). Smooth scroll to sections. Include FR/EN language toggle.",
+    "hero": "Min-h-screen. Full bleed background image with parallax. Large H1, clear subtext, primary CTA 'Book a Session'.",
+    "services": "Custom HTML/Tailwind bento grid. Do not use generic Shadcn Cards. Use overlapping elements and negative space.",
+    "about_timeline": "Vertical line indicator. Staggered timeline items for certifications/journey.",
+    "testimonials": "Swiper carousel or framer-motion drag slider. Large text, clean typography.",
+    "calendly": "Embed section with a soft seafoam background to distinguish it from standard white sections.",
+    "contact": "Shadcn Form components heavily customized for modern, minimal inputs (e.g., bottom border only, floating labels)."
   },
   "media": {
-    "logo": {
-      "primary": "https://sophielamour.com/wp-content/uploads/2025/05/logo-blanc-long-1.png",
-      "alt": "Sophie Lamour Logo",
-      "note": "Since the logo is white, apply CSS filter (invert(1) brightness(0.2)) for light backgrounds like the header, or place it on a dark background in the footer."
+    "hero_background": {
+      "url": "https://images.unsplash.com/photo-1713973243889-c12fe6f60807?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHwxfHxvY2VhbiUyMHdhdmVzJTIwY2FsbXxlbnwwfHx8fDE3NzUzMTcyMTR8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Calm ocean waves, to be used with a max 30% black overlay and parallax effect for the Hero section."
     },
-    "images": {
-      "hero": {
-        "url": "https://sophielamour.com/wp-content/uploads/2025/02/IMG-20250207-WA0001-e1740056629770.jpg",
-        "description": "Portrait of Sophie Lamour. Use in the hero section. Apply a soft arched mask or rounded-3xl corners to fit the feminine theme."
-      },
-      "about_portrait": {
-        "url": "https://images.unsplash.com/photo-1667723457637-c7e3c9b8b903?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwyfHx3b21hbiUyMGRyaW5raW5nJTIwdGVhJTIwY2FsbXxlbnwwfHx8fDE3NzUzMTU2NTR8MA&ixlib=rb-4.1.0&q=85",
-        "description": "Woman drinking tea - serene mood setter for the Qui Suis-je section."
-      },
-      "services_context": {
-        "url": "https://images.unsplash.com/photo-1765371512971-9d4da531d004?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzR8MHwxfHNlYXJjaHwyfHxlbGVnYW50JTIwY296eSUyMG9mZmljZSUyMHBsYW50c3xlbnwwfHx8fDE3NzUzMTU2NTR8MA&ixlib=rb-4.1.0&q=85",
-        "description": "Elegant cozy office - contextual image for home organising or professional coaching."
-      },
-      "meditation_zen": {
-        "url": "https://images.unsplash.com/photo-1583843870386-c22f7b00ce8f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwzfHx3b21hbiUyMGRyaW5raW5nJTIwdGVhJTIwY2FsbXxlbnwwfHx8fDE3NzUzMTU2NTR8MA&ixlib=rb-4.1.0&q=85",
-        "description": "Calm atmosphere."
-      }
-    }
+    "about_portrait": {
+      "url": "https://images.unsplash.com/photo-1733685372864-5e4f02729703?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzJ8MHwxfHNlYXJjaHwyfHxsaWZlJTIwY29hY2glMjB3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3NTMxNzIxNHww&ixlib=rb-4.1.0&q=85",
+      "description": "Portrait of Sophie Lamour. Use in the About section (left sticky column) with rounded-[2rem] corners."
+    },
+    "services_abstract_bg": {
+      "url": "https://images.unsplash.com/photo-1654331045903-6b2f7ecb0c09?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODl8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMGJsdWUlMjB0dXJxdW9pc2UlMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTc3NTMxNzIyNXww&ixlib=rb-4.1.0&q=85",
+      "description": "Abstract blue/turquoise watercolor. Can be used as a subtle background pattern for the services or testimonials section (use low opacity)."
+    },
+    "blog_placeholders": [
+      "https://images.unsplash.com/photo-1716062571041-f1970c5e9702?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzl8MHwxfHNlYXJjaHwxfHxjYWxtJTIwYmVhY2glMjBhZXN0aGV0aWN8ZW58MHx8fHwxNzc1MzE3MjI1fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1655816692524-9e4e140cb340?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzl8MHwxfHNlYXJjaHwzfHxjYWxtJTIwYmVhY2glMjBhZXN0aGV0aWN8ZW58MHx8fHwxNzc1MzE3MjI1fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1583275830686-0e4d5ad6b4f2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODl8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGJsdWUlMjB0dXJxdW9pc2UlMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTc3NTMxNzIyNXww&ixlib=rb-4.1.0&q=85"
+    ]
   },
-  "pages_and_features": {
-    "home": {
-      "hero": "Asymmetric layout: Left text block (H1 + subtitle + dual buttons). Right image block (Sophie's portrait) with an abstract decorative shape or soft rounded corners.",
-      "services": "6 bento grid cards: Personnel, Professionnel, Parentalité, Home Organising, Ikigai, Art-Thérapie. Use lucide-react icons in soft sage green.",
-      "testimonials": "Use Embla Carousel or Shadcn Carousel. Soft sage green background section (`bg-[#9EAB9A]/10`). Large elegant quote marks in Playfair Display.",
-      "blog_preview": "3-column grid of recent blog posts. Minimal cards: image, date, title, 'Lire la suite' link.",
-      "social_feed": "Grid of 4 squares for Instagram placeholders. Subtle hover zoom effect.",
-      "appointment_cta": "Full width banner with dusty rose background (`bg-[#D9A098]`), white text, and white button linking to Rendez-vous page."
-    },
-    "about": {
-      "story": "Split layout: Text on left, image overlapping right. Very generous spacing.",
-      "timeline": "Vertical timeline of certifications using subtle borders and sage green dots."
-    },
-    "services_hub": {
-      "layout": "Individual sections or pages for the 6 services. Use alternating left/right layout (Text/Image) for visual rhythm."
-    },
-    "blog": {
-      "admin": "Simple admin dashboard at `/admin`. Password protected (mock login). Table listing posts with edit/delete buttons, and a 'New Post' button.",
-      "public": "Grid layout. Simple, clean, focus on typography and readability."
-    },
-    "testimonials_admin": {
-      "admin": "Section in `/admin` to add/edit client testimonials."
-    },
-    "booking": {
-      "calendly": "Embed Calendly widget in a centered container with `rounded-3xl` and `shadow-ambient` to blend with the soft site aesthetic."
-    },
-    "contact": {
-      "form": "Custom styled Shadcn form components. Rounded inputs (`rounded-xl`), floating labels, or clean placeholders. Dusty rose submit button."
-    },
-    "language_toggle": {
-      "style": "Minimal text toggle (FR / EN) in the header. Use bold weight for active language, light weight for inactive."
-    }
+  "testing": {
+    "required_attributes": "Add data-testid to all navigation links, buttons, form inputs, and the language toggle."
   },
-  "motion": {
-    "hover": "Smooth scale up (`scale-105`) for images, `translate-y-1` for cards. `transition-all duration-300 ease-out`.",
-    "reveal": "Use `framer-motion` for simple fade-in-up on scroll for major sections to make the experience feel premium and calm."
-  },
+  "icons_library": "lucide-react",
   "instructions_to_main_agent": [
-    "Install `lucide-react` for minimal, organic icons.",
-    "Install `framer-motion` for page transitions and scroll reveals.",
-    "Install `embla-carousel-react` for the testimonials carousel.",
-    "Use Tailwind arbitrary values for exact brand colors (e.g., `text-[#2C2C2A]`). DO NOT use default blue/purple colors.",
-    "The provided logo is white. On the light header, you MUST apply a CSS filter (`filter: invert(1) brightness(0.2)`) to make it visible. On the dark footer, use it as is.",
-    "Ensure all interactive elements have `data-testid` attributes (e.g., `data-testid='book-appointment-btn'`).",
-    "For the 6 services cards, map them exactly to: Personnel, Professionnel, Parentalité, Home Organising, Ikigai, Art-Thérapie.",
-    "Build a fully functioning frontend with a mock backend/state for the `/admin` area to manage blog posts and testimonials (can use localStorage or simple state for MVP).",
-    "Implement a language context (React Context) for the FR/EN toggle. Default to FR."
+    "Build as a single-page application using anchors (#services, #about, etc.) for navigation.",
+    "Implement smooth scrolling (Lenis is recommended, or CSS scroll-behavior: smooth).",
+    "Ensure the design does NOT look like a generic template. Rely on the Bento Grid and asymmetrical layouts.",
+    "Use Framer Motion to create parallax in the hero and scroll-reveal effects on all main sections.",
+    "Keep typography crisp: tightly tracked headings (Outfit font) and legible body text (Manrope font).",
+    "Include a 'Social Media Auto-post' visual badge or tag on the Blog Preview section as requested.",
+    "The Calendly section can just be a styled placeholder or an iframe if no actual link is provided, but it must look integrated.",
+    "Language toggle (FR/EN) in the header should update the state (can be mocked for MVP) and change text if possible, but at least the UI toggle must be present."
   ]
 }
