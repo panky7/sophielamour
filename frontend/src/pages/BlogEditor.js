@@ -17,7 +17,8 @@ const BlogEditor = () => {
     excerpt_en: '',
     featured_image: '',
     category: 'Développement personnel',
-    status: 'draft'
+    status: 'draft',
+    share_to_social: false
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -188,6 +189,21 @@ const BlogEditor = () => {
                   <option value="draft">Brouillon</option>
                   <option value="published">Publié</option>
                 </select>
+              </div>
+
+              <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-[#E0F2FE] to-[#CCFBF1] rounded-xl border border-[#06B6D4]">
+                <input
+                  type="checkbox"
+                  id="share_to_social"
+                  name="share_to_social"
+                  checked={formData.share_to_social}
+                  onChange={(e) => setFormData({...formData, share_to_social: e.target.checked})}
+                  data-testid="share-social-checkbox"
+                  className="w-5 h-5 rounded border-[#06B6D4] text-[#06B6D4] focus:ring-[#06B6D4]"
+                />
+                <label htmlFor="share_to_social" className="text-sm font-medium text-[#083344] cursor-pointer flex-1">
+                  📱 Partager automatiquement sur les réseaux sociaux (Facebook, Instagram, LinkedIn) lors de la publication
+                </label>
               </div>
 
               {error && (

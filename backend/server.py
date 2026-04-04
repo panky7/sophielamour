@@ -92,6 +92,7 @@ class BlogPostCreate(BaseModel):
     featured_image: Optional[str] = None
     category: str
     status: str = "draft"
+    share_to_social: bool = False
 
 class BlogPostUpdate(BaseModel):
     title_fr: Optional[str] = None
@@ -210,8 +211,23 @@ async def create_blog_post(post: BlogPostCreate, request: Request):
     post_dict["updated_at"] = datetime.now(timezone.utc).isoformat()
     post_dict["author_id"] = user["_id"]
     
+    # Store social media sharing preference
+    share_to_social = post_dict.pop("share_to_social", False)
+    
     await db.blog_posts.insert_one(post_dict)
     post_dict.pop("_id", None)
+    
+    # Log social media sharing request
+    if share_to_social and post_dict["status"] == "published":
+        logger.info(f"Social media sharing requested for post: {post_dict['title_fr']}")
+        await db.social_share_queue.insert_one({
+            "post_id": post_dict["id"],
+            "post_title": post_dict["title_fr"],
+            "post_url": f"/blog/{post_dict['slug']}",
+            "created_at": datetime.now(timezone.utc).isoformat(),
+            "status": "pending"
+        })
+    
     return post_dict
 
 @api_router.put("/blog/posts/{post_id}", dependencies=[Depends(get_current_user)])

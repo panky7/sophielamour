@@ -7,18 +7,7 @@ import { Toaster } from './components/ui/sonner';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
-import Home from './pages/Home';
-import About from './pages/About';
-import Services from './pages/Services';
-import ServicePersonnel from './pages/ServicePersonnel';
-import ServiceProfessionnel from './pages/ServiceProfessionnel';
-import ServiceParentalite from './pages/ServiceParentalite';
-import ServiceHomeOrganising from './pages/ServiceHomeOrganising';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
-import Testimonials from './pages/Testimonials';
-import Appointment from './pages/Appointment';
-import Contact from './pages/Contact';
+import HomeOnePage from './pages/HomeOnePage';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import BlogEditor from './pages/BlogEditor';
@@ -54,18 +43,7 @@ function App() {
                     <Header />
                     <main>
                       <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/qui-suis-je" element={<About />} />
-                        <Route path="/services" element={<Services />} />
-                        <Route path="/services/personnel" element={<ServicePersonnel />} />
-                        <Route path="/services/professionnel" element={<ServiceProfessionnel />} />
-                        <Route path="/services/parentalite" element={<ServiceParentalite />} />
-                        <Route path="/services/home-organising" element={<ServiceHomeOrganising />} />
-                        <Route path="/blog" element={<Blog />} />
-                        <Route path="/blog/:slug" element={<BlogPost />} />
-                        <Route path="/temoignages" element={<Testimonials />} />
-                        <Route path="/rendez-vous" element={<Appointment />} />
-                        <Route path="/contact" element={<Contact />} />
+                        <Route path="/" element={<HomeOnePage />} />
                       </Routes>
                     </main>
                     <Footer />
