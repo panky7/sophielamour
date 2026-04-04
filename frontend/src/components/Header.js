@@ -30,8 +30,8 @@ const Header = () => {
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'backdrop-blur-xl bg-[#FAF8F5]/90 shadow-sm' : 'bg-[#FAF8F5]/80'
-      } border-b border-[#E8E2D9]/50`}
+        isScrolled ? 'backdrop-blur-xl bg-white/95 shadow-lg shadow-[#CAF0F8]/20' : 'bg-white/90'
+      } border-b border-[#CAF0F8]`}
       data-testid="main-header"
     >
       <div className="px-6 md:px-12 lg:px-24 py-4">
@@ -41,7 +41,7 @@ const Header = () => {
               src="https://sophielamour.com/wp-content/uploads/2025/05/logo-blanc-long-1.png"
               alt="Sophie Lamour Logo"
               className="h-12 w-auto"
-              style={{ filter: 'invert(1) brightness(0.2)' }}
+              style={{ filter: 'invert(9%) sepia(96%) saturate(7426%) hue-rotate(237deg) brightness(93%) contrast(107%)' }}
             />
           </Link>
 
@@ -53,8 +53,8 @@ const Header = () => {
                 data-testid={`nav-${link.path}`}
                 className={`text-sm font-medium tracking-wide transition-colors duration-300 ${
                   location.pathname === link.path
-                    ? 'text-[#D9A098]'
-                    : 'text-[#5C5A56] hover:text-[#D9A098]'
+                    ? 'text-[#0077B6]'
+                    : 'text-[#023E8A] hover:text-[#0077B6]'
                 }`}
               >
                 {link.label}
@@ -68,17 +68,17 @@ const Header = () => {
               className="text-sm font-medium tracking-wide"
               data-testid="language-toggle"
             >
-              <span className={language === 'fr' ? 'text-[#2C2C2A] font-bold' : 'text-[#9EAB9A]'}>
+              <span className={language === 'fr' ? 'text-[#0077B6] font-bold' : 'text-[#90E0EF]'}>
                 FR
               </span>
               {' / '}
-              <span className={language === 'en' ? 'text-[#2C2C2A] font-bold' : 'text-[#9EAB9A]'}>
+              <span className={language === 'en' ? 'text-[#0077B6] font-bold' : 'text-[#90E0EF]'}>
                 EN
               </span>
             </button>
 
             <button
-              className="lg:hidden text-[#2C2C2A]"
+              className="lg:hidden text-[#03045E]"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               data-testid="mobile-menu-toggle"
             >
@@ -96,8 +96,8 @@ const Header = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`text-sm font-medium tracking-wide transition-colors duration-300 ${
                   location.pathname === link.path
-                    ? 'text-[#D9A098]'
-                    : 'text-[#5C5A56]'
+                    ? 'text-[#0077B6]'
+                    : 'text-[#023E8A]'
                 }`}
               >
                 {link.label}

@@ -14,26 +14,26 @@ const ServiceProfessionnel = () => {
 
       <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-tight font-serif text-[#2C2C2A] mb-8">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-tight font-serif text-[#03045E] mb-8">
             {t('Accompagnement Professionnel', 'Professional Coaching')}
           </h1>
-          <h2 className="text-2xl sm:text-3xl font-serif text-[#2C2C2A] mb-6">
+          <h2 className="text-2xl sm:text-3xl font-serif text-[#03045E] mb-6">
             {t('Construire un avenir en accord avec vos valeurs', 'Build a Future Aligned with Your Values')}
           </h2>
           
-          <div className="space-y-6 text-base lg:text-lg leading-relaxed text-[#5C5A56] mb-12">
+          <div className="space-y-6 text-base lg:text-lg leading-relaxed text-[#023E8A] mb-12">
             <div>
-              <h3 className="text-xl font-semibold text-[#2C2C2A] mb-2">{t('Vous êtes dans une période de transition professionnelle ?', 'Are you in a professional transition period?')}</h3>
+              <h3 className="text-xl font-semibold text-[#03045E] mb-2">{t('Vous êtes dans une période de transition professionnelle ?', 'Are you in a professional transition period?')}</h3>
               <p>{t('Que ce soit une réorientation choisie, une perte d’emploi ou une envie de changement, je vous aide à redéfinir votre parcours et à envisager des possibilités alignées avec vos aspirations profondes.', 'Whether it is a chosen reorientation, job loss or desire for change, I help you redefine your path and consider possibilities aligned with your deep aspirations.')}</p>
             </div>
             
             <div>
-              <h3 className="text-xl font-semibold text-[#2C2C2A] mb-2">{t('Votre quotidien professionnel vous submerge-t-il ?', 'Does your professional daily life overwhelm you?')}</h3>
+              <h3 className="text-xl font-semibold text-[#03045E] mb-2">{t('Votre quotidien professionnel vous submerge-t-il ?', 'Does your professional daily life overwhelm you?')}</h3>
               <p>{t('Apprenons ensemble à mieux organiser vos journées, à prioriser et à vous reconnecter à une façon de travailler qui vous correspond.', 'Let\'s learn together to better organize your days, prioritize and reconnect with a way of working that suits you.')}</p>
             </div>
             
             <div>
-              <h3 className="text-xl font-semibold text-[#2C2C2A] mb-2">{t('Vous avez une idée, un projet, mais vous hésitez à vous lancer ?', 'Do you have an idea, a project, but hesitate to launch?')}</h3>
+              <h3 className="text-xl font-semibold text-[#03045E] mb-2">{t('Vous avez une idée, un projet, mais vous hésitez à vous lancer ?', 'Do you have an idea, a project, but hesitate to launch?')}</h3>
               <p>{t('Transformons cette envie en un projet concret et structuré qui vous permettra de passer à l’action.', 'Let\'s transform this desire into a concrete and structured project that will allow you to take action.')}</p>
             </div>
           </div>
@@ -41,7 +41,7 @@ const ServiceProfessionnel = () => {
           <Link
             to="/rendez-vous"
             data-testid="service-cta-button"
-            className="inline-block bg-[#D9A098] text-white hover:bg-[#C48A7E] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md"
+            className="inline-block bg-[#0077B6] text-white hover:bg-[#C48A7E] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md"
           >
             {t('Prendre rendez-vous', 'Book Appointment')}
           </Link>

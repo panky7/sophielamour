@@ -44,22 +44,22 @@ const TestimonialEditor = () => {
         <title>Nouveau témoignage - Admin</title>
       </Helmet>
 
-      <div className="min-h-screen bg-[#F3EFEA] py-12 px-6" data-testid="testimonial-editor">
+      <div className="min-h-screen bg-[#CAF0F8] py-12 px-6" data-testid="testimonial-editor">
         <div className="max-w-4xl mx-auto">
           <button
             onClick={() => navigate('/admin/dashboard')}
-            className="flex items-center gap-2 text-[#9EAB9A] hover:text-[#D9A098] mb-6 transition-colors"
+            className="flex items-center gap-2 text-[#48CAE4] hover:text-[#0077B6] mb-6 transition-colors"
           >
             <ArrowLeft size={20} />
             Retour au tableau de bord
           </button>
 
           <div className="bg-white rounded-3xl p-8 shadow-[0_8px_32px_rgba(44,44,42,0.04)]">
-            <h1 className="text-3xl font-serif text-[#2C2C2A] mb-8">Nouveau témoignage</h1>
+            <h1 className="text-3xl font-serif text-[#03045E] mb-8">Nouveau témoignage</h1>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Nom du client *</label>
+                <label className="block text-sm font-medium text-[#03045E] mb-2">Nom du client *</label>
                 <input
                   type="text"
                   name="name"
@@ -67,12 +67,12 @@ const TestimonialEditor = () => {
                   onChange={handleChange}
                   required
                   data-testid="testimonial-name-input"
-                  className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors"
+                  className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Témoignage (Français) *</label>
+                <label className="block text-sm font-medium text-[#03045E] mb-2">Témoignage (Français) *</label>
                 <textarea
                   name="text_fr"
                   value={formData.text_fr}
@@ -80,12 +80,12 @@ const TestimonialEditor = () => {
                   required
                   rows={5}
                   data-testid="testimonial-text-fr-input"
-                  className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors resize-none"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Testimonial (English) *</label>
+                <label className="block text-sm font-medium text-[#03045E] mb-2">Testimonial (English) *</label>
                 <textarea
                   name="text_en"
                   value={formData.text_en}
@@ -93,20 +93,20 @@ const TestimonialEditor = () => {
                   required
                   rows={5}
                   data-testid="testimonial-text-en-input"
-                  className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors resize-none"
                 />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Évaluation *</label>
+                  <label className="block text-sm font-medium text-[#03045E] mb-2">Évaluation *</label>
                   <select
                     name="rating"
                     value={formData.rating}
                     onChange={handleChange}
                     required
                     data-testid="testimonial-rating-select"
-                    className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors"
                   >
                     <option value={5}>5 étoiles</option>
                     <option value={4}>4 étoiles</option>
@@ -116,7 +116,7 @@ const TestimonialEditor = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Photo (URL)</label>
+                  <label className="block text-sm font-medium text-[#03045E] mb-2">Photo (URL)</label>
                   <input
                     type="url"
                     name="photo"
@@ -124,7 +124,7 @@ const TestimonialEditor = () => {
                     onChange={handleChange}
                     data-testid="testimonial-photo-input"
                     placeholder="https://example.com/photo.jpg"
-                    className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors"
                   />
                 </div>
               </div>
@@ -140,14 +140,14 @@ const TestimonialEditor = () => {
                   type="submit"
                   disabled={loading}
                   data-testid="testimonial-submit-btn"
-                  className="flex-1 bg-[#D9A098] text-white hover:bg-[#C48A7E] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md disabled:opacity-50"
+                  className="flex-1 bg-[#0077B6] text-white hover:bg-[#0096C7] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md disabled:opacity-50"
                 >
                   {loading ? 'Création...' : 'Créer le témoignage'}
                 </button>
                 <button
                   type="button"
                   onClick={() => navigate('/admin/dashboard')}
-                  className="px-8 py-4 border border-[#E8E2D9] text-[#5C5A56] hover:bg-[#F3EFEA] rounded-full transition-colors"
+                  className="px-8 py-4 border border-[#ADE8F4] text-[#023E8A] hover:bg-[#CAF0F8] rounded-full transition-colors"
                 >
                   Annuler
                 </button>

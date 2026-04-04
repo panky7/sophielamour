@@ -46,7 +46,7 @@ const BlogPost = () => {
 
       <article className="py-24 lg:py-32 px-6 md:px-12 lg:px-24" data-testid="blog-post-detail">
         <div className="max-w-4xl mx-auto">
-          <Link to="/blog" className="inline-flex items-center gap-2 text-[#9EAB9A] hover:text-[#D9A098] mb-8 transition-colors">
+          <Link to="/blog" className="inline-flex items-center gap-2 text-[#48CAE4] hover:text-[#0077B6] mb-8 transition-colors">
             <ArrowLeft size={20} />
             {t('Retour au blog', 'Back to blog')}
           </Link>
@@ -60,24 +60,24 @@ const BlogPost = () => {
           )}
 
           <div className="flex items-center gap-4 mb-6">
-            <span className="text-sm text-[#9EAB9A]">{new Date(post.created_at).toLocaleDateString(language)}</span>
-            <span className="text-sm px-3 py-1 bg-[#9EAB9A]/10 text-[#9EAB9A] rounded-full">{post.category}</span>
+            <span className="text-sm text-[#48CAE4]">{new Date(post.created_at).toLocaleDateString(language)}</span>
+            <span className="text-sm px-3 py-1 bg-[#48CAE4]/10 text-[#48CAE4] rounded-full">{post.category}</span>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-tight font-serif text-[#2C2C2A] mb-8">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-tight font-serif text-[#03045E] mb-8">
             {title}
           </h1>
 
-          <div className="prose prose-lg max-w-none text-[#5C5A56] leading-relaxed" dangerouslySetInnerHTML={{ __html: content }} />
+          <div className="prose prose-lg max-w-none text-[#023E8A] leading-relaxed" dangerouslySetInnerHTML={{ __html: content }} />
 
-          <div className="mt-12 pt-8 border-t border-[#E8E2D9]">
-            <p className="text-sm uppercase tracking-[0.2em] font-bold text-[#9EAB9A] mb-4">{t('Partager', 'Share')}</p>
+          <div className="mt-12 pt-8 border-t border-[#ADE8F4]">
+            <p className="text-sm uppercase tracking-[0.2em] font-bold text-[#48CAE4] mb-4">{t('Partager', 'Share')}</p>
             <div className="flex gap-4">
               <a
                 href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#5C5A56] hover:text-[#D9A098] transition-colors"
+                className="text-[#023E8A] hover:text-[#0077B6] transition-colors"
                 data-testid="share-facebook"
               >
                 <Facebook size={24} />
@@ -86,7 +86,7 @@ const BlogPost = () => {
                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${window.location.href}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#5C5A56] hover:text-[#D9A098] transition-colors"
+                className="text-[#023E8A] hover:text-[#0077B6] transition-colors"
                 data-testid="share-linkedin"
               >
                 <Linkedin size={24} />

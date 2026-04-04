@@ -67,16 +67,16 @@ const AdminDashboard = () => {
         <title>Admin Dashboard - Sophie Lamour</title>
       </Helmet>
 
-      <div className="min-h-screen bg-[#F3EFEA]" data-testid="admin-dashboard">
-        <header className="bg-white border-b border-[#E8E2D9] sticky top-0 z-50">
+      <div className="min-h-screen bg-[#CAF0F8]" data-testid="admin-dashboard">
+        <header className="bg-white border-b border-[#ADE8F4] sticky top-0 z-50">
           <div className="px-6 md:px-12 py-4 flex items-center justify-between">
-            <h1 className="text-2xl font-serif text-[#2C2C2A]">Panneau d'administration</h1>
+            <h1 className="text-2xl font-serif text-[#03045E]">Panneau d'administration</h1>
             <div className="flex items-center gap-4">
-              <span className="text-sm text-[#5C5A56]">{user?.email}</span>
+              <span className="text-sm text-[#023E8A]">{user?.email}</span>
               <button
                 onClick={handleLogout}
                 data-testid="admin-logout-btn"
-                className="flex items-center gap-2 text-[#D9A098] hover:text-[#C48A7E] transition-colors"
+                className="flex items-center gap-2 text-[#0077B6] hover:text-[#0096C7] transition-colors"
               >
                 <LogOut size={18} />
                 Déconnexion
@@ -86,12 +86,12 @@ const AdminDashboard = () => {
         </header>
 
         <div className="px-6 md:px-12 py-8">
-          <div className="flex gap-4 mb-8 border-b border-[#E8E2D9]">
+          <div className="flex gap-4 mb-8 border-b border-[#ADE8F4]">
             <button
               onClick={() => setActiveTab('blog')}
               data-testid="tab-blog"
               className={`pb-4 px-4 flex items-center gap-2 border-b-2 transition-colors ${
-                activeTab === 'blog' ? 'border-[#D9A098] text-[#D9A098]' : 'border-transparent text-[#5C5A56]'
+                activeTab === 'blog' ? 'border-[#0077B6] text-[#0077B6]' : 'border-transparent text-[#023E8A]'
               }`}
             >
               <FileText size={18} />
@@ -101,7 +101,7 @@ const AdminDashboard = () => {
               onClick={() => setActiveTab('testimonials')}
               data-testid="tab-testimonials"
               className={`pb-4 px-4 flex items-center gap-2 border-b-2 transition-colors ${
-                activeTab === 'testimonials' ? 'border-[#D9A098] text-[#D9A098]' : 'border-transparent text-[#5C5A56]'
+                activeTab === 'testimonials' ? 'border-[#0077B6] text-[#0077B6]' : 'border-transparent text-[#023E8A]'
               }`}
             >
               <MessageSquare size={18} />
@@ -111,7 +111,7 @@ const AdminDashboard = () => {
               onClick={() => setActiveTab('contact')}
               data-testid="tab-contact"
               className={`pb-4 px-4 flex items-center gap-2 border-b-2 transition-colors ${
-                activeTab === 'contact' ? 'border-[#D9A098] text-[#D9A098]' : 'border-transparent text-[#5C5A56]'
+                activeTab === 'contact' ? 'border-[#0077B6] text-[#0077B6]' : 'border-transparent text-[#023E8A]'
               }`}
             >
               <Mail size={18} />
@@ -122,11 +122,11 @@ const AdminDashboard = () => {
           {activeTab === 'blog' && (
             <div>
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-serif text-[#2C2C2A]">Articles de blog</h2>
+                <h2 className="text-2xl font-serif text-[#03045E]">Articles de blog</h2>
                 <Link
                   to="/admin/blog/new"
                   data-testid="new-blog-post-btn"
-                  className="flex items-center gap-2 bg-[#D9A098] text-white hover:bg-[#C48A7E] rounded-full px-6 py-3 transition-all duration-300"
+                  className="flex items-center gap-2 bg-[#0077B6] text-white hover:bg-[#0096C7] rounded-full px-6 py-3 transition-all duration-300"
                 >
                   <Plus size={18} />
                   Nouvel article
@@ -134,18 +134,18 @@ const AdminDashboard = () => {
               </div>
               <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
                 <table className="w-full">
-                  <thead className="bg-[#F3EFEA]">
+                  <thead className="bg-[#CAF0F8]">
                     <tr>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-[#2C2C2A]">Titre</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-[#2C2C2A]">Statut</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-[#2C2C2A]">Date</th>
-                      <th className="px-6 py-4 text-right text-sm font-semibold text-[#2C2C2A]">Actions</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-[#03045E]">Titre</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-[#03045E]">Statut</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-[#03045E]">Date</th>
+                      <th className="px-6 py-4 text-right text-sm font-semibold text-[#03045E]">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {blogPosts.map((post, idx) => (
-                      <tr key={idx} className="border-t border-[#E8E2D9]">
-                        <td className="px-6 py-4 text-[#2C2C2A]">{post.title_fr}</td>
+                      <tr key={idx} className="border-t border-[#ADE8F4]">
+                        <td className="px-6 py-4 text-[#03045E]">{post.title_fr}</td>
                         <td className="px-6 py-4">
                           <span className={`px-3 py-1 rounded-full text-xs ${
                             post.status === 'published' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
@@ -153,14 +153,14 @@ const AdminDashboard = () => {
                             {post.status}
                           </span>
                         </td>
-                        <td className="px-6 py-4 text-[#5C5A56] text-sm">
+                        <td className="px-6 py-4 text-[#023E8A] text-sm">
                           {new Date(post.created_at).toLocaleDateString('fr')}
                         </td>
                         <td className="px-6 py-4 text-right">
                           <div className="flex justify-end gap-2">
                             <Link
                               to={`/admin/blog/edit/${post.id}`}
-                              className="p-2 text-[#9EAB9A] hover:text-[#D9A098] transition-colors"
+                              className="p-2 text-[#48CAE4] hover:text-[#0077B6] transition-colors"
                               data-testid={`edit-post-${idx}`}
                             >
                               <Edit2 size={16} />
@@ -185,11 +185,11 @@ const AdminDashboard = () => {
           {activeTab === 'testimonials' && (
             <div>
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-serif text-[#2C2C2A]">Témoignages</h2>
+                <h2 className="text-2xl font-serif text-[#03045E]">Témoignages</h2>
                 <Link
                   to="/admin/testimonials/new"
                   data-testid="new-testimonial-btn"
-                  className="flex items-center gap-2 bg-[#D9A098] text-white hover:bg-[#C48A7E] rounded-full px-6 py-3 transition-all duration-300"
+                  className="flex items-center gap-2 bg-[#0077B6] text-white hover:bg-[#0096C7] rounded-full px-6 py-3 transition-all duration-300"
                 >
                   <Plus size={18} />
                   Nouveau témoignage
@@ -198,17 +198,17 @@ const AdminDashboard = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {testimonials.map((testimonial, idx) => (
                   <div key={idx} className="bg-white rounded-2xl p-6 shadow-sm" data-testid={`testimonial-card-${idx}`}>
-                    <p className="text-[#5C5A56] mb-4 line-clamp-3">{testimonial.text_fr}</p>
+                    <p className="text-[#023E8A] mb-4 line-clamp-3">{testimonial.text_fr}</p>
                     <div className="flex items-center gap-1 mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <span key={i} className="text-[#D9A098]">★</span>
+                        <span key={i} className="text-[#0077B6]">★</span>
                       ))}
                     </div>
-                    <p className="font-semibold text-[#2C2C2A] mb-4">{testimonial.name}</p>
+                    <p className="font-semibold text-[#03045E] mb-4">{testimonial.name}</p>
                     <div className="flex gap-2">
                       <Link
                         to={`/admin/testimonials/edit/${testimonial.id}`}
-                        className="flex-1 text-center px-4 py-2 bg-[#9EAB9A]/10 text-[#9EAB9A] rounded-lg hover:bg-[#9EAB9A]/20 transition-colors"
+                        className="flex-1 text-center px-4 py-2 bg-[#48CAE4]/10 text-[#48CAE4] rounded-lg hover:bg-[#48CAE4]/20 transition-colors"
                       >
                         Modifier
                       </Link>
@@ -227,21 +227,21 @@ const AdminDashboard = () => {
 
           {activeTab === 'contact' && (
             <div>
-              <h2 className="text-2xl font-serif text-[#2C2C2A] mb-6">Messages de contact</h2>
+              <h2 className="text-2xl font-serif text-[#03045E] mb-6">Messages de contact</h2>
               <div className="space-y-4">
                 {contactRequests.map((request, idx) => (
                   <div key={idx} className="bg-white rounded-2xl p-6 shadow-sm" data-testid={`contact-request-${idx}`}>
                     <div className="flex justify-between items-start mb-4">
                       <div>
-                        <h3 className="font-semibold text-[#2C2C2A] text-lg">{request.name}</h3>
-                        <p className="text-sm text-[#5C5A56]">{request.email} • {request.phone}</p>
+                        <h3 className="font-semibold text-[#03045E] text-lg">{request.name}</h3>
+                        <p className="text-sm text-[#023E8A]">{request.email} • {request.phone}</p>
                       </div>
-                      <span className="text-xs text-[#9EAB9A]">
+                      <span className="text-xs text-[#48CAE4]">
                         {new Date(request.created_at).toLocaleString('fr')}
                       </span>
                     </div>
-                    <p className="font-medium text-[#2C2C2A] mb-2">{request.subject}</p>
-                    <p className="text-[#5C5A56]">{request.message}</p>
+                    <p className="font-medium text-[#03045E] mb-2">{request.subject}</p>
+                    <p className="text-[#023E8A]">{request.message}</p>
                   </div>
                 ))}
               </div>

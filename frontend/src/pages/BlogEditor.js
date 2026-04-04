@@ -48,23 +48,23 @@ const BlogEditor = () => {
         <title>Nouvel article - Admin</title>
       </Helmet>
 
-      <div className="min-h-screen bg-[#F3EFEA] py-12 px-6" data-testid="blog-editor">
+      <div className="min-h-screen bg-[#CAF0F8] py-12 px-6" data-testid="blog-editor">
         <div className="max-w-4xl mx-auto">
           <button
             onClick={() => navigate('/admin/dashboard')}
-            className="flex items-center gap-2 text-[#9EAB9A] hover:text-[#D9A098] mb-6 transition-colors"
+            className="flex items-center gap-2 text-[#48CAE4] hover:text-[#0077B6] mb-6 transition-colors"
           >
             <ArrowLeft size={20} />
             Retour au tableau de bord
           </button>
 
           <div className="bg-white rounded-3xl p-8 shadow-[0_8px_32px_rgba(44,44,42,0.04)]">
-            <h1 className="text-3xl font-serif text-[#2C2C2A] mb-8">Nouvel article de blog</h1>
+            <h1 className="text-3xl font-serif text-[#03045E] mb-8">Nouvel article de blog</h1>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Titre (Français) *</label>
+                  <label className="block text-sm font-medium text-[#03045E] mb-2">Titre (Français) *</label>
                   <input
                     type="text"
                     name="title_fr"
@@ -72,11 +72,11 @@ const BlogEditor = () => {
                     onChange={handleChange}
                     required
                     data-testid="title-fr-input"
-                    className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Title (English) *</label>
+                  <label className="block text-sm font-medium text-[#03045E] mb-2">Title (English) *</label>
                   <input
                     type="text"
                     name="title_en"
@@ -84,14 +84,14 @@ const BlogEditor = () => {
                     onChange={handleChange}
                     required
                     data-testid="title-en-input"
-                    className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Extrait (Français) *</label>
+                  <label className="block text-sm font-medium text-[#03045E] mb-2">Extrait (Français) *</label>
                   <textarea
                     name="excerpt_fr"
                     value={formData.excerpt_fr}
@@ -99,11 +99,11 @@ const BlogEditor = () => {
                     required
                     rows={3}
                     data-testid="excerpt-fr-input"
-                    className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors resize-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Excerpt (English) *</label>
+                  <label className="block text-sm font-medium text-[#03045E] mb-2">Excerpt (English) *</label>
                   <textarea
                     name="excerpt_en"
                     value={formData.excerpt_en}
@@ -111,13 +111,13 @@ const BlogEditor = () => {
                     required
                     rows={3}
                     data-testid="excerpt-en-input"
-                    className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors resize-none"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Contenu (Français) *</label>
+                <label className="block text-sm font-medium text-[#03045E] mb-2">Contenu (Français) *</label>
                 <textarea
                   name="content_fr"
                   value={formData.content_fr}
@@ -126,12 +126,12 @@ const BlogEditor = () => {
                   rows={10}
                   data-testid="content-fr-input"
                   placeholder="Vous pouvez utiliser du HTML basique: <p>, <strong>, <em>, <ul>, <li>, etc."
-                  className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors resize-none font-mono text-sm"
+                  className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors resize-none font-mono text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Content (English) *</label>
+                <label className="block text-sm font-medium text-[#03045E] mb-2">Content (English) *</label>
                 <textarea
                   name="content_en"
                   value={formData.content_en}
@@ -140,13 +140,13 @@ const BlogEditor = () => {
                   rows={10}
                   data-testid="content-en-input"
                   placeholder="You can use basic HTML: <p>, <strong>, <em>, <ul>, <li>, etc."
-                  className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors resize-none font-mono text-sm"
+                  className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors resize-none font-mono text-sm"
                 />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Image à la une (URL)</label>
+                  <label className="block text-sm font-medium text-[#03045E] mb-2">Image à la une (URL)</label>
                   <input
                     type="url"
                     name="featured_image"
@@ -154,18 +154,18 @@ const BlogEditor = () => {
                     onChange={handleChange}
                     data-testid="featured-image-input"
                     placeholder="https://example.com/image.jpg"
-                    className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Catégorie *</label>
+                  <label className="block text-sm font-medium text-[#03045E] mb-2">Catégorie *</label>
                   <select
                     name="category"
                     value={formData.category}
                     onChange={handleChange}
                     required
                     data-testid="category-select"
-                    className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors"
                   >
                     <option value="Développement personnel">Développement personnel</option>
                     <option value="Coaching">Coaching</option>
@@ -177,14 +177,14 @@ const BlogEditor = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#2C2C2A] mb-2">Statut *</label>
+                <label className="block text-sm font-medium text-[#03045E] mb-2">Statut *</label>
                 <select
                   name="status"
                   value={formData.status}
                   onChange={handleChange}
                   required
                   data-testid="status-select"
-                  className="w-full px-4 py-3 rounded-xl border border-[#E8E2D9] focus:outline-none focus:border-[#D9A098] transition-colors"
+                  className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors"
                 >
                   <option value="draft">Brouillon</option>
                   <option value="published">Publié</option>
@@ -217,14 +217,14 @@ const BlogEditor = () => {
                   type="submit"
                   disabled={loading}
                   data-testid="blog-submit-btn"
-                  className="flex-1 bg-[#D9A098] text-white hover:bg-[#C48A7E] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md disabled:opacity-50"
+                  className="flex-1 bg-[#0077B6] text-white hover:bg-[#0096C7] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md disabled:opacity-50"
                 >
                   {loading ? 'Création...' : 'Créer l’article'}
                 </button>
                 <button
                   type="button"
                   onClick={() => navigate('/admin/dashboard')}
-                  className="px-8 py-4 border border-[#E8E2D9] text-[#5C5A56] hover:bg-[#F3EFEA] rounded-full transition-colors"
+                  className="px-8 py-4 border border-[#ADE8F4] text-[#023E8A] hover:bg-[#CAF0F8] rounded-full transition-colors"
                 >
                   Annuler
                 </button>

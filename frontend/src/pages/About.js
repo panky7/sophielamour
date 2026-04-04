@@ -42,10 +42,10 @@ const About = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-tight font-serif text-[#2C2C2A] mb-6">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-tight font-serif text-[#03045E] mb-6">
               {t('Qui suis-je?', 'About Me')}
             </h1>
-            <p className="text-base lg:text-lg leading-relaxed text-[#5C5A56] font-sans mb-6">
+            <p className="text-base lg:text-lg leading-relaxed text-[#023E8A] font-sans mb-6">
               {t(
                 'Je m’appelle Sophie Lamour, et je suis profondément convaincue que chaque individu possède en lui les ressources nécessaires pour évoluer, grandir et surmonter les défis de la vie. Mais parfois, il suffit d’une main tendue ou d’un regard bienveillant pour révéler tout ce potentiel.',
                 'My name is Sophie Lamour, and I am deeply convinced that every individual has within them the necessary resources to evolve, grow, and overcome life\'s challenges. But sometimes, all it takes is an outstretched hand or a caring look to reveal this potential.'
@@ -67,12 +67,12 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24 bg-[#F3EFEA]" data-testid="about-journey">
+      <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24 bg-[#CAF0F8]" data-testid="about-journey">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-snug font-serif text-[#2C2C2A] mb-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-snug font-serif text-[#03045E] mb-8">
             {t('Un parcours riche en expériences', 'A Journey Rich in Experiences')}
           </h2>
-          <div className="space-y-6 text-base lg:text-lg leading-relaxed text-[#5C5A56]">
+          <div className="space-y-6 text-base lg:text-lg leading-relaxed text-[#023E8A]">
             <p>
               {t(
                 'Pendant plus de 20 ans, j’ai évolué dans le monde du commerce, un secteur exigeant où j’ai développé des compétences en communication, en gestion d’équipe et en relation humaine. Cependant, à force de donner sans m’écouter, j’ai moi-même traversé une période d’épuisement et de remise en question.',
@@ -91,10 +91,10 @@ const About = () => {
 
       <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24" data-testid="about-coaching">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-snug font-serif text-[#2C2C2A] mb-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-snug font-serif text-[#03045E] mb-8">
             {t('Un cheminement vers le coaching', 'A Path to Coaching')}
           </h2>
-          <div className="space-y-6 text-base lg:text-lg leading-relaxed text-[#5C5A56]">
+          <div className="space-y-6 text-base lg:text-lg leading-relaxed text-[#023E8A]">
             <p>
               {t(
                 'Poussée par l’envie d’apporter aux autres ce que j’avais appris, j’ai entrepris une reconversion en 2020. Je me suis formée au coaching, une discipline qui me permet de guider chaque personne dans sa quête de sens et de bien-être. Parallèlement, je me suis plongée dans la philosophie de l’Ikigaï, cette approche japonaise qui aide à trouver sa raison d’être.',
@@ -111,16 +111,16 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24 bg-[#9EAB9A]/10" data-testid="about-values">
+      <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24 bg-[#48CAE4]/10" data-testid="about-values">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-snug font-serif text-[#2C2C2A] mb-12 text-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-snug font-serif text-[#03045E] mb-12 text-center">
             {t('Des valeurs qui m’animent', 'Values That Drive Me')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {values.map((value, idx) => (
               <div key={idx} className="bg-white rounded-3xl p-8 shadow-[0_8px_32px_rgba(44,44,42,0.04)]">
-                <h3 className="text-2xl font-serif text-[#2C2C2A] mb-3">{value.title}</h3>
-                <p className="text-base lg:text-lg leading-relaxed text-[#5C5A56]">{value.desc}</p>
+                <h3 className="text-2xl font-serif text-[#03045E] mb-3">{value.title}</h3>
+                <p className="text-base lg:text-lg leading-relaxed text-[#023E8A]">{value.desc}</p>
               </div>
             ))}
           </div>

@@ -46,10 +46,10 @@ const Services = () => {
 
       <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24" data-testid="services-page">
         <div className="text-center mb-16">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-tight font-serif text-[#2C2C2A] mb-6">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-tight font-serif text-[#03045E] mb-6">
             {t('Mes Services', 'My Services')}
           </h1>
-          <p className="text-base lg:text-lg leading-relaxed text-[#5C5A56] max-w-3xl mx-auto">
+          <p className="text-base lg:text-lg leading-relaxed text-[#023E8A] max-w-3xl mx-auto">
             {t(
               'Un accompagnement personnalisé pour vous aider à atteindre vos objectifs et vivre une vie alignée avec vos valeurs.',
               'Personalized support to help you achieve your goals and live a life aligned with your values.'
@@ -65,14 +65,14 @@ const Services = () => {
                 key={idx}
                 to={service.link}
                 data-testid={`service-link-${idx}`}
-                className="bg-white rounded-3xl p-10 border border-[#E8E2D9] shadow-[0_8px_32px_rgba(44,44,42,0.04)] hover:shadow-[0_16px_48px_rgba(217,160,152,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-start group"
+                className="bg-white rounded-3xl p-10 border border-[#ADE8F4] shadow-[0_8px_32px_rgba(44,44,42,0.04)] hover:shadow-[0_16px_48px_rgba(217,160,152,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-start group"
               >
-                <div className="w-16 h-16 rounded-full bg-[#9EAB9A]/10 flex items-center justify-center mb-6 group-hover:bg-[#D9A098]/10 transition-colors">
-                  <Icon className="w-8 h-8 text-[#9EAB9A] group-hover:text-[#D9A098] transition-colors" />
+                <div className="w-16 h-16 rounded-full bg-[#48CAE4]/10 flex items-center justify-center mb-6 group-hover:bg-[#0077B6]/10 transition-colors">
+                  <Icon className="w-8 h-8 text-[#48CAE4] group-hover:text-[#0077B6] transition-colors" />
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-serif text-[#2C2C2A] mb-4">{service.title}</h2>
-                <p className="text-base lg:text-lg leading-relaxed text-[#5C5A56] font-sans mb-6 flex-grow">{service.desc}</p>
-                <span className="text-sm uppercase tracking-[0.2em] font-bold text-[#9EAB9A] group-hover:text-[#D9A098] transition-colors">
+                <h2 className="text-3xl sm:text-4xl font-serif text-[#03045E] mb-4">{service.title}</h2>
+                <p className="text-base lg:text-lg leading-relaxed text-[#023E8A] font-sans mb-6 flex-grow">{service.desc}</p>
+                <span className="text-sm uppercase tracking-[0.2em] font-bold text-[#48CAE4] group-hover:text-[#0077B6] transition-colors">
                   {t('Découvrir', 'Learn More')} →
                 </span>
               </Link>

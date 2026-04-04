@@ -95,10 +95,10 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-tight font-serif text-[#2C2C2A] mb-6">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-tight font-serif text-[#03045E] mb-6">
               {t('Découvrez votre raison d’être', 'Discover Your Purpose')}
             </h1>
-            <p className="text-base lg:text-lg leading-relaxed text-[#5C5A56] font-sans mb-8">
+            <p className="text-base lg:text-lg leading-relaxed text-[#023E8A] font-sans mb-8">
               {t(
                 'Bienvenue dans un espace dédié à votre transformation et à votre épanouissement. Mon approche bienveillante s’adapte à vos besoins uniques.',
                 'Welcome to a space dedicated to your transformation and fulfillment. My caring approach adapts to your unique needs.'
@@ -108,14 +108,14 @@ const Home = () => {
               <Link
                 to="/rendez-vous"
                 data-testid="hero-cta-primary"
-                className="bg-[#D9A098] text-white hover:bg-[#C48A7E] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md"
+                className="bg-[#0077B6] text-white hover:bg-[#C48A7E] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md"
               >
                 {t('Prendre rendez-vous', 'Book Appointment')}
               </Link>
               <Link
                 to="/qui-suis-je"
                 data-testid="hero-cta-secondary"
-                className="bg-transparent border border-[#9EAB9A] text-[#5C5A56] hover:bg-[#9EAB9A] hover:text-white rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide"
+                className="bg-transparent border border-[#48CAE4] text-[#023E8A] hover:bg-[#48CAE4] hover:text-white rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide"
               >
                 {t('En savoir plus', 'Learn More')}
               </Link>
@@ -138,9 +138,9 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24 bg-[#F3EFEA]" data-testid="services-section">
+      <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24 bg-[#CAF0F8]" data-testid="services-section">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-snug font-serif text-[#2C2C2A] mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-snug font-serif text-[#03045E] mb-4">
             {t('Quel accompagnement est fait pour vous?', 'Which Support is Right for You?')}
           </h2>
         </div>
@@ -152,14 +152,14 @@ const Home = () => {
                 key={idx}
                 to={service.link}
                 data-testid={`service-card-${idx}`}
-                className="bg-white rounded-3xl p-8 lg:p-10 border border-[#E8E2D9] shadow-[0_8px_32px_rgba(44,44,42,0.04)] hover:shadow-[0_16px_48px_rgba(217,160,152,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-start"
+                className="bg-white rounded-3xl p-8 lg:p-10 border border-[#ADE8F4] shadow-[0_8px_32px_rgba(44,44,42,0.04)] hover:shadow-[0_16px_48px_rgba(217,160,152,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-start"
               >
-                <div className="w-14 h-14 rounded-full bg-[#9EAB9A]/10 flex items-center justify-center mb-6">
-                  <Icon className="w-7 h-7 text-[#9EAB9A]" />
+                <div className="w-14 h-14 rounded-full bg-[#48CAE4]/10 flex items-center justify-center mb-6">
+                  <Icon className="w-7 h-7 text-[#48CAE4]" />
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-serif text-[#2C2C2A] mb-3">{service.title}</h3>
-                <p className="text-base lg:text-lg leading-relaxed text-[#5C5A56] font-sans mb-6">{service.desc}</p>
-                <span className="text-sm uppercase tracking-[0.2em] font-bold text-[#9EAB9A]">
+                <h3 className="text-2xl sm:text-3xl font-serif text-[#03045E] mb-3">{service.title}</h3>
+                <p className="text-base lg:text-lg leading-relaxed text-[#023E8A] font-sans mb-6">{service.desc}</p>
+                <span className="text-sm uppercase tracking-[0.2em] font-bold text-[#48CAE4]">
                   {t('Découvrir', 'Discover')} →
                 </span>
               </Link>
@@ -170,9 +170,9 @@ const Home = () => {
 
       {/* Testimonials Section */}
       {testimonials.length > 0 && (
-        <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24 bg-[#9EAB9A]/10" data-testid="testimonials-section">
+        <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24 bg-[#48CAE4]/10" data-testid="testimonials-section">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-snug font-serif text-[#2C2C2A] mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-snug font-serif text-[#03045E] mb-4">
               {t('Ce que disent mes clients', 'What My Clients Say')}
             </h2>
           </div>
@@ -181,16 +181,16 @@ const Home = () => {
               {testimonials.map((testimonial, idx) => (
                 <div key={idx} className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] px-4">
                   <div className="bg-white rounded-3xl p-8 shadow-[0_8px_32px_rgba(44,44,42,0.04)]">
-                    <div className="text-6xl font-serif text-[#D9A098] mb-4">“</div>
-                    <p className="text-base leading-relaxed text-[#5C5A56] mb-6">
+                    <div className="text-6xl font-serif text-[#0077B6] mb-4">“</div>
+                    <p className="text-base leading-relaxed text-[#023E8A] mb-6">
                       {language === 'fr' ? testimonial.text_fr : testimonial.text_en}
                     </p>
                     <div className="flex items-center gap-1 mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <span key={i} className="text-[#D9A098] text-xl">★</span>
+                        <span key={i} className="text-[#0077B6] text-xl">★</span>
                       ))}
                     </div>
-                    <p className="font-semibold text-[#2C2C2A]">{testimonial.name}</p>
+                    <p className="font-semibold text-[#03045E]">{testimonial.name}</p>
                   </div>
                 </div>
               ))}
@@ -203,7 +203,7 @@ const Home = () => {
       {blogPosts.length > 0 && (
         <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24" data-testid="blog-preview-section">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-snug font-serif text-[#2C2C2A] mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-snug font-serif text-[#03045E] mb-4">
               {t('Dernières réflexions', 'Latest Thoughts')}
             </h2>
           </div>
@@ -222,14 +222,14 @@ const Home = () => {
                     className="w-full h-48 object-cover rounded-2xl mb-4 group-hover:scale-105 transition-transform duration-300"
                   />
                 )}
-                <p className="text-sm text-[#9EAB9A] mb-2">{new Date(post.created_at).toLocaleDateString(language)}</p>
-                <h3 className="text-xl font-serif text-[#2C2C2A] mb-2 group-hover:text-[#D9A098] transition-colors">
+                <p className="text-sm text-[#48CAE4] mb-2">{new Date(post.created_at).toLocaleDateString(language)}</p>
+                <h3 className="text-xl font-serif text-[#03045E] mb-2 group-hover:text-[#0077B6] transition-colors">
                   {language === 'fr' ? post.title_fr : post.title_en}
                 </h3>
-                <p className="text-base text-[#5C5A56] mb-4">
+                <p className="text-base text-[#023E8A] mb-4">
                   {language === 'fr' ? post.excerpt_fr : post.excerpt_en}
                 </p>
-                <span className="text-sm uppercase tracking-[0.2em] font-bold text-[#9EAB9A]">
+                <span className="text-sm uppercase tracking-[0.2em] font-bold text-[#48CAE4]">
                   {t('Lire la suite', 'Read More')} →
                 </span>
               </Link>
@@ -239,7 +239,7 @@ const Home = () => {
       )}
 
       {/* CTA Banner */}
-      <section className="py-24 px-6 md:px-12 lg:px-24 bg-[#D9A098]" data-testid="cta-banner">
+      <section className="py-24 px-6 md:px-12 lg:px-24 bg-[#0077B6]" data-testid="cta-banner">
         <div className="text-center text-white">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif mb-6">
             {t('Prêt à commencer votre transformation?', 'Ready to Start Your Transformation?')}
@@ -247,7 +247,7 @@ const Home = () => {
           <Link
             to="/rendez-vous"
             data-testid="cta-banner-button"
-            className="inline-block bg-white text-[#D9A098] hover:bg-[#FAF8F5] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-md hover:shadow-lg"
+            className="inline-block bg-white text-[#0077B6] hover:bg-[#FFFFFF] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-md hover:shadow-lg"
           >
             {t('Prendre rendez-vous maintenant', 'Book Appointment Now')}
           </Link>
