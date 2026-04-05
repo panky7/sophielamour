@@ -55,7 +55,7 @@ const QuillEditor = ({ value, onChange, placeholder, style }) => {
 
       if (value) {
         isSettingValue.current = true;
-        q.root.innerHTML = value;
+        q.clipboard.dangerouslyPasteHTML(value);
         isSettingValue.current = false;
       }
     });
@@ -73,7 +73,7 @@ const QuillEditor = ({ value, onChange, placeholder, style }) => {
       const currentContent = quillRef.current.root.innerHTML;
       if (currentContent !== value && value !== null) {
         isSettingValue.current = true;
-        quillRef.current.root.innerHTML = value || '';
+        quillRef.current.clipboard.dangerouslyPasteHTML(value || '');
         isSettingValue.current = false;
       }
     }

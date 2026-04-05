@@ -27,6 +27,7 @@ Build a modern, elegant, SEO-optimised life coaching website for Sophie Lamour. 
 - [2026-04-05] Fixed Helmet <title> tags across all pages (single string children)
 - [2026-04-05] Fixed blog edit — added edit routes, edit mode in BlogEditor/TestimonialEditor
 - [2026-04-05] Fixed React 19 concurrent rendering error — replaced ReactQuill component with vanilla Quill via useRef
+- [2026-04-05] Fixed rich text formatting loss on edit — use clipboard.dangerouslyPasteHTML() instead of innerHTML
 - [2026-04-05] Cleaned up dead files (HomeOnePage.js, BlogEditor.js.backup), removed StrictMode
 
 ## P0 — None (all critical bugs resolved)
