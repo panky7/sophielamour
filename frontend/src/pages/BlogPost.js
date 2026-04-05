@@ -68,7 +68,7 @@ const BlogPost = () => {
             {title}
           </h1>
 
-          <div className="prose prose-lg max-w-none text-[#023E8A] leading-relaxed" dangerouslySetInnerHTML={{ __html: content }} />
+          <div className="prose prose-lg max-w-none prose-headings:text-[#03045E] prose-headings:font-serif prose-p:text-[#023E8A] prose-li:text-[#023E8A] prose-strong:text-[#03045E] prose-a:text-[#0077B6] prose-blockquote:border-[#48CAE4] prose-blockquote:text-[#023E8A] leading-relaxed" dangerouslySetInnerHTML={{ __html: content }} />
 
           <div className="mt-12 pt-8 border-t border-[#ADE8F4]">
             <p className="text-sm uppercase tracking-[0.2em] font-bold text-[#48CAE4] mb-4">{t('Partager', 'Share')}</p>
