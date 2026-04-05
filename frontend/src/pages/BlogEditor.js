@@ -137,7 +137,7 @@ const BlogEditor = () => {
                     required
                     rows={3}
                     data-testid="excerpt-fr-input"
-                    placeholder="Court résumé de l'article (2-3 phrases)"
+                    placeholder="Court résumé de l\'article (2-3 phrases)"
                     className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors resize-none"
                   />
                 </div>
@@ -266,7 +266,7 @@ const BlogEditor = () => {
                   data-testid="blog-submit-btn"
                   className="flex-1 bg-[#0077B6] text-white hover:bg-[#0096C7] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md disabled:opacity-50"
                 >
-                  {loading ? 'Création...' : '✨ Créer l'article'}
+                  {loading ? 'Création...' : '✨ Créer l\'article'}
                 </button>
                 <button
                   type="button"
