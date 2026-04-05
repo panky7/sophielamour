@@ -96,7 +96,7 @@ const BlogEditor = () => {
           <div className="bg-white rounded-3xl p-8 shadow-[0_8px_32px_rgba(44,44,42,0.04)]">
             <h1 className="text-3xl font-serif text-[#03045E] mb-8">Nouvel article de blog</h1>
             <p className="text-sm text-[#023E8A] mb-6">
-              ✨ Utilisez l'éditeur ci-dessous pour formater votre texte facilement (gras, italique, titres, listes, liens, etc.)
+              ✨ Utilisez l&apos;éditeur ci-dessous pour formater votre texte facilement (gras, italique, titres, listes, liens, etc.)
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-6">
