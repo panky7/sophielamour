@@ -7,7 +7,7 @@ import 'react-quill-new/dist/quill.snow.css';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
-const QuillEditor = ({ value, onChange, placeholder, style }) => {
+const QuillEditor = ({ value, onChange, placeholder }) => {
   const containerRef = useRef(null);
   const quillRef = useRef(null);
   const onChangeRef = useRef(onChange);
@@ -79,7 +79,7 @@ const QuillEditor = ({ value, onChange, placeholder, style }) => {
     }
   }, [value]);
 
-  return <div ref={containerRef} style={style} />;
+  return <div ref={containerRef} />;
 };
 
 const BlogEditor = () => {
@@ -258,12 +258,11 @@ const BlogEditor = () => {
                 <label className="block text-sm font-medium text-[#03045E] mb-2">
                   Contenu (Francais) *
                 </label>
-                <div className="bg-white rounded-xl border border-[#ADE8F4] overflow-hidden" data-testid="content-fr-editor">
+                <div className="bg-white rounded-xl border border-[#ADE8F4]" data-testid="content-fr-editor">
                   <QuillEditor
                     value={formData.content_fr}
                     onChange={(val) => setFormData(prev => ({ ...prev, content_fr: val }))}
                     placeholder="Ecrivez votre article ici..."
-                    style={{ height: '442px' }}
                   />
                 </div>
               </div>
@@ -272,12 +271,11 @@ const BlogEditor = () => {
                 <label className="block text-sm font-medium text-[#03045E] mb-2">
                   Content (English) *
                 </label>
-                <div className="bg-white rounded-xl border border-[#ADE8F4] overflow-hidden" data-testid="content-en-editor">
+                <div className="bg-white rounded-xl border border-[#ADE8F4]" data-testid="content-en-editor">
                   <QuillEditor
                     value={formData.content_en}
                     onChange={(val) => setFormData(prev => ({ ...prev, content_en: val }))}
                     placeholder="Write your article here..."
-                    style={{ height: '442px' }}
                   />
                 </div>
               </div>
@@ -387,16 +385,21 @@ const BlogEditor = () => {
           border-bottom: 1px solid #ADE8F4 !important;
           background: #F0F9FF;
           border-radius: 12px 12px 0 0;
+          position: sticky;
+          top: 0;
+          z-index: 10;
         }
         
         .ql-container {
           border: none !important;
           font-family: 'Nunito', sans-serif;
           font-size: 16px;
+          max-height: 500px;
+          overflow-y: auto;
         }
         
         .ql-editor {
-          min-height: 400px;
+          min-height: 350px;
           padding: 20px;
         }
         
