@@ -45,7 +45,17 @@ function App() {
                     <BlogEditor />
                   </ProtectedRoute>
                 } />
+                <Route path="/admin/blog/edit/:postId" element={
+                  <ProtectedRoute>
+                    <BlogEditor />
+                  </ProtectedRoute>
+                } />
                 <Route path="/admin/testimonials/new" element={
+                  <ProtectedRoute>
+                    <TestimonialEditor />
+                  </ProtectedRoute>
+                } />
+                <Route path="/admin/testimonials/edit/:testimonialId" element={
                   <ProtectedRoute>
                     <TestimonialEditor />
                   </ProtectedRoute>
