@@ -1,11 +1,21 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import axios from 'axios';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Upload, X, Image as ImageIcon, Loader2 } from 'lucide-react';
 import 'react-quill-new/dist/quill.snow.css';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
+
+const uploadFile = async (file) => {
+  const formData = new FormData();
+  formData.append('file', file);
+  const { data } = await axios.post(`${API_URL}/api/uploads`, formData, {
+    withCredentials: true,
+    headers: { 'Content-Type': 'multipart/form-data' }
+  });
+  return data;
+};
 
 const QuillEditor = ({ value, onChange, placeholder }) => {
   const containerRef = useRef(null);
@@ -29,19 +39,61 @@ const QuillEditor = ({ value, onChange, placeholder }) => {
         theme: 'snow',
         placeholder: placeholder || '',
         modules: {
-          toolbar: [
-            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-            [{ 'font': [] }],
-            [{ 'size': ['small', false, 'large', 'huge'] }],
-            ['bold', 'italic', 'underline', 'strike'],
-            [{ 'color': [] }, { 'background': [] }],
-            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-            [{ 'indent': '-1' }, { 'indent': '+1' }],
-            [{ 'align': [] }],
-            ['blockquote', 'code-block'],
-            ['link', 'image', 'video'],
-            ['clean']
-          ]
+          toolbar: {
+            container: [
+              [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+              [{ 'font': [] }],
+              [{ 'size': ['small', false, 'large', 'huge'] }],
+              ['bold', 'italic', 'underline', 'strike'],
+              [{ 'color': [] }, { 'background': [] }],
+              [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+              [{ 'indent': '-1' }, { 'indent': '+1' }],
+              [{ 'align': [] }],
+              ['blockquote', 'code-block'],
+              ['link', 'image', 'video'],
+              ['clean']
+            ],
+            handlers: {
+              image: function () {
+                const input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('accept', 'image/*');
+                input.click();
+                input.onchange = async () => {
+                  const file = input.files[0];
+                  if (!file) return;
+                  try {
+                    const result = await uploadFile(file);
+                    const range = q.getSelection(true);
+                    q.insertEmbed(range.index, 'image', `${API_URL}${result.url}`);
+                    q.setSelection(range.index + 1);
+                  } catch (err) {
+                    console.error('Image upload failed:', err);
+                    alert('Erreur lors du telechargement de l\'image');
+                  }
+                };
+              },
+              video: function () {
+                const input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('accept', 'video/*');
+                input.click();
+                input.onchange = async () => {
+                  const file = input.files[0];
+                  if (!file) return;
+                  try {
+                    const result = await uploadFile(file);
+                    const range = q.getSelection(true);
+                    q.insertEmbed(range.index, 'video', `${API_URL}${result.url}`);
+                    q.setSelection(range.index + 1);
+                  } catch (err) {
+                    console.error('Video upload failed:', err);
+                    alert('Erreur lors du telechargement de la video');
+                  }
+                };
+              }
+            }
+          }
         }
       });
 
@@ -80,6 +132,95 @@ const QuillEditor = ({ value, onChange, placeholder }) => {
   }, [value]);
 
   return <div ref={containerRef} />;
+};
+
+const FeaturedImageUpload = ({ value, onChange }) => {
+  const [uploading, setUploading] = useState(false);
+  const [preview, setPreview] = useState(value || '');
+  const fileInputRef = useRef(null);
+
+  useEffect(() => {
+    setPreview(value || '');
+  }, [value]);
+
+  const handleUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setUploading(true);
+    try {
+      const result = await uploadFile(file);
+      const imageUrl = `${API_URL}${result.url}`;
+      setPreview(imageUrl);
+      onChange(imageUrl);
+    } catch (err) {
+      console.error('Upload failed:', err);
+      alert('Erreur lors du telechargement');
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const handleRemove = () => {
+    setPreview('');
+    onChange('');
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  };
+
+  return (
+    <div data-testid="featured-image-upload">
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/*"
+        onChange={handleUpload}
+        className="hidden"
+        data-testid="featured-image-file-input"
+      />
+
+      {preview ? (
+        <div className="relative rounded-xl overflow-hidden border border-[#ADE8F4]">
+          <img
+            src={preview}
+            alt="Featured"
+            className="w-full h-48 object-cover"
+            data-testid="featured-image-preview"
+          />
+          <button
+            type="button"
+            onClick={handleRemove}
+            className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1.5 hover:bg-red-600 transition-colors shadow-md"
+            data-testid="featured-image-remove-btn"
+          >
+            <X size={16} />
+          </button>
+        </div>
+      ) : (
+        <button
+          type="button"
+          onClick={() => fileInputRef.current?.click()}
+          disabled={uploading}
+          className="w-full h-48 rounded-xl border-2 border-dashed border-[#ADE8F4] hover:border-[#0077B6] flex flex-col items-center justify-center gap-3 transition-colors cursor-pointer bg-[#F0F9FF]/50"
+          data-testid="featured-image-upload-btn"
+        >
+          {uploading ? (
+            <>
+              <Loader2 size={32} className="text-[#48CAE4] animate-spin" />
+              <span className="text-sm text-[#023E8A]">Telechargement...</span>
+            </>
+          ) : (
+            <>
+              <div className="w-12 h-12 rounded-full bg-[#48CAE4]/10 flex items-center justify-center">
+                <ImageIcon size={24} className="text-[#48CAE4]" />
+              </div>
+              <span className="text-sm text-[#023E8A] font-medium">Cliquez pour ajouter une image</span>
+              <span className="text-xs text-[#48CAE4]">JPEG, PNG, GIF, WebP</span>
+            </>
+          )}
+        </button>
+      )}
+    </div>
+  );
 };
 
 const BlogEditor = () => {
@@ -283,16 +424,11 @@ const BlogEditor = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-[#03045E] mb-2">
-                    Image a la une (URL)
+                    Image a la une
                   </label>
-                  <input
-                    type="url"
-                    name="featured_image"
+                  <FeaturedImageUpload
                     value={formData.featured_image}
-                    onChange={handleChange}
-                    data-testid="featured-image-input"
-                    placeholder="https://example.com/image.jpg"
-                    className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors"
+                    onChange={(url) => setFormData(prev => ({ ...prev, featured_image: url }))}
                   />
                 </div>
                 <div>
@@ -421,6 +557,17 @@ const BlogEditor = () => {
         .ql-toolbar button:hover .ql-fill,
         .ql-toolbar button.ql-active .ql-fill {
           fill: #0077B6 !important;
+        }
+
+        .ql-editor img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 8px;
+        }
+
+        .ql-editor iframe {
+          max-width: 100%;
+          border-radius: 8px;
         }
       `}</style>
     </>

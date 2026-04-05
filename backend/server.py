@@ -4,7 +4,8 @@ from pathlib import Path
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-from fastapi import FastAPI, APIRouter, HTTPException, Request, Response, Depends
+from fastapi import FastAPI, APIRouter, HTTPException, Request, Response, Depends, UploadFile, File
+from fastapi.responses import FileResponse
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic import BaseModel, Field, EmailStr, ConfigDict
@@ -16,6 +17,10 @@ import logging
 import bcrypt
 import jwt
 import secrets
+import uuid
+import shutil
+from PIL import Image
+import io
 
 # MongoDB connection
 mongo_url = os.environ['MONGO_URL']
@@ -324,6 +329,118 @@ async def get_contact_requests(request: Request):
     
     requests = await db.contact_requests.find({}, {"_id": 0}).sort("created_at", -1).to_list(100)
     return requests
+
+# Upload directory
+UPLOAD_DIR = ROOT_DIR / "uploads"
+THUMBNAIL_DIR = UPLOAD_DIR / "thumbnails"
+UPLOAD_DIR.mkdir(exist_ok=True)
+THUMBNAIL_DIR.mkdir(exist_ok=True)
+
+ALLOWED_IMAGE_TYPES = {"image/jpeg", "image/png", "image/gif", "image/webp"}
+ALLOWED_VIDEO_TYPES = {"video/mp4", "video/webm", "video/ogg", "video/quicktime"}
+MAX_FILE_SIZE = 50 * 1024 * 1024  # 50MB
+
+def generate_thumbnail(file_path: Path, thumbnail_path: Path, size=(400, 400)):
+    try:
+        with Image.open(file_path) as img:
+            img.thumbnail(size, Image.LANCZOS)
+            if img.mode in ('RGBA', 'P'):
+                img = img.convert('RGB')
+            img.save(thumbnail_path, 'JPEG', quality=80)
+            return True
+    except Exception:
+        return False
+
+# Upload endpoints
+@api_router.post("/uploads", dependencies=[Depends(get_current_user)])
+async def upload_file(request: Request, file: UploadFile = File(...)):
+    user = await get_current_user(request)
+    if user["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Not authorized")
+
+    content_type = file.content_type or ""
+    is_image = content_type in ALLOWED_IMAGE_TYPES
+    is_video = content_type in ALLOWED_VIDEO_TYPES
+
+    if not is_image and not is_video:
+        raise HTTPException(status_code=400, detail="File type not supported. Use JPEG, PNG, GIF, WebP, MP4, WebM, or OGG.")
+
+    file_id = str(uuid.uuid4())
+    ext = Path(file.filename or "file").suffix.lower() or (".jpg" if is_image else ".mp4")
+    stored_name = f"{file_id}{ext}"
+    file_path = UPLOAD_DIR / stored_name
+
+    total_size = 0
+    with open(file_path, "wb") as f:
+        while True:
+            chunk = await file.read(1024 * 1024)
+            if not chunk:
+                break
+            total_size += len(chunk)
+            if total_size > MAX_FILE_SIZE:
+                f.close()
+                file_path.unlink(missing_ok=True)
+                raise HTTPException(status_code=413, detail="File too large. Max 50MB.")
+            f.write(chunk)
+
+    thumbnail_url = None
+    if is_image:
+        thumb_name = f"{file_id}_thumb.jpg"
+        thumb_path = THUMBNAIL_DIR / thumb_name
+        if generate_thumbnail(file_path, thumb_path):
+            thumbnail_url = f"/api/uploads/{file_id}/thumbnail"
+
+    file_meta = {
+        "file_id": file_id,
+        "original_name": file.filename,
+        "stored_name": stored_name,
+        "content_type": content_type,
+        "size": total_size,
+        "is_image": is_image,
+        "is_video": is_video,
+        "thumbnail": thumbnail_url,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "uploaded_by": user["_id"]
+    }
+    await db.uploads.insert_one(file_meta)
+
+    return {
+        "file_id": file_id,
+        "url": f"/api/uploads/{file_id}",
+        "thumbnail_url": thumbnail_url,
+        "content_type": content_type,
+        "size": total_size,
+        "original_name": file.filename
+    }
+
+@api_router.get("/uploads/{file_id}")
+async def get_upload(file_id: str):
+    meta = await db.uploads.find_one({"file_id": file_id})
+    if not meta:
+        raise HTTPException(status_code=404, detail="File not found")
+
+    file_path = UPLOAD_DIR / meta["stored_name"]
+    if not file_path.exists():
+        raise HTTPException(status_code=404, detail="File not found on disk")
+
+    return FileResponse(
+        path=str(file_path),
+        media_type=meta["content_type"],
+        filename=meta["original_name"]
+    )
+
+@api_router.get("/uploads/{file_id}/thumbnail")
+async def get_upload_thumbnail(file_id: str):
+    meta = await db.uploads.find_one({"file_id": file_id})
+    if not meta or not meta.get("is_image"):
+        raise HTTPException(status_code=404, detail="Thumbnail not found")
+
+    thumb_name = f"{file_id}_thumb.jpg"
+    thumb_path = THUMBNAIL_DIR / thumb_name
+    if not thumb_path.exists():
+        raise HTTPException(status_code=404, detail="Thumbnail not found on disk")
+
+    return FileResponse(path=str(thumb_path), media_type="image/jpeg")
 
 app.include_router(api_router)
 
