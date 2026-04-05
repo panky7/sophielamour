@@ -42,7 +42,7 @@ const BlogEditor = () => {
       await axios.post(`${API_URL}/api/blog/posts`, formData, { withCredentials: true });
       navigate('/admin/dashboard');
     } catch (err) {
-      setError(err.response?.data?.detail || 'Erreur lors de la création de l'article');
+      setError(err.response?.data?.detail || "Erreur lors de la création de l'article");
     } finally {
       setLoading(false);
     }
