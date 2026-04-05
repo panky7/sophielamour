@@ -37,7 +37,7 @@ const BlogPost = () => {
   return (
     <>
       <Helmet>
-        <title>{title} - Sophie Lamour</title>
+        <title>{`${title} - Sophie Lamour`}</title>
         <meta name="description" content={language === 'fr' ? post.excerpt_fr : post.excerpt_en} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={language === 'fr' ? post.excerpt_fr : post.excerpt_en} />

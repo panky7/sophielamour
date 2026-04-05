@@ -9,7 +9,7 @@ const ServiceProfessionnel = () => {
   return (
     <>
       <Helmet>
-        <title>{t('Accompagnement Professionnel - Sophie Lamour', 'Professional Coaching - Sophie Lamour')}</title>
+        <title>{t("Accompagnement Professionnel - Sophie Lamour", "Professional Coaching - Sophie Lamour")}</title>
       </Helmet>
 
       <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24">

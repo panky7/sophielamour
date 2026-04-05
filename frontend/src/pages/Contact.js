@@ -41,7 +41,7 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>{t('Contact - Sophie Lamour', 'Contact - Sophie Lamour')}</title>
+        <title>{t("Contact - Sophie Lamour", "Contact - Sophie Lamour")}</title>
       </Helmet>
 
       <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24" data-testid="contact-page">

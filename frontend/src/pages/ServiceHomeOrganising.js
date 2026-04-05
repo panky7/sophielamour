@@ -9,7 +9,7 @@ const ServiceHomeOrganising = () => {
   return (
     <>
       <Helmet>
-        <title>{t('Home Organising - Sophie Lamour', 'Home Organizing - Sophie Lamour')}</title>
+        <title>{t("Home Organising - Sophie Lamour", "Home Organizing - Sophie Lamour")}</title>
       </Helmet>
 
       <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24">

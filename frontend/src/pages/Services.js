@@ -37,7 +37,7 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>{t('Services - Sophie Lamour', 'Services - Sophie Lamour')}</title>
+        <title>{t("Services - Sophie Lamour", "Services - Sophie Lamour")}</title>
         <meta name="description" content={t(
           'Découvrez mes services d’accompagnement personnalisé en développement personnel, coaching professionnel, parentalité et home organising.',
           'Discover my personalized support services in personal development, professional coaching, parenting, and home organizing.'

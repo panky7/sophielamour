@@ -80,7 +80,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>{t('Sophie Lamour - Coach de vie et développement personnel', 'Sophie Lamour - Life Coach & Personal Development')}</title>
+        <title>{t("Sophie Lamour - Coach de vie et developpement personnel", "Sophie Lamour - Life Coach & Personal Development")}</title>
         <meta name="description" content={t(
           'Accompagnement personnalisé en développement personnel, coaching professionnel, parentalité, home organising, ikigai et yoga du rire.',
           'Personalized support in personal development, professional coaching, parenting, home organizing, ikigai and laughter yoga.'

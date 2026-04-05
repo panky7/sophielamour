@@ -8,7 +8,7 @@ const Appointment = () => {
   return (
     <>
       <Helmet>
-        <title>{t('Rendez-vous - Sophie Lamour', 'Appointment - Sophie Lamour')}</title>
+        <title>{t("Rendez-vous - Sophie Lamour", "Appointment - Sophie Lamour")}</title>
       </Helmet>
 
       <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24" data-testid="appointment-page">

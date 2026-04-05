@@ -9,7 +9,7 @@ const ServiceParentalite = () => {
   return (
     <>
       <Helmet>
-        <title>{t('Accompagnement Parentalité - Sophie Lamour', 'Parenting Support - Sophie Lamour')}</title>
+        <title>{t("Accompagnement Parentalite - Sophie Lamour", "Parenting Support - Sophie Lamour")}</title>
       </Helmet>
 
       <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24">
