@@ -42,13 +42,13 @@ const BlogEditor = () => {
       await axios.post(`${API_URL}/api/blog/posts`, formData, { withCredentials: true });
       navigate('/admin/dashboard');
     } catch (err) {
-      const errorMsg = err.response?.data?.detail || 'Error creating article';
-      setError(errorMsg);
+      setError(err.response?.data?.detail || "Erreur lors de la création de l'article");
     } finally {
       setLoading(false);
     }
   };
 
+  // Rich text editor modules and formats
   const modules = {
     toolbar: [
       [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
@@ -93,18 +93,16 @@ const BlogEditor = () => {
             Retour au tableau de bord
           </button>
 
-          <div className="bg-white rounded-3xl p-8 shadow-lg">
-            <h1 className="text-3xl font-serif text-[#03045E] mb-4">Nouvel article de blog</h1>
-            <p className="text-sm text-[#023E8A] mb-8">
-              Utilisez les outils ci-dessous pour formater votre texte facilement
+          <div className="bg-white rounded-3xl p-8 shadow-[0_8px_32px_rgba(44,44,42,0.04)]">
+            <h1 className="text-3xl font-serif text-[#03045E] mb-8">Nouvel article de blog</h1>
+            <p className="text-sm text-[#023E8A] mb-6">
+              ✨ Utilisez l&apos;éditeur ci-dessous pour formater votre texte facilement (gras, italique, titres, listes, liens, etc.)
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-[#03045E] mb-2">
-                    Titre (Francais) *
-                  </label>
+                  <label className="block text-sm font-medium text-[#03045E] mb-2">Titre (Français) *</label>
                   <input
                     type="text"
                     name="title_fr"
@@ -116,9 +114,7 @@ const BlogEditor = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#03045E] mb-2">
-                    Title (English) *
-                  </label>
+                  <label className="block text-sm font-medium text-[#03045E] mb-2">Title (English) *</label>
                   <input
                     type="text"
                     name="title_en"
@@ -133,9 +129,7 @@ const BlogEditor = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-[#03045E] mb-2">
-                    Extrait (Francais) *
-                  </label>
+                  <label className="block text-sm font-medium text-[#03045E] mb-2">Extrait (Français) *</label>
                   <textarea
                     name="excerpt_fr"
                     value={formData.excerpt_fr}
@@ -143,14 +137,12 @@ const BlogEditor = () => {
                     required
                     rows={3}
                     data-testid="excerpt-fr-input"
-                    placeholder="Court resume de article"
+                    placeholder="Court résumé de l\'article (2-3 phrases)"
                     className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors resize-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#03045E] mb-2">
-                    Excerpt (English) *
-                  </label>
+                  <label className="block text-sm font-medium text-[#03045E] mb-2">Excerpt (English) *</label>
                   <textarea
                     name="excerpt_en"
                     value={formData.excerpt_en}
@@ -158,7 +150,7 @@ const BlogEditor = () => {
                     required
                     rows={3}
                     data-testid="excerpt-en-input"
-                    placeholder="Brief article summary"
+                    placeholder="Brief article summary (2-3 sentences)"
                     className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors resize-none"
                   />
                 </div>
@@ -166,7 +158,7 @@ const BlogEditor = () => {
 
               <div>
                 <label className="block text-sm font-medium text-[#03045E] mb-2">
-                  Contenu (Francais) *
+                  Contenu (Français) *
                 </label>
                 <div className="bg-white rounded-xl border border-[#ADE8F4] overflow-hidden" data-testid="content-fr-editor">
                   <ReactQuill
@@ -175,7 +167,7 @@ const BlogEditor = () => {
                     onChange={(value) => handleContentChange('content_fr', value)}
                     modules={modules}
                     formats={formats}
-                    placeholder="Ecrivez votre article ici..."
+                    placeholder="Écrivez votre article ici... Utilisez la barre d'outils pour formater le texte."
                     style={{ height: '400px', marginBottom: '42px' }}
                   />
                 </div>
@@ -192,7 +184,7 @@ const BlogEditor = () => {
                     onChange={(value) => handleContentChange('content_en', value)}
                     modules={modules}
                     formats={formats}
-                    placeholder="Write your article here..."
+                    placeholder="Write your article here... Use the toolbar to format text."
                     style={{ height: '400px', marginBottom: '42px' }}
                   />
                 </div>
@@ -200,9 +192,7 @@ const BlogEditor = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-[#03045E] mb-2">
-                    Image a la une (URL)
-                  </label>
+                  <label className="block text-sm font-medium text-[#03045E] mb-2">Image à la une (URL)</label>
                   <input
                     type="url"
                     name="featured_image"
@@ -212,11 +202,10 @@ const BlogEditor = () => {
                     placeholder="https://example.com/image.jpg"
                     className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors"
                   />
+                  <p className="text-xs text-[#023E8A] mt-1">💡 Astuce: Utilisez des images de haute qualité (recommandé: 1200x630px)</p>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#03045E] mb-2">
-                    Categorie *
-                  </label>
+                  <label className="block text-sm font-medium text-[#03045E] mb-2">Catégorie *</label>
                   <select
                     name="category"
                     value={formData.category}
@@ -225,10 +214,10 @@ const BlogEditor = () => {
                     data-testid="category-select"
                     className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors"
                   >
-                    <option value="Développement personnel">Developpement personnel</option>
+                    <option value="Développement personnel">Développement personnel</option>
                     <option value="Coaching">Coaching</option>
-                    <option value="Parentalité">Parentalite</option>
-                    <option value="Bien-être">Bien-etre</option>
+                    <option value="Parentalité">Parentalité</option>
+                    <option value="Bien-être">Bien-être</option>
                     <option value="Organisation">Organisation</option>
                   </select>
                 </div>
@@ -244,8 +233,8 @@ const BlogEditor = () => {
                   data-testid="status-select"
                   className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors"
                 >
-                  <option value="draft">Brouillon</option>
-                  <option value="published">Publie</option>
+                  <option value="draft">📝 Brouillon (non visible sur le site)</option>
+                  <option value="published">✅ Publié (visible immédiatement)</option>
                 </select>
               </div>
 
@@ -260,7 +249,7 @@ const BlogEditor = () => {
                   className="w-5 h-5 rounded border-[#48CAE4] text-[#0077B6] focus:ring-[#0077B6]"
                 />
                 <label htmlFor="share_to_social" className="text-sm font-medium text-[#03045E] cursor-pointer flex-1">
-                  Partager sur les reseaux sociaux
+                  📱 Partager automatiquement sur les réseaux sociaux (Facebook, Instagram, LinkedIn) lors de la publication
                 </label>
               </div>
 
@@ -275,9 +264,9 @@ const BlogEditor = () => {
                   type="submit"
                   disabled={loading}
                   data-testid="blog-submit-btn"
-                  className="flex-1 bg-[#0077B6] text-white hover:bg-[#0096C7] rounded-full px-8 py-4 transition-all duration-300 font-medium shadow-sm hover:shadow-md disabled:opacity-50"
+                  className="flex-1 bg-[#0077B6] text-white hover:bg-[#0096C7] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md disabled:opacity-50"
                 >
-                  {loading ? 'Creation...' : 'Creer article'}
+                  {loading ? 'Création...' : '✨ Créer l\'article'}
                 </button>
                 <button
                   type="button"
