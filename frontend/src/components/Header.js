@@ -3,6 +3,21 @@ import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
+const LogoMark = () => (
+  <svg width="36" height="36" viewBox="0 0 64 64" className="shrink-0">
+    <circle cx="32" cy="32" r="30" fill="#03045E" />
+    <text
+      x="32" y="44"
+      textAnchor="middle"
+      fontFamily="Georgia, 'Times New Roman', serif"
+      fontSize="36"
+      fontWeight="bold"
+      fill="#CAF0F8"
+    >S</text>
+    <circle cx="32" cy="32" r="30" fill="none" stroke="#0077B6" strokeWidth="2" />
+  </svg>
+);
+
 const Header = () => {
   const { language, toggleLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,7 +25,6 @@ const Header = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const location = useLocation();
-  const servicesRef = useRef(null);
   const timeoutRef = useRef(null);
 
   useEffect(() => {
@@ -65,17 +79,21 @@ const Header = () => {
       <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24 py-3">
         <div className="flex items-center justify-between">
 
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 shrink-0" data-testid="logo-link">
-            <img
-              src="/logo_brand.png"
-              alt="Sophie Lamour"
-              className="h-12 md:h-14 w-auto"
-            />
+          {/* Logo — CSS native, matches site typography */}
+          <Link to="/" className="flex items-center gap-2.5 shrink-0 group" data-testid="logo-link">
+            <LogoMark />
+            <div className="leading-none">
+              <span className="block text-lg md:text-xl font-serif font-bold text-[#03045E] group-hover:text-[#0077B6] transition-colors tracking-tight">
+                Sophie Lamour
+              </span>
+              <span className="block text-[9px] md:text-[10px] uppercase tracking-[0.18em] text-[#0077B6] font-medium mt-0.5">
+                {t("Coach de vie & Developpement", "Life Coach & Personal Growth")}
+              </span>
+            </div>
           </Link>
 
           {/* Desktop + Tablet Nav */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2 xl:gap-6" data-testid="desktop-nav">
+          <nav className="hidden md:flex items-center gap-1 lg:gap-2 xl:gap-5" data-testid="desktop-nav">
             {navLinks.slice(0, 2).map((link) => (
               <Link
                 key={link.path}
@@ -93,7 +111,6 @@ const Header = () => {
 
             {/* Services Dropdown */}
             <div
-              ref={servicesRef}
               className="relative"
               onMouseEnter={handleServicesEnter}
               onMouseLeave={handleServicesLeave}
@@ -161,20 +178,16 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Right side: language toggle + mobile menu */}
+          {/* Right side */}
           <div className="flex items-center gap-2 sm:gap-3">
             <button
               onClick={toggleLanguage}
               className="text-xs font-medium tracking-wide px-2.5 py-1.5 rounded-lg bg-[#CAF0F8] hover:bg-[#ADE8F4] transition-colors"
               data-testid="language-toggle"
             >
-              <span className={language === 'fr' ? 'text-[#0077B6] font-bold' : 'text-[#023E8A]'}>
-                FR
-              </span>
+              <span className={language === 'fr' ? 'text-[#0077B6] font-bold' : 'text-[#023E8A]'}>FR</span>
               {' / '}
-              <span className={language === 'en' ? 'text-[#0077B6] font-bold' : 'text-[#023E8A]'}>
-                EN
-              </span>
+              <span className={language === 'en' ? 'text-[#0077B6] font-bold' : 'text-[#023E8A]'}>EN</span>
             </button>
 
             <button
@@ -205,7 +218,6 @@ const Header = () => {
               </Link>
             ))}
 
-            {/* Mobile Services Accordion */}
             <div>
               <button
                 onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
