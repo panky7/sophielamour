@@ -1,5 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="30" fill="#03045E"/>
-  <text x="32" y="44" text-anchor="middle" font-family="Georgia, serif" font-size="36" font-weight="bold" fill="#CAF0F8">S</text>
-  <circle cx="32" cy="32" r="30" fill="none" stroke="#0077B6" stroke-width="2"/>
+  <defs>
+    <linearGradient id="lg" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0077B6"/>
+      <stop offset="50%" stop-color="#0096C7"/>
+      <stop offset="100%" stop-color="#48CAE4"/>
+    </linearGradient>
+  </defs>
+  <!-- Center petal -->
+  <path d="M32 8 C27 20, 27 36, 32 48 C37 36, 37 20, 32 8Z" fill="none" stroke="url(#lg)" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Inner left -->
+  <path d="M32 48 C26 38, 18 30, 14 34 C20 44, 28 48, 32 48Z" fill="none" stroke="url(#lg)" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Inner right -->
+  <path d="M32 48 C38 38, 46 30, 50 34 C44 44, 36 48, 32 48Z" fill="none" stroke="url(#lg)" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Outer left -->
+  <path d="M32 48 C24 42, 12 36, 8 40 C14 48, 26 50, 32 48Z" fill="none" stroke="url(#lg)" stroke-width="2.5" stroke-linejoin="round" opacity="0.65"/>
+  <!-- Outer right -->
+  <path d="M32 48 C40 42, 52 36, 56 40 C50 48, 38 50, 32 48Z" fill="none" stroke="url(#lg)" stroke-width="2.5" stroke-linejoin="round" opacity="0.65"/>
 </svg>

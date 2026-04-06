@@ -3,18 +3,33 @@ import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
-const LogoMark = () => (
-  <svg width="36" height="36" viewBox="0 0 64 64" className="shrink-0">
-    <circle cx="32" cy="32" r="30" fill="#03045E" />
-    <text
-      x="32" y="44"
-      textAnchor="middle"
-      fontFamily="Georgia, 'Times New Roman', serif"
-      fontSize="36"
-      fontWeight="bold"
-      fill="#CAF0F8"
-    >S</text>
-    <circle cx="32" cy="32" r="30" fill="none" stroke="#0077B6" strokeWidth="2" />
+const LotusIcon = ({ className = "w-10 h-10" }) => (
+  <svg viewBox="0 0 100 80" className={className} xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="lotus-g" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stopColor="#0077B6" />
+        <stop offset="50%" stopColor="#0096C7" />
+        <stop offset="100%" stopColor="#48CAE4" />
+      </linearGradient>
+    </defs>
+    {/* Center petal */}
+    <path d="M50 5 C42 22, 42 42, 50 60 C58 42, 58 22, 50 5Z"
+      fill="none" stroke="url(#lotus-g)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+    {/* Inner left petal */}
+    <path d="M50 60 C40 42, 26 30, 22 36 C28 48, 40 55, 50 60Z"
+      fill="none" stroke="url(#lotus-g)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+    {/* Inner right petal */}
+    <path d="M50 60 C60 42, 74 30, 78 36 C72 48, 60 55, 50 60Z"
+      fill="none" stroke="url(#lotus-g)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+    {/* Outer left petal */}
+    <path d="M50 60 C36 48, 16 38, 10 44 C18 54, 36 58, 50 60Z"
+      fill="none" stroke="url(#lotus-g)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
+    {/* Outer right petal */}
+    <path d="M50 60 C64 48, 84 38, 90 44 C82 54, 64 58, 50 60Z"
+      fill="none" stroke="url(#lotus-g)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
+    {/* Base arc */}
+    <path d="M30 68 Q50 74, 70 68"
+      fill="none" stroke="url(#lotus-g)" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
   </svg>
 );
 
@@ -79,15 +94,17 @@ const Header = () => {
       <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24 py-3">
         <div className="flex items-center justify-between">
 
-          {/* Logo — CSS native, matches site typography */}
-          <Link to="/" className="flex items-center gap-2.5 shrink-0 group" data-testid="logo-link">
-            <LogoMark />
+          {/* Logo — Lotus + Sophie Lamour */}
+          <Link to="/" className="flex items-center gap-2 shrink-0 group" data-testid="logo-link">
+            <LotusIcon className="w-10 h-10 md:w-11 md:h-11" />
             <div className="leading-none">
-              <span className="block text-lg md:text-xl font-serif font-bold text-[#03045E] group-hover:text-[#0077B6] transition-colors tracking-tight">
+              <span className="block text-xl md:text-2xl font-serif text-[#03045E] tracking-tight"
+                style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
                 Sophie Lamour
               </span>
-              <span className="block text-[9px] md:text-[10px] uppercase tracking-[0.18em] text-[#0077B6] font-medium mt-0.5">
-                {t("Coach de vie & Developpement", "Life Coach & Personal Growth")}
+              <span className="block text-[9px] md:text-[10px] tracking-[0.14em] text-[#48CAE4] font-medium mt-0.5"
+                style={{ fontFamily: "'Nunito', sans-serif" }}>
+                Coach de vie &amp; Developpement personnel
               </span>
             </div>
           </Link>
