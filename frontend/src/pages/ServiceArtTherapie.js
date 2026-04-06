@@ -21,6 +21,14 @@ const ServiceArtTherapie = () => {
             {t("Liberez vos emotions par la creativite", "Release Your Emotions Through Creativity")}
           </h2>
 
+          <div className="rounded-2xl overflow-hidden mb-10">
+            <img
+              src="https://sophielamour.com/wp-content/uploads/2025/03/DALL%C2%B7E-2025-03-01-07.57.13-A-symbolic-and-artistic-representation-of-Art-Therapy.-A-peaceful-artist-sits-in-a-bright-open-studio-surrounded-by-paintings-sculptures-and-sketch.webp"
+              alt="Art-Therapie"
+              className="w-full h-80 object-cover"
+            />
+          </div>
+
           <div className="space-y-6 text-base lg:text-lg leading-relaxed text-[#023E8A] mb-12">
             <p>
               {t(

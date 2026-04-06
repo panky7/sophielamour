@@ -20,6 +20,14 @@ const ServicePersonnel = () => {
           <h2 className="text-2xl sm:text-3xl font-serif text-[#03045E] mb-6">
             {t('(Re)trouver votre équilibre', 'Rediscover Your Balance')}
           </h2>
+
+          <div className="rounded-2xl overflow-hidden mb-10">
+            <img
+              src="https://sophielamour.com/wp-content/uploads/2025/02/IMG-20250207-WA0001-e1740056629770.jpg"
+              alt="Accompagnement Personnel"
+              className="w-full h-80 object-cover"
+            />
+          </div>
           
           <div className="space-y-6 text-base lg:text-lg leading-relaxed text-[#023E8A] mb-12">
             <div>

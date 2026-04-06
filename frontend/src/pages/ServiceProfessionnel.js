@@ -20,6 +20,14 @@ const ServiceProfessionnel = () => {
           <h2 className="text-2xl sm:text-3xl font-serif text-[#03045E] mb-6">
             {t('Construire un avenir en accord avec vos valeurs', 'Build a Future Aligned with Your Values')}
           </h2>
+
+          <div className="rounded-2xl overflow-hidden mb-10">
+            <img
+              src="https://sophielamour.com/wp-content/uploads/2025/04/ChatGPT-Image-4-avr.-2025-15_08_04.png"
+              alt="Accompagnement Professionnel"
+              className="w-full h-80 object-cover"
+            />
+          </div>
           
           <div className="space-y-6 text-base lg:text-lg leading-relaxed text-[#023E8A] mb-12">
             <div>

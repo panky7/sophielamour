@@ -29,7 +29,8 @@ Build a modern, elegant, SEO-optimised life coaching website for Sophie Lamour. 
 - [2026-04-05] Fixed React 19 concurrent rendering error — replaced ReactQuill component with vanilla Quill via useRef
 - [2026-04-05] Fixed rich text formatting loss on edit — use clipboard.dangerouslyPasteHTML() instead of innerHTML
 - [2026-04-05] Fixed public blog formatting — installed @tailwindcss/typography for prose styling of rich HTML content
-- [2026-04-06] Added Ikigai and Art-Therapie service cards and dedicated pages
+- [2026-04-06] Added Yoga Du Rire service card + dedicated page with photo gallery
+- [2026-04-06] Added images from sophielamour.com to all 7 service cards and detail pages
 
 ## P0 — None (all critical bugs resolved)
 

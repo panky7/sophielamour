@@ -20,6 +20,14 @@ const ServiceHomeOrganising = () => {
           <h2 className="text-2xl sm:text-3xl font-serif text-[#03045E] mb-6">
             {t('Créez un environnement qui vous apaise', 'Create an Environment That Soothes You')}
           </h2>
+
+          <div className="rounded-2xl overflow-hidden mb-10">
+            <img
+              src="https://sophielamour.com/wp-content/uploads/2025/02/DALL%C2%B7E-2025-02-20-19.17.12-Une-photo-ultra-realiste-de-la-meme-piece-mais-parfaitement-rangee-et-organisee.-Les-vetements-sont-plies-et-ranges-dans-une-armoire-bien-ordonnee-l.webp"
+              alt="Home Organising"
+              className="w-full h-80 object-cover"
+            />
+          </div>
           
           <div className="space-y-6 text-base lg:text-lg leading-relaxed text-[#023E8A] mb-12">
             <div>

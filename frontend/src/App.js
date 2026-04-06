@@ -17,6 +17,7 @@ import ServiceParentalite from './pages/ServiceParentalite';
 import ServiceHomeOrganising from './pages/ServiceHomeOrganising';
 import ServiceIkigai from './pages/ServiceIkigai';
 import ServiceArtTherapie from './pages/ServiceArtTherapie';
+import ServiceYogaDuRire from './pages/ServiceYogaDuRire';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Testimonials from './pages/Testimonials';
@@ -76,6 +77,7 @@ function App() {
                         <Route path="/services/home-organising" element={<ServiceHomeOrganising />} />
                         <Route path="/services/ikigai" element={<ServiceIkigai />} />
                         <Route path="/services/art-therapie" element={<ServiceArtTherapie />} />
+                        <Route path="/services/yoga-du-rire" element={<ServiceYogaDuRire />} />
                         <Route path="/blog" element={<Blog />} />
                         <Route path="/blog/:slug" element={<BlogPost />} />
                         <Route path="/temoignages" element={<Testimonials />} />
