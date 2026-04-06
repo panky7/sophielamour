@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { AuthProvider } from './contexts/AuthContext';
@@ -29,12 +29,19 @@ import BlogEditor from './pages/BlogEditor';
 import TestimonialEditor from './pages/TestimonialEditor';
 import './App.css';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  React.useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
+
 function App() {
   return (
     <HelmetProvider>
       <LanguageProvider>
         <AuthProvider>
           <BrowserRouter>
+            <ScrollToTop />
             <div className="App">
               <Routes>
                 <Route path="/admin/login" element={<AdminLogin />} />
