@@ -227,7 +227,7 @@ const AdminDashboard = () => {
 
           {activeTab === 'contact' && (
             <div>
-              <h2 className="text-2xl font-serif text-[#03045E] mb-6">Messages re\u00e7us</h2>
+              <h2 className="text-2xl font-serif text-[#03045E] mb-6">{"Messages re\u00e7us"}</h2>
               {contactRequests.length === 0 ? (
                 <div className="bg-white rounded-2xl p-8 shadow-sm text-center text-[#023E8A]">
                   Aucun message pour le moment.
