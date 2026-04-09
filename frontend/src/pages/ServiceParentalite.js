@@ -9,7 +9,7 @@ const ServiceParentalite = () => {
   return (
     <>
       <Helmet>
-        <title>{t("Accompagnement Parentalite - Sophie Lamour", "Parenting Support - Sophie Lamour")}</title>
+        <title>{t("Accompagnement parentalit\u00e9 \u2013 Sophie Lamour", "Parenting Support \u2013 Sophie Lamour")}</title>
       </Helmet>
 
       <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24">
@@ -24,7 +24,7 @@ const ServiceParentalite = () => {
           <div className="rounded-2xl overflow-hidden mb-10">
             <img
               src="https://sophielamour.com/wp-content/uploads/2025/04/ChatGPT-Image-4-avr.-2025-15_42_16.png"
-              alt="Accompagnement Parentalite"
+              alt="Accompagnement parentalit\u00e9"
               className="w-full h-80 object-cover"
             />
           </div>
@@ -47,11 +47,11 @@ const ServiceParentalite = () => {
           </div>
 
           <Link
-            to="/rendez-vous"
+            to="/contact"
             data-testid="service-cta-button"
-            className="inline-block bg-[#0077B6] text-white hover:bg-[#C48A7E] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md"
+            className="inline-block bg-[#0077B6] text-white hover:bg-[#023E8A] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md"
           >
-            {t('Prendre rendez-vous', 'Book Appointment')}
+            {t("Prendre contact", "Get in Touch")}
           </Link>
         </div>
       </section>

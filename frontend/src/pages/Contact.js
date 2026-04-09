@@ -2,35 +2,64 @@ import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
 import axios from 'axios';
-import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle, Send } from 'lucide-react';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
+const serviceOptions = [
+  { id: 'personnel', label_fr: 'Accompagnement personnel', label_en: 'Personal Coaching' },
+  { id: 'professionnel', label_fr: 'Accompagnement professionnel', label_en: 'Professional Coaching' },
+  { id: 'parentalite', label_fr: 'Accompagnement parentalit\u00e9', label_en: 'Parenting Support' },
+  { id: 'home-organising', label_fr: 'Home Organising', label_en: 'Home Organising' },
+  { id: 'autre', label_fr: 'Autre / Je ne sais pas encore', label_en: 'Other / Not sure yet' }
+];
+
 const Contact = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     phone: '',
-    subject: '',
-    message: ''
+    interestedServices: [],
+    message: '',
+    consent: false
   });
   const [status, setStatus] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleServiceToggle = (serviceId) => {
+    setFormData(prev => ({
+      ...prev,
+      interestedServices: prev.interestedServices.includes(serviceId)
+        ? prev.interestedServices.filter(s => s !== serviceId)
+        : [...prev.interestedServices, serviceId]
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!formData.consent) return;
     setLoading(true);
     setStatus('');
 
     try {
       await axios.post(`${API_URL}/api/contact`, formData);
       setStatus('success');
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        interestedServices: [],
+        message: '',
+        consent: false
+      });
     } catch (error) {
       setStatus('error');
     } finally {
@@ -41,26 +70,31 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>{t("Contact - Sophie Lamour", "Contact - Sophie Lamour")}</title>
+        <title>{t("Contact \u2013 Sophie Lamour", "Contact \u2013 Sophie Lamour")}</title>
+        <meta name="description" content={t(
+          "Contactez Sophie Lamour pour un accompagnement personnalis\u00e9 en coaching de vie, d\u00e9veloppement personnel et professionnel.",
+          "Contact Sophie Lamour for personalized life coaching, personal and professional development support."
+        )} />
       </Helmet>
 
       <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24" data-testid="contact-page">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-tight font-serif text-[#03045E] mb-6">
-              Contact
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight font-serif text-[#03045E] mb-6">
+              {t("Prenons contact", "Get in Touch")}
             </h1>
-            <p className="text-base lg:text-lg leading-relaxed text-[#023E8A]">
+            <p className="text-base lg:text-lg leading-relaxed text-[#023E8A] max-w-2xl mx-auto">
               {t(
-                'Une question? Un projet? N’hésitez pas à me contacter.',
-                'A question? A project? Feel free to contact me.'
+                "Une question\u00a0? Un projet\u00a0? Remplissez le formulaire ci-dessous et je vous r\u00e9pondrai dans les plus brefs d\u00e9lais.",
+                "A question? A project? Fill out the form below and I will respond as soon as possible."
               )}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl font-serif text-[#03045E] mb-6">{t('Informations de contact', 'Contact Information')}</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+            {/* Contact Info — left column */}
+            <div className="lg:col-span-2">
+              <h2 className="text-2xl font-serif text-[#03045E] mb-6">{t("Coordonn\u00e9es", "Contact Details")}</h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-[#48CAE4]/10 flex items-center justify-center flex-shrink-0">
@@ -68,7 +102,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-[#03045E] mb-1">Email</p>
-                    <a href="mailto:contact@sophielamour.com" className="text-[#023E8A] hover:text-[#0077B6]">
+                    <a href="mailto:contact@sophielamour.com" className="text-[#023E8A] hover:text-[#0077B6] transition-colors">
                       contact@sophielamour.com
                     </a>
                   </div>
@@ -79,7 +113,7 @@ const Contact = () => {
                     <Phone className="w-5 h-5 text-[#48CAE4]" />
                   </div>
                   <div>
-                    <p className="font-semibold text-[#03045E] mb-1">{t('Téléphone', 'Phone')}</p>
+                    <p className="font-semibold text-[#03045E] mb-1">{t("T\u00e9l\u00e9phone", "Phone")}</p>
                     <a href="tel:+33689844778" className="text-[#023E8A] hover:text-[#0077B6] transition-colors">
                       +33 6 89 84 47 78
                     </a>
@@ -92,14 +126,14 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-[#03045E] mb-1">WhatsApp</p>
-                    <a 
-                      href="https://wa.me/33689844778" 
-                      target="_blank" 
+                    <a
+                      href="https://wa.me/33689844778"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-[#023E8A] hover:text-[#25D366] transition-colors"
                       data-testid="whatsapp-contact"
                     >
-                      {t('Discuter sur WhatsApp', 'Chat on WhatsApp')}
+                      {t("Discuter sur WhatsApp", "Chat on WhatsApp")}
                     </a>
                   </div>
                 </div>
@@ -109,40 +143,60 @@ const Contact = () => {
                     <MapPin className="w-5 h-5 text-[#48CAE4]" />
                   </div>
                   <div>
-                    <p className="font-semibold text-[#03045E] mb-1">{t('Localisation', 'Location')}</p>
-                    <a 
+                    <p className="font-semibold text-[#03045E] mb-1">{t("Localisation", "Location")}</p>
+                    <a
                       href="https://www.google.com/maps/place/Ch%C3%A2teau-Landon,+77570+France/@48.1522,2.7006,13z"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[#023E8A] hover:text-[#0077B6] transition-colors"
                       data-testid="location-link"
                     >
-                      Château-Landon 77570
+                      {"Ch\u00e2teau-Landon 77570"}
                     </a>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-8 shadow-[0_8px_32px_rgba(44,44,42,0.04)]">
+            {/* Contact Form — right column */}
+            <div className="lg:col-span-3 bg-white rounded-3xl p-8 shadow-[0_8px_32px_rgba(44,44,42,0.04)] border border-[#ADE8F4]/50">
               <form onSubmit={handleSubmit} data-testid="contact-form">
-                <div className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-[#03045E] mb-2">
-                      {t('Nom', 'Name')} *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      data-testid="contact-name"
-                      className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors"
-                    />
+                <div className="space-y-5">
+                  {/* Name row */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="firstName" className="block text-sm font-medium text-[#03045E] mb-2">
+                        {t("Pr\u00e9nom", "First Name")} *
+                      </label>
+                      <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        required
+                        data-testid="contact-firstname"
+                        className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] focus:ring-1 focus:ring-[#0077B6]/20 transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="lastName" className="block text-sm font-medium text-[#03045E] mb-2">
+                        {t("Nom", "Last Name")} *
+                      </label>
+                      <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        required
+                        data-testid="contact-lastname"
+                        className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] focus:ring-1 focus:ring-[#0077B6]/20 transition-colors"
+                      />
+                    </div>
                   </div>
 
+                  {/* Email */}
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-[#03045E] mb-2">
                       Email *
@@ -155,13 +209,14 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       data-testid="contact-email"
-                      className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] focus:ring-1 focus:ring-[#0077B6]/20 transition-colors"
                     />
                   </div>
 
+                  {/* Phone */}
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-[#03045E] mb-2">
-                      {t('Téléphone', 'Phone')}
+                      {t("T\u00e9l\u00e9phone", "Phone")}
                     </label>
                     <input
                       type="tel"
@@ -170,26 +225,41 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       data-testid="contact-phone"
-                      className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] focus:ring-1 focus:ring-[#0077B6]/20 transition-colors"
                     />
                   </div>
 
+                  {/* Service Checkboxes */}
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-[#03045E] mb-2">
-                      {t('Sujet', 'Subject')} *
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      data-testid="contact-subject"
-                      className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors"
-                    />
+                    <p className="block text-sm font-medium text-[#03045E] mb-3">
+                      {t("Quel accompagnement vous int\u00e9resse\u00a0?", "Which service interests you?")}
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {serviceOptions.map((svc) => (
+                        <label
+                          key={svc.id}
+                          className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-colors ${
+                            formData.interestedServices.includes(svc.id)
+                              ? 'border-[#0077B6] bg-[#CAF0F8]/30'
+                              : 'border-[#ADE8F4] hover:bg-[#CAF0F8]/10'
+                          }`}
+                          data-testid={`service-checkbox-${svc.id}`}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={formData.interestedServices.includes(svc.id)}
+                            onChange={() => handleServiceToggle(svc.id)}
+                            className="w-4 h-4 rounded border-[#ADE8F4] text-[#0077B6] focus:ring-[#0077B6]"
+                          />
+                          <span className="text-sm text-[#023E8A]">
+                            {language === 'fr' ? svc.label_fr : svc.label_en}
+                          </span>
+                        </label>
+                      ))}
+                    </div>
                   </div>
 
+                  {/* Message */}
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-[#03045E] mb-2">
                       Message *
@@ -202,29 +272,51 @@ const Contact = () => {
                       required
                       rows={5}
                       data-testid="contact-message"
-                      className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] focus:ring-1 focus:ring-[#0077B6]/20 transition-colors resize-none"
+                      placeholder={t("D\u00e9crivez votre situation ou vos attentes\u2026", "Describe your situation or expectations\u2026")}
                     />
                   </div>
 
+                  {/* RGPD Consent */}
+                  <label className="flex items-start gap-3 cursor-pointer" data-testid="rgpd-consent">
+                    <input
+                      type="checkbox"
+                      checked={formData.consent}
+                      onChange={(e) => setFormData(prev => ({ ...prev, consent: e.target.checked }))}
+                      required
+                      className="w-4 h-4 mt-1 rounded border-[#ADE8F4] text-[#0077B6] focus:ring-[#0077B6]"
+                    />
+                    <span className="text-xs text-[#023E8A] leading-relaxed">
+                      {t(
+                        "J\u2019accepte que mes donn\u00e9es personnelles soient collect\u00e9es et trait\u00e9es dans le cadre de ma demande de contact, conform\u00e9ment au RGPD. Elles ne seront ni c\u00e9d\u00e9es ni vendues \u00e0 des tiers.",
+                        "I consent to the collection and processing of my personal data for this contact request, in accordance with GDPR. My data will not be shared or sold to third parties."
+                      )}
+                    </span>
+                  </label>
+
                   {status === 'success' && (
-                    <div className="p-4 bg-[#48CAE4]/10 text-[#48CAE4] rounded-xl" data-testid="contact-success">
-                      {t('Message envoyé avec succès!', 'Message sent successfully!')}
+                    <div className="p-4 bg-green-50 text-green-700 rounded-xl" data-testid="contact-success">
+                      {t(
+                        "Merci pour votre message\u00a0! Je vous r\u00e9pondrai dans les plus brefs d\u00e9lais.",
+                        "Thank you for your message! I will respond as soon as possible."
+                      )}
                     </div>
                   )}
 
                   {status === 'error' && (
                     <div className="p-4 bg-red-50 text-red-600 rounded-xl" data-testid="contact-error">
-                      {t('Une erreur est survenue. Veuillez réessayer.', 'An error occurred. Please try again.')}
+                      {t("Une erreur est survenue. Veuillez r\u00e9essayer.", "An error occurred. Please try again.")}
                     </div>
                   )}
 
                   <button
                     type="submit"
-                    disabled={loading}
+                    disabled={loading || !formData.consent}
                     data-testid="contact-submit"
-                    className="w-full bg-[#0077B6] text-white hover:bg-[#C48A7E] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md disabled:opacity-50"
+                    className="w-full flex items-center justify-center gap-2 bg-[#0077B6] text-white hover:bg-[#023E8A] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {loading ? t('Envoi...', 'Sending...') : t('Envoyer', 'Send')}
+                    <Send size={18} />
+                    {loading ? t("Envoi en cours\u2026", "Sending\u2026") : t("Envoyer ma demande", "Send My Request")}
                   </button>
                 </div>
               </form>
@@ -234,7 +326,7 @@ const Contact = () => {
           {/* Google Maps Section */}
           <div className="mt-16">
             <h3 className="text-2xl sm:text-3xl font-serif font-semibold text-[#03045E] mb-6 text-center">
-              {t('Notre localisation', 'Our Location')}
+              {t("O\u00f9 me trouver", "Where to Find Me")}
             </h3>
             <div className="rounded-3xl overflow-hidden shadow-lg border-2 border-[#ADE8F4]">
               <iframe
@@ -245,7 +337,7 @@ const Contact = () => {
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Sophie Lamour Location - Château-Landon"
+                title="Sophie Lamour \u2013 Ch\u00e2teau-Landon"
                 data-testid="google-maps-embed"
               />
             </div>
@@ -258,7 +350,7 @@ const Contact = () => {
                 data-testid="open-in-maps"
               >
                 <MapPin size={18} />
-                {t('Ouvrir dans Google Maps', 'Open in Google Maps')}
+                {t("Ouvrir dans Google Maps", "Open in Google Maps")}
               </a>
             </div>
           </div>

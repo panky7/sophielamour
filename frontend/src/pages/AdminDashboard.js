@@ -227,24 +227,42 @@ const AdminDashboard = () => {
 
           {activeTab === 'contact' && (
             <div>
-              <h2 className="text-2xl font-serif text-[#03045E] mb-6">Messages de contact</h2>
-              <div className="space-y-4">
-                {contactRequests.map((request, idx) => (
-                  <div key={idx} className="bg-white rounded-2xl p-6 shadow-sm" data-testid={`contact-request-${idx}`}>
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h3 className="font-semibold text-[#03045E] text-lg">{request.name}</h3>
-                        <p className="text-sm text-[#023E8A]">{request.email} • {request.phone}</p>
+              <h2 className="text-2xl font-serif text-[#03045E] mb-6">Messages re\u00e7us</h2>
+              {contactRequests.length === 0 ? (
+                <div className="bg-white rounded-2xl p-8 shadow-sm text-center text-[#023E8A]">
+                  Aucun message pour le moment.
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {contactRequests.map((request, idx) => (
+                    <div key={idx} className="bg-white rounded-2xl p-6 shadow-sm" data-testid={`contact-request-${idx}`}>
+                      <div className="flex justify-between items-start mb-4">
+                        <div>
+                          <h3 className="font-semibold text-[#03045E] text-lg">
+                            {request.firstName} {request.lastName}
+                          </h3>
+                          <p className="text-sm text-[#023E8A]">
+                            {request.email}{request.phone ? ` \u2022 ${request.phone}` : ''}
+                          </p>
+                        </div>
+                        <span className="text-xs text-[#48CAE4]">
+                          {new Date(request.created_at).toLocaleString('fr')}
+                        </span>
                       </div>
-                      <span className="text-xs text-[#48CAE4]">
-                        {new Date(request.created_at).toLocaleString('fr')}
-                      </span>
+                      {request.interestedServices && request.interestedServices.length > 0 && (
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          {request.interestedServices.map((svc, i) => (
+                            <span key={i} className="text-xs bg-[#CAF0F8] text-[#0077B6] px-3 py-1 rounded-full">
+                              {svc}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                      <p className="text-[#023E8A] whitespace-pre-wrap">{request.message}</p>
                     </div>
-                    <p className="font-medium text-[#03045E] mb-2">{request.subject}</p>
-                    <p className="text-[#023E8A]">{request.message}</p>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>

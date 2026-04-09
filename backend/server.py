@@ -148,11 +148,13 @@ class TestimonialResponse(BaseModel):
     created_at: str
 
 class ContactRequest(BaseModel):
-    name: str
+    firstName: str
+    lastName: str
     email: EmailStr
     phone: Optional[str] = None
-    subject: str
+    interestedServices: List[str] = []
     message: str
+    consent: bool = False
 
 # Auth endpoints
 @api_router.post("/auth/login")

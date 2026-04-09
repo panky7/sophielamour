@@ -27,7 +27,7 @@ const Testimonials = () => {
   return (
     <>
       <Helmet>
-        <title>{t("Temoignages - Sophie Lamour", "Testimonials - Sophie Lamour")}</title>
+        <title>{t("T\u00e9moignages \u2013 Sophie Lamour", "Testimonials \u2013 Sophie Lamour")}</title>
       </Helmet>
 
       <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24" data-testid="testimonials-page">

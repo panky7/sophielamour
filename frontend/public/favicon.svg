@@ -1,19 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="lg" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0077B6"/>
-      <stop offset="50%" stop-color="#0096C7"/>
-      <stop offset="100%" stop-color="#48CAE4"/>
-    </linearGradient>
-  </defs>
-  <!-- Center petal -->
-  <path d="M32 8 C27 20, 27 36, 32 48 C37 36, 37 20, 32 8Z" fill="none" stroke="url(#lg)" stroke-width="3" stroke-linejoin="round"/>
-  <!-- Inner left -->
-  <path d="M32 48 C26 38, 18 30, 14 34 C20 44, 28 48, 32 48Z" fill="none" stroke="url(#lg)" stroke-width="3" stroke-linejoin="round"/>
-  <!-- Inner right -->
-  <path d="M32 48 C38 38, 46 30, 50 34 C44 44, 36 48, 32 48Z" fill="none" stroke="url(#lg)" stroke-width="3" stroke-linejoin="round"/>
-  <!-- Outer left -->
-  <path d="M32 48 C24 42, 12 36, 8 40 C14 48, 26 50, 32 48Z" fill="none" stroke="url(#lg)" stroke-width="2.5" stroke-linejoin="round" opacity="0.65"/>
-  <!-- Outer right -->
-  <path d="M32 48 C40 42, 52 36, 56 40 C50 48, 38 50, 32 48Z" fill="none" stroke="url(#lg)" stroke-width="2.5" stroke-linejoin="round" opacity="0.65"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <circle cx="256" cy="256" r="256" fill="#03045E"/>
+  <g transform="translate(256,256)">
+    <!-- Center petal (top) -->
+    <ellipse cx="0" cy="-65" rx="28" ry="62" fill="#0077B6" opacity="0.95"/>
+    <!-- Top-right petal -->
+    <ellipse cx="0" cy="-65" rx="28" ry="62" fill="#00B4D8" opacity="0.9" transform="rotate(72)"/>
+    <!-- Bottom-right petal -->
+    <ellipse cx="0" cy="-65" rx="28" ry="62" fill="#90E0EF" opacity="0.85" transform="rotate(144)"/>
+    <!-- Bottom-left petal -->
+    <ellipse cx="0" cy="-65" rx="28" ry="62" fill="#00B4D8" opacity="0.9" transform="rotate(216)"/>
+    <!-- Top-left petal -->
+    <ellipse cx="0" cy="-65" rx="28" ry="62" fill="#0077B6" opacity="0.95" transform="rotate(288)"/>
+    <!-- Inner petals layer -->
+    <ellipse cx="0" cy="-42" rx="18" ry="40" fill="#90E0EF" opacity="0.5" transform="rotate(36)"/>
+    <ellipse cx="0" cy="-42" rx="18" ry="40" fill="#90E0EF" opacity="0.5" transform="rotate(108)"/>
+    <ellipse cx="0" cy="-42" rx="18" ry="40" fill="#90E0EF" opacity="0.5" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-42" rx="18" ry="40" fill="#90E0EF" opacity="0.5" transform="rotate(252)"/>
+    <ellipse cx="0" cy="-42" rx="18" ry="40" fill="#90E0EF" opacity="0.5" transform="rotate(324)"/>
+    <!-- Coral center dot -->
+    <circle cx="0" cy="0" r="16" fill="#F4845F"/>
+  </g>
 </svg>

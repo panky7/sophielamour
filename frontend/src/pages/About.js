@@ -28,7 +28,7 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>{t("Qui suis-je? - Sophie Lamour", "About Me - Sophie Lamour")}</title>
+        <title>{t("Qui suis-je\u00a0? \u2013 Sophie Lamour", "About Me \u2013 Sophie Lamour")}</title>
         <meta name="description" content={t(
           'Découvrez mon parcours, mes valeurs et mon approche bienveillante du coaching de vie.',
           'Discover my journey, values, and caring approach to life coaching.'

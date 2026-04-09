@@ -89,11 +89,11 @@ const ServiceArtTherapie = () => {
           </div>
 
           <Link
-            to="/rendez-vous"
+            to="/contact"
             data-testid="service-art-therapie-cta"
-            className="inline-block bg-[#0077B6] text-white hover:bg-[#0096C7] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md"
+            className="inline-block bg-[#0077B6] text-white hover:bg-[#023E8A] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md"
           >
-            {t("Prendre rendez-vous", "Book Appointment")}
+            {t("Prendre contact", "Get in Touch")}
           </Link>
         </div>
       </section>

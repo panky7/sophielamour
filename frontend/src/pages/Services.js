@@ -7,10 +7,7 @@ const serviceImages = {
   personnel: 'https://sophielamour.com/wp-content/uploads/2025/02/IMG-20250207-WA0001-e1740056629770.jpg',
   professionnel: 'https://sophielamour.com/wp-content/uploads/2025/04/ChatGPT-Image-4-avr.-2025-15_08_04.png',
   parentalite: 'https://sophielamour.com/wp-content/uploads/2025/04/ChatGPT-Image-4-avr.-2025-15_42_16.png',
-  homeOrganising: 'https://sophielamour.com/wp-content/uploads/2025/02/DALL%C2%B7E-2025-02-20-19.17.12-Une-photo-ultra-realiste-de-la-meme-piece-mais-parfaitement-rangee-et-organisee.-Les-vetements-sont-plies-et-ranges-dans-une-armoire-bien-ordonnee-l.webp',
-  ikigai: 'https://sophielamour.com/wp-content/uploads/2025/03/DALL%C2%B7E-2025-03-01-07.56.39-A-symbolic-and-artistic-representation-of-the-concept-of-Ikigai.-A-large-ancient-tree-with-deep-roots-and-expansive-branches-stands-in-the-center-of-.webp',
-  artTherapie: 'https://sophielamour.com/wp-content/uploads/2025/03/DALL%C2%B7E-2025-03-01-07.57.13-A-symbolic-and-artistic-representation-of-Art-Therapy.-A-peaceful-artist-sits-in-a-bright-open-studio-surrounded-by-paintings-sculptures-and-sketch.webp',
-  yogaDuRire: 'https://sophielamour.com/wp-content/uploads/2025/06/image1-8-scaled.jpg'
+  homeOrganising: 'https://sophielamour.com/wp-content/uploads/2025/02/DALL%C2%B7E-2025-02-20-19.17.12-Une-photo-ultra-realiste-de-la-meme-piece-mais-parfaitement-rangee-et-organisee.-Les-vetements-sont-plies-et-ranges-dans-une-armoire-bien-ordonnee-l.webp'
 };
 
 const Services = () => {
@@ -18,73 +15,55 @@ const Services = () => {
 
   const services = [
     {
-      title: t("Accompagnement Personnel", "Personal Coaching"),
-      desc: t("(Re)trouvez votre equilibre et votre raison d'etre", "Rediscover your balance and purpose"),
+      title: t("Accompagnement personnel", "Personal Coaching"),
+      desc: t("(Re)trouvez votre \u00e9quilibre et votre raison d\u2019\u00eatre", "Rediscover your balance and purpose"),
       link: '/services/personnel',
       image: serviceImages.personnel
     },
     {
-      title: t("Accompagnement Professionnel", "Professional Coaching"),
-      desc: t("Construisez un avenir aligne avec vos valeurs", "Build a future aligned with your values"),
+      title: t("Accompagnement professionnel", "Professional Coaching"),
+      desc: t("Construisez un avenir align\u00e9 avec vos valeurs", "Build a future aligned with your values"),
       link: '/services/professionnel',
       image: serviceImages.professionnel
     },
     {
-      title: t("Accompagnement Parentalite", "Parenting Support"),
+      title: t("Accompagnement parentalit\u00e9", "Parenting Support"),
       desc: t("Grandissez ensemble en famille", "Grow together as a family"),
       link: '/services/parentalite',
       image: serviceImages.parentalite
     },
     {
       title: "Home Organising",
-      desc: t("Creez un environnement qui vous apaise", "Create an environment that soothes you"),
+      desc: t("Cr\u00e9ez un environnement qui vous apaise", "Create an environment that soothes you"),
       link: '/services/home-organising',
       image: serviceImages.homeOrganising
-    },
-    {
-      title: "Ikigai",
-      desc: t("Trouvez votre boussole interieure", "Find your inner compass"),
-      link: '/services/ikigai',
-      image: serviceImages.ikigai
-    },
-    {
-      title: t("Art-Therapie", "Art Therapy"),
-      desc: t("Explorer, creer, se reconnecter a soi", "Explore, create, reconnect with yourself"),
-      link: '/services/art-therapie',
-      image: serviceImages.artTherapie
-    },
-    {
-      title: t("Yoga Du Rire", "Laughter Yoga"),
-      desc: t("Liberez votre joie de vivre", "Release your joy of living"),
-      link: '/services/yoga-du-rire',
-      image: serviceImages.yogaDuRire
     }
   ];
 
   return (
     <>
       <Helmet>
-        <title>{t("Services - Sophie Lamour", "Services - Sophie Lamour")}</title>
+        <title>{t("Services \u2013 Sophie Lamour", "Services \u2013 Sophie Lamour")}</title>
         <meta name="description" content={t(
-          "Decouvrez mes services : coaching personnel, professionnel, parentalite, home organising, Ikigai, art-therapie et yoga du rire.",
-          "Discover my services: personal coaching, professional coaching, parenting, home organizing, Ikigai, art therapy and laughter yoga."
+          "D\u00e9couvrez mes services\u00a0: coaching personnel, professionnel, parentalit\u00e9 et home organising.",
+          "Discover my services: personal coaching, professional coaching, parenting and home organizing."
         )} />
       </Helmet>
 
       <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24" data-testid="services-page">
         <div className="text-center mb-16">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-tight font-serif text-[#03045E] mb-6">
-            {t("Mes Services", "My Services")}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight font-serif text-[#03045E] mb-6">
+            {t("Mes services", "My Services")}
           </h1>
           <p className="text-base lg:text-lg leading-relaxed text-[#023E8A] max-w-3xl mx-auto">
             {t(
-              "Un accompagnement personnalise pour vous aider a atteindre vos objectifs et vivre une vie alignee avec vos valeurs.",
+              "Un accompagnement personnalis\u00e9 pour vous aider \u00e0 atteindre vos objectifs et vivre une vie align\u00e9e avec vos valeurs.",
               "Personalized support to help you achieve your goals and live a life aligned with your values."
             )}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {services.map((service, idx) => (
             <Link
               key={idx}
@@ -106,7 +85,7 @@ const Services = () => {
               <div className="p-6">
                 <p className="text-base leading-relaxed text-[#023E8A] mb-4">{service.desc}</p>
                 <span className="text-sm uppercase tracking-[0.2em] font-bold text-[#48CAE4] group-hover:text-[#0077B6] transition-colors">
-                  {t("Decouvrir", "Learn More")} &rarr;
+                  {t("D\u00e9couvrir", "Learn More")} &rarr;
                 </span>
               </div>
             </Link>

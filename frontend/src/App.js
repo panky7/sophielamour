@@ -21,7 +21,6 @@ import ServiceYogaDuRire from './pages/ServiceYogaDuRire';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Testimonials from './pages/Testimonials';
-import Appointment from './pages/Appointment';
 import Contact from './pages/Contact';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
@@ -88,7 +87,6 @@ function App() {
                         <Route path="/blog" element={<Blog />} />
                         <Route path="/blog/:slug" element={<BlogPost />} />
                         <Route path="/temoignages" element={<Testimonials />} />
-                        <Route path="/rendez-vous" element={<Appointment />} />
                         <Route path="/contact" element={<Contact />} />
                       </Routes>
                     </main>

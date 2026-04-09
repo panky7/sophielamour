@@ -3,36 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
-const LotusIcon = ({ className = "w-10 h-10" }) => (
-  <svg viewBox="0 0 100 80" className={className} xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="lotus-g" x1="0%" y1="100%" x2="100%" y2="0%">
-        <stop offset="0%" stopColor="#0077B6" />
-        <stop offset="50%" stopColor="#0096C7" />
-        <stop offset="100%" stopColor="#48CAE4" />
-      </linearGradient>
-    </defs>
-    {/* Center petal */}
-    <path d="M50 5 C42 22, 42 42, 50 60 C58 42, 58 22, 50 5Z"
-      fill="none" stroke="url(#lotus-g)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
-    {/* Inner left petal */}
-    <path d="M50 60 C40 42, 26 30, 22 36 C28 48, 40 55, 50 60Z"
-      fill="none" stroke="url(#lotus-g)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
-    {/* Inner right petal */}
-    <path d="M50 60 C60 42, 74 30, 78 36 C72 48, 60 55, 50 60Z"
-      fill="none" stroke="url(#lotus-g)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
-    {/* Outer left petal */}
-    <path d="M50 60 C36 48, 16 38, 10 44 C18 54, 36 58, 50 60Z"
-      fill="none" stroke="url(#lotus-g)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
-    {/* Outer right petal */}
-    <path d="M50 60 C64 48, 84 38, 90 44 C82 54, 64 58, 50 60Z"
-      fill="none" stroke="url(#lotus-g)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
-    {/* Base arc */}
-    <path d="M30 68 Q50 74, 70 68"
-      fill="none" stroke="url(#lotus-g)" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
-  </svg>
-);
-
 const Header = () => {
   const { language, toggleLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -64,21 +34,16 @@ const Header = () => {
   };
 
   const serviceSubLinks = [
-    { path: '/services/personnel', label: t("Accompagnement Personnel", "Personal Coaching") },
-    { path: '/services/professionnel', label: t("Accompagnement Professionnel", "Professional Coaching") },
-    { path: '/services/parentalite', label: t("Accompagnement Parentalite", "Parenting Support") },
-    { path: '/services/home-organising', label: "Home Organising" },
-    { path: '/services/ikigai', label: "Ikigai" },
-    { path: '/services/art-therapie', label: t("Art-Therapie", "Art Therapy") },
-    { path: '/services/yoga-du-rire', label: t("Yoga Du Rire", "Laughter Yoga") }
+    { path: '/services/personnel', label: t("Accompagnement personnel", "Personal Coaching") },
+    { path: '/services/professionnel', label: t("Accompagnement professionnel", "Professional Coaching") },
+    { path: '/services/parentalite', label: t("Accompagnement parentalit\u00e9", "Parenting Support") },
+    { path: '/services/home-organising', label: "Home Organising" }
   ];
 
   const navLinks = [
     { path: '/', label: t("Accueil", "Home") },
-    { path: '/qui-suis-je', label: t("Qui suis-je?", "About Me") },
+    { path: '/qui-suis-je', label: t("Qui suis-je\u00a0?", "About Me") },
     { path: '/blog', label: 'Blog' },
-    { path: '/temoignages', label: t("Temoignages", "Testimonials") },
-    { path: '/rendez-vous', label: t("Rendez-vous", "Appointments") },
     { path: '/contact', label: 'Contact' }
   ];
 
@@ -91,22 +56,17 @@ const Header = () => {
       } border-b border-[#CAF0F8]`}
       data-testid="main-header"
     >
-      <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24 py-3">
+      <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24 py-2">
         <div className="flex items-center justify-between">
 
-          {/* Logo — Lotus + Sophie Lamour */}
-          <Link to="/" className="flex items-center gap-2 shrink-0 group" data-testid="logo-link">
-            <LotusIcon className="w-10 h-10 md:w-11 md:h-11" />
-            <div className="leading-none">
-              <span className="block text-xl md:text-2xl font-serif text-[#03045E] tracking-tight"
-                style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
-                Sophie Lamour
-              </span>
-              <span className="block text-[9px] md:text-[10px] tracking-[0.14em] text-[#48CAE4] font-medium mt-0.5"
-                style={{ fontFamily: "'Nunito', sans-serif" }}>
-                Coach de vie &amp; Developpement personnel
-              </span>
-            </div>
+          {/* Logo */}
+          <Link to="/" className="flex items-center shrink-0 group" data-testid="logo-link">
+            <img
+              src="/sophie_logo.jpg"
+              alt="Sophie Lamour - Coach de vie"
+              className="h-12 md:h-14 w-auto object-contain"
+              data-testid="header-logo"
+            />
           </Link>
 
           {/* Desktop + Tablet Nav */}

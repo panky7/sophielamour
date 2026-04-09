@@ -47,11 +47,11 @@ const ServicePersonnel = () => {
           </div>
 
           <Link
-            to="/rendez-vous"
+            to="/contact"
             data-testid="service-cta-button"
-            className="inline-block bg-[#0077B6] text-white hover:bg-[#C48A7E] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md"
+            className="inline-block bg-[#0077B6] text-white hover:bg-[#023E8A] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md"
           >
-            {t('Prendre rendez-vous', 'Book Appointment')}
+            {t("Prendre contact", "Get in Touch")}
           </Link>
         </div>
       </section>

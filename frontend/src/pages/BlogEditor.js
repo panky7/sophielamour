@@ -443,10 +443,10 @@ const BlogEditor = () => {
                     data-testid="category-select"
                     className="w-full px-4 py-3 rounded-xl border border-[#ADE8F4] focus:outline-none focus:border-[#0077B6] transition-colors"
                   >
-                    <option value="Développement personnel">Developpement personnel</option>
+                    <option value="D\u00e9veloppement personnel">{"\u00c9"}panouissement personnel</option>
                     <option value="Coaching">Coaching</option>
-                    <option value="Parentalité">Parentalite</option>
-                    <option value="Bien-être">Bien-etre</option>
+                    <option value="Parentalit\u00e9">Parentalit{"\u00e9"}</option>
+                    <option value="Bien-\u00eatre">Bien-{"\u00ea"}tre</option>
                     <option value="Organisation">Organisation</option>
                   </select>
                 </div>
