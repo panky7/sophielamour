@@ -18,7 +18,7 @@ const ServiceYogaDuRire = () => {
   return (
     <>
       <Helmet>
-        <title>{t("Yoga Du Rire - Sophie Lamour", "Laughter Yoga - Sophie Lamour")}</title>
+        <title>{t("Yoga du Rire \u2013 Sophie Lamour", "Laughter Yoga \u2013 Sophie Lamour")}</title>
       </Helmet>
 
       <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24">

@@ -29,7 +29,7 @@ const Blog = () => {
   return (
     <>
       <Helmet>
-        <title>{t("Blog - Sophie Lamour", "Blog - Sophie Lamour")}</title>
+        <title>{t("Blog \u2013 Sophie Lamour", "Blog \u2013 Sophie Lamour")}</title>
         <meta name="description" content={t(
           'Découvrez mes réflexions sur le développement personnel, le coaching de vie et le bien-être.',
           'Discover my thoughts on personal development, life coaching and well-being.'

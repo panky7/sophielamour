@@ -9,7 +9,7 @@ const ServiceIkigai = () => {
   return (
     <>
       <Helmet>
-        <title>{t("Ikigai - Sophie Lamour", "Ikigai - Sophie Lamour")}</title>
+        <title>{t("Ikiga\u00ef \u2013 Sophie Lamour", "Ikigai \u2013 Sophie Lamour")}</title>
       </Helmet>
 
       <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24">
