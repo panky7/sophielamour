@@ -7,7 +7,8 @@ const serviceImages = {
   personnel: 'https://sophielamour.com/wp-content/uploads/2025/02/IMG-20250207-WA0001-e1740056629770.jpg',
   professionnel: 'https://sophielamour.com/wp-content/uploads/2025/04/ChatGPT-Image-4-avr.-2025-15_08_04.png',
   parentalite: 'https://sophielamour.com/wp-content/uploads/2025/04/ChatGPT-Image-4-avr.-2025-15_42_16.png',
-  homeOrganising: 'https://sophielamour.com/wp-content/uploads/2025/02/DALL%C2%B7E-2025-02-20-19.17.12-Une-photo-ultra-realiste-de-la-meme-piece-mais-parfaitement-rangee-et-organisee.-Les-vetements-sont-plies-et-ranges-dans-une-armoire-bien-ordonnee-l.webp'
+  homeOrganising: 'https://sophielamour.com/wp-content/uploads/2025/02/DALL%C2%B7E-2025-02-20-19.17.12-Une-photo-ultra-realiste-de-la-meme-piece-mais-parfaitement-rangee-et-organisee.-Les-vetements-sont-plies-et-ranges-dans-une-armoire-bien-ordonnee-l.webp',
+  yogaDuRire: 'https://sophielamour.com/wp-content/uploads/2025/04/ChatGPT-Image-4-avr.-2025-15_08_04.png'
 };
 
 const Services = () => {
@@ -37,6 +38,12 @@ const Services = () => {
       desc: t("Cr\u00e9ez un environnement qui vous apaise", "Create an environment that soothes you"),
       link: '/services/home-organising',
       image: serviceImages.homeOrganising
+    },
+    {
+      title: t("Yoga du Rire", "Laughter Yoga"),
+      desc: t("Lib\u00e9rez votre joie de vivre", "Release your joy of living"),
+      link: '/services/yoga-du-rire',
+      image: serviceImages.yogaDuRire
     }
   ];
 
@@ -63,7 +70,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {services.map((service, idx) => (
             <Link
               key={idx}

@@ -62,6 +62,12 @@ const Home = () => {
       title: "Home Organising",
       desc: t("Cr\u00e9ez un environnement qui vous apaise", "Create an environment that soothes you"),
       link: '/services/home-organising'
+    },
+    {
+      icon: Smile,
+      title: t("Yoga du Rire", "Laughter Yoga"),
+      desc: t("Lib\u00e9rez votre joie de vivre", "Release your joy of living"),
+      link: '/services/yoga-du-rire'
     }
   ];
 
@@ -72,13 +78,6 @@ const Home = () => {
       desc: t("Trouvez votre boussole int\u00e9rieure", "Find your inner compass"),
       link: '/services/ikigai',
       color: '#0077B6'
-    },
-    {
-      icon: Smile,
-      title: t("Yoga du Rire", "Laughter Yoga"),
-      desc: t("Lib\u00e9rez votre joie de vivre", "Release your joy of living"),
-      link: '/services/yoga-du-rire',
-      color: '#F4845F'
     },
     {
       icon: Palette,
@@ -163,7 +162,7 @@ const Home = () => {
             {t("Quel accompagnement est fait pour vous\u00a0?", "Which Support is Right for You?")}
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto">
           {services.map((service, idx) => {
             const Icon = service.icon;
             return (
@@ -200,7 +199,7 @@ const Home = () => {
             )}
           </p>
         </div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {techniques.map((tech, idx) => {
             const Icon = tech.icon;
             const inner = (

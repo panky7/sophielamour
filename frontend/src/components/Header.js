@@ -37,7 +37,8 @@ const Header = () => {
     { path: '/services/personnel', label: t("Accompagnement personnel", "Personal Coaching") },
     { path: '/services/professionnel', label: t("Accompagnement professionnel", "Professional Coaching") },
     { path: '/services/parentalite', label: t("Accompagnement parentalit\u00e9", "Parenting Support") },
-    { path: '/services/home-organising', label: "Home Organising" }
+    { path: '/services/home-organising', label: "Home Organising" },
+    { path: '/services/yoga-du-rire', label: t("Yoga du Rire", "Laughter Yoga") }
   ];
 
   const navLinks = [
@@ -60,13 +61,16 @@ const Header = () => {
         <div className="flex items-center justify-between">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center shrink-0 group" data-testid="logo-link">
+          <Link to="/" className="flex flex-col items-start shrink-0 group" data-testid="logo-link">
             <img
               src="/sophie_logo.jpg"
               alt="Sophie Lamour - Coach de vie"
               className="h-12 md:h-14 w-auto object-contain"
               data-testid="header-logo"
             />
+            <span className="text-[9px] md:text-[10px] tracking-[0.18em] uppercase text-[#0077B6] font-light ml-0.5">
+              {"Coach de vie & d\u00e9veloppement"}
+            </span>
           </Link>
 
           {/* Desktop + Tablet Nav */}

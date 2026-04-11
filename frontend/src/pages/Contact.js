@@ -11,6 +11,7 @@ const serviceOptions = [
   { id: 'professionnel', label_fr: 'Accompagnement professionnel', label_en: 'Professional Coaching' },
   { id: 'parentalite', label_fr: 'Accompagnement parentalit\u00e9', label_en: 'Parenting Support' },
   { id: 'home-organising', label_fr: 'Home Organising', label_en: 'Home Organising' },
+  { id: 'yoga-du-rire', label_fr: 'Yoga du Rire', label_en: 'Laughter Yoga' },
   { id: 'autre', label_fr: 'Autre / Je ne sais pas encore', label_en: 'Other / Not sure yet' }
 ];
 

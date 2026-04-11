@@ -12,13 +12,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div className="flex flex-col items-center md:items-start">
             <Link to="/" className="mb-4 inline-block" data-testid="footer-logo-link">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-3 inline-block">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 inline-flex flex-col items-center gap-1">
                 <img
                   src="/sophie_logo.jpg"
                   alt="Sophie Lamour"
                   className="h-14 w-auto object-contain"
                   data-testid="footer-logo"
                 />
+                <span className="text-[10px] tracking-[0.18em] uppercase text-[#90E0EF] font-light">
+                  {"Coach de vie & d\u00e9veloppement"}
+                </span>
               </div>
             </Link>
             <p className="text-white/80 leading-relaxed text-center md:text-left">
