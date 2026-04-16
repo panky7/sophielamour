@@ -34,7 +34,7 @@ const ServiceYogaDuRire = () => {
             <img
               src={yogaImages[0]}
               alt="Yoga Du Rire"
-              className="w-full h-80 object-cover"
+              className="w-full h-80 object-cover object-top"
             />
           </div>
 

@@ -25,7 +25,7 @@ const ServiceParentalite = () => {
             <img
               src="https://sophielamour.com/wp-content/uploads/2025/04/ChatGPT-Image-4-avr.-2025-15_42_16.png"
               alt="Accompagnement parentalit\u00e9"
-              className="w-full h-80 object-cover"
+              className="w-full h-80 object-cover object-top"
             />
           </div>
           

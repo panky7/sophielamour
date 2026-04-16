@@ -25,7 +25,7 @@ const ServiceHomeOrganising = () => {
             <img
               src="https://sophielamour.com/wp-content/uploads/2025/02/DALL%C2%B7E-2025-02-20-19.17.12-Une-photo-ultra-realiste-de-la-meme-piece-mais-parfaitement-rangee-et-organisee.-Les-vetements-sont-plies-et-ranges-dans-une-armoire-bien-ordonnee-l.webp"
               alt="Home Organising"
-              className="w-full h-80 object-cover"
+              className="w-full h-80 object-cover object-top"
             />
           </div>
           

@@ -25,7 +25,7 @@ const ServiceIkigai = () => {
             <img
               src="https://sophielamour.com/wp-content/uploads/2025/03/DALL%C2%B7E-2025-03-01-07.56.39-A-symbolic-and-artistic-representation-of-the-concept-of-Ikigai.-A-large-ancient-tree-with-deep-roots-and-expansive-branches-stands-in-the-center-of-.webp"
               alt="Ikigai"
-              className="w-full h-80 object-cover"
+              className="w-full h-80 object-cover object-top"
             />
           </div>
 

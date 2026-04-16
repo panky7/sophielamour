@@ -25,7 +25,7 @@ const ServiceArtTherapie = () => {
             <img
               src="https://sophielamour.com/wp-content/uploads/2025/03/DALL%C2%B7E-2025-03-01-07.57.13-A-symbolic-and-artistic-representation-of-Art-Therapy.-A-peaceful-artist-sits-in-a-bright-open-studio-surrounded-by-paintings-sculptures-and-sketch.webp"
               alt="Art-Therapie"
-              className="w-full h-80 object-cover"
+              className="w-full h-80 object-cover object-top"
             />
           </div>
 

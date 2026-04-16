@@ -25,7 +25,7 @@ const ServicePersonnel = () => {
             <img
               src="https://sophielamour.com/wp-content/uploads/2025/02/IMG-20250207-WA0001-e1740056629770.jpg"
               alt="Accompagnement Personnel"
-              className="w-full h-80 object-cover"
+              className="w-full h-80 object-cover object-top"
             />
           </div>
           

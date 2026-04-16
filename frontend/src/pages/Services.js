@@ -82,7 +82,7 @@ const Services = () => {
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#03045E]/60 to-transparent" />
                 <h2 className="absolute bottom-4 left-6 right-6 text-xl sm:text-2xl font-serif text-white leading-tight">

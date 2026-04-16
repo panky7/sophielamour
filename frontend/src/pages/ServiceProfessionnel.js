@@ -25,7 +25,7 @@ const ServiceProfessionnel = () => {
             <img
               src="https://sophielamour.com/wp-content/uploads/2025/04/ChatGPT-Image-4-avr.-2025-15_08_04.png"
               alt="Accompagnement Professionnel"
-              className="w-full h-80 object-cover"
+              className="w-full h-80 object-cover object-top"
             />
           </div>
           
