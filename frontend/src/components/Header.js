@@ -64,7 +64,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-4 shrink-0 group" data-testid="logo-link">
             <img
-              src="/sophie_logo.png"
+              src="/sophie_logo_white.png"
               alt="Sophie Lamour - Coaching"
               className="h-[100px] w-auto object-contain"
               data-testid="header-logo"
