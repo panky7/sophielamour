@@ -62,16 +62,13 @@ const Header = () => {
         <div className="flex items-center justify-between">
 
           {/* Logo */}
-          <Link to="/" className="flex flex-col items-start shrink-0 group" data-testid="logo-link">
+          <Link to="/" className="flex shrink-0 group" data-testid="logo-link">
             <img
-              src="/sophie_logo_white.png"
-              alt="Sophie Lamour - Coaching"
-              className="h-[100px] w-auto object-contain"
+              src="/sophie_logo_full.png"
+              alt="Sophie Lamour Coaching"
+              className="h-[110px] w-auto object-contain"
               data-testid="header-logo"
             />
-            <span className="text-lg tracking-[0.35em] uppercase text-white/90 font-normal -mt-2 hidden sm:inline">
-              Coaching
-            </span>
           </Link>
 
           {/* Desktop + Tablet Nav */}
