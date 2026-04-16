@@ -16,11 +16,11 @@ const Footer = () => {
                 <img
                   src="/sophie_logo.jpg"
                   alt="Sophie Lamour"
-                  className="h-14 w-auto object-contain"
+                  className="h-16 w-auto object-contain"
                   data-testid="footer-logo"
                 />
-                <span className="text-[10px] tracking-[0.18em] uppercase text-[#90E0EF] font-light">
-                  {"Coach de vie & d\u00e9veloppement"}
+                <span className="text-[11px] tracking-[0.18em] uppercase text-[#90E0EF] font-light">
+                  Coaching
                 </span>
               </div>
             </Link>

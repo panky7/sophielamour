@@ -65,11 +65,11 @@ const Header = () => {
             <img
               src="/sophie_logo.jpg"
               alt="Sophie Lamour - Coach de vie"
-              className="h-12 md:h-14 w-auto object-contain"
+              className="h-16 w-auto object-contain"
               data-testid="header-logo"
             />
-            <span className="text-[9px] md:text-[10px] tracking-[0.18em] uppercase text-[#0077B6] font-light ml-0.5">
-              {"Coach de vie & d\u00e9veloppement"}
+            <span className="text-[11px] tracking-[0.18em] uppercase text-[#0077B6] font-light ml-0.5">
+              Coaching
             </span>
           </Link>
 

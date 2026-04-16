@@ -82,7 +82,7 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight font-serif text-[#03045E] mb-6">
-              {t("Prenons contact", "Get in Touch")}
+              {t("Contact", "Contact")}
             </h1>
             <p className="text-base lg:text-lg leading-relaxed text-[#023E8A] max-w-2xl mx-auto">
               {t(
