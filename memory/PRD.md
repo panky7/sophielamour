@@ -54,8 +54,15 @@ Build a modern, elegant, SEO-optimised life coaching website for Sophie Lamour. 
 - Contact form with RGPD + service checkboxes
 - SEO: sitemap.xml, robots.txt, standardized meta titles
 - Backend modularized into route files
+- Gmail SMTP email notifications on contact form submission
+- "Mes certifications" section on About page with 4 diploma cards (2026-04-16)
+- Certification badges on all 4 service pages: Parentalite, Professionnel, Ikigai, Yoga du Rire (2026-04-16)
+- All 4 PDF diplomas accessible and downloadable from /frontend/public/
+
+## P1 - Pending (Blocked on user input)
+- Facebook Feed Integration (needs Meta Developer credentials or manual approach decision)
+- Google Reviews Integration (needs Google Places API key + Place ID)
 
 ## P2 - Backlog
 - Social media auto-posting for blogs
-- Social media feed sync on homepage
 - Restrict CORS to specific production origins
