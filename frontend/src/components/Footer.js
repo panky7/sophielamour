@@ -18,7 +18,7 @@ const Footer = () => {
                   className="h-16 w-auto object-contain"
                   data-testid="footer-logo"
                 />
-                <span className="text-sm tracking-[0.35em] uppercase text-[#90E0EF] font-normal ml-0.5 -mt-1">
+                <span className="text-sm tracking-[0.35em] uppercase text-[#90E0EF] font-normal -mt-1">
                   Coaching
                 </span>
             </Link>

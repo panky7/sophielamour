@@ -69,7 +69,7 @@ const Header = () => {
               className="h-[100px] w-auto object-contain"
               data-testid="header-logo"
             />
-            <span className="text-lg tracking-[0.35em] uppercase text-white/90 font-normal ml-0.5 -mt-2 hidden sm:inline">
+            <span className="text-lg tracking-[0.35em] uppercase text-white/90 font-normal -mt-2 hidden sm:inline">
               Coaching
             </span>
           </Link>
