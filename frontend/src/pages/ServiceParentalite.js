@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
+import { GraduationCap } from 'lucide-react';
 
 const ServiceParentalite = () => {
   const { t } = useLanguage();
@@ -46,13 +47,31 @@ const ServiceParentalite = () => {
             </div>
           </div>
 
-          <Link
-            to="/contact"
-            data-testid="service-cta-button"
-            className="inline-block bg-[#0077B6] text-white hover:bg-[#023E8A] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md"
+          <a
+            href="/diploma_coach_parentalite.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="certification-badge-parentalite"
+            className="inline-flex items-center gap-3 bg-[#CAF0F8] border border-[#ADE8F4] rounded-2xl px-5 py-3 mb-8 hover:bg-[#ADE8F4] transition-colors duration-300"
           >
-            {t("Prendre contact", "Get in Touch")}
-          </Link>
+            <GraduationCap className="w-5 h-5 text-[#0077B6] flex-shrink-0" />
+            <span className="text-sm font-medium text-[#03045E]">
+              {t("Certifiée Coach en parentalité", "Certified Parenting Coach")}
+            </span>
+            <span className="text-xs text-[#0077B6] underline flex-shrink-0">
+              {t("Voir", "View")}
+            </span>
+          </a>
+
+          <div>
+            <Link
+              to="/contact"
+              data-testid="service-cta-button"
+              className="inline-block bg-[#0077B6] text-white hover:bg-[#023E8A] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md"
+            >
+              {t("Prendre contact", "Get in Touch")}
+            </Link>
+          </div>
         </div>
       </section>
     </>

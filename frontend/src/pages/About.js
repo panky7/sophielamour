@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import { GraduationCap, User, Smile, Sparkles, X } from 'lucide-react';
 
 const About = () => {
   const { t } = useLanguage();
@@ -111,7 +112,62 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24 bg-[#48CAE4]/10" data-testid="about-values">
+      <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24 bg-[#48CAE4]/10" data-testid="about-certifications">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-snug font-serif text-[#03045E] mb-4 text-center">
+            {t("Mes certifications", "My Certifications")}
+          </h2>
+          <p className="text-base lg:text-lg text-[#023E8A] text-center mb-12 max-w-2xl mx-auto">
+            {t(
+              "Des formations reconnues pour un accompagnement professionnel et bienveillant.",
+              "Recognized training for professional and caring support."
+            )}
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: t("Coach en parentalité", "Parenting Coach"),
+                file: "/diploma_coach_parentalite.pdf"
+              },
+              {
+                title: t("Coach professionnel", "Professional Coach"),
+                file: "/diploma_coach_pro.pdf"
+              },
+              {
+                title: t("Accompagnement Ikigai", "Ikigai Coaching"),
+                file: "/diploma_ikigai.pdf"
+              },
+              {
+                title: t("Yoga du Rire", "Laughter Yoga"),
+                file: "/diploma_yoga_du_rire.pdf"
+              }
+            ].map((cert, idx) => (
+              <motion.a
+                key={idx}
+                href={cert.file}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid={`certification-card-${idx}`}
+                className="group bg-white rounded-2xl p-6 shadow-[0_8px_32px_rgba(44,44,42,0.04)] hover:shadow-[0_12px_40px_rgba(0,119,182,0.12)] transition-all duration-300 text-center flex flex-col items-center gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+              >
+                <div className="w-14 h-14 rounded-full bg-[#CAF0F8] flex items-center justify-center group-hover:bg-[#ADE8F4] transition-colors duration-300">
+                  <GraduationCap className="w-7 h-7 text-[#0077B6]" />
+                </div>
+                <h3 className="text-base font-semibold text-[#03045E] leading-snug">{cert.title}</h3>
+                <span className="text-sm text-[#0077B6] font-medium group-hover:underline">
+                  {t("Voir le diplôme", "View diploma")}
+                </span>
+              </motion.a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-24" data-testid="about-values">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-snug font-serif text-[#03045E] mb-12 text-center">
             {t('Des valeurs qui m’animent', 'Values That Drive Me')}

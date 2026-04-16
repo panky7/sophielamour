@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
+import { GraduationCap } from 'lucide-react';
 
 const yogaImages = [
   'https://sophielamour.com/wp-content/uploads/2025/06/image1-8-scaled.jpg',
@@ -102,13 +103,31 @@ const ServiceYogaDuRire = () => {
             </div>
           </div>
 
-          <Link
-            to="/contact"
-            data-testid="service-yoga-du-rire-cta"
-            className="inline-block bg-[#0077B6] text-white hover:bg-[#0096C7] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md"
+          <a
+            href="/diploma_yoga_du_rire.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="certification-badge-yoga-du-rire"
+            className="inline-flex items-center gap-3 bg-[#CAF0F8] border border-[#ADE8F4] rounded-2xl px-5 py-3 mb-8 hover:bg-[#ADE8F4] transition-colors duration-300"
           >
-            {t("Me contacter", "Contact Me")}
-          </Link>
+            <GraduationCap className="w-5 h-5 text-[#0077B6] flex-shrink-0" />
+            <span className="text-sm font-medium text-[#03045E]">
+              {t("Certifiée Yoga du Rire", "Certified Laughter Yoga Instructor")}
+            </span>
+            <span className="text-xs text-[#0077B6] underline flex-shrink-0">
+              {t("Voir", "View")}
+            </span>
+          </a>
+
+          <div>
+            <Link
+              to="/contact"
+              data-testid="service-yoga-du-rire-cta"
+              className="inline-block bg-[#0077B6] text-white hover:bg-[#0096C7] rounded-full px-8 py-4 transition-all duration-300 font-medium tracking-wide shadow-sm hover:shadow-md"
+            >
+              {t("Me contacter", "Contact Me")}
+            </Link>
+          </div>
         </div>
       </section>
     </>
