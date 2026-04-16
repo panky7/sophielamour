@@ -12,14 +12,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div className="flex flex-col items-center md:items-start">
             <Link to="/" className="mb-4 inline-block" data-testid="footer-logo-link">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 inline-flex flex-col items-center gap-1">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 inline-flex items-center gap-4">
                 <img
-                  src="/sophie_logo.jpg"
+                  src="/sophie_logo.png"
                   alt="Sophie Lamour"
                   className="h-16 w-auto object-contain"
                   data-testid="footer-logo"
                 />
-                <span className="text-[11px] tracking-[0.18em] uppercase text-[#90E0EF] font-light">
+                <span className="text-sm tracking-[0.35em] uppercase text-[#90E0EF] font-normal">
                   Coaching
                 </span>
               </div>

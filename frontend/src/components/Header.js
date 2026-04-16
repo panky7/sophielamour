@@ -53,22 +53,23 @@ const Header = () => {
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'backdrop-blur-xl bg-white/95 shadow-lg shadow-[#CAF0F8]/20' : 'bg-white/90'
-      } border-b border-[#CAF0F8]`}
+        isScrolled ? 'shadow-lg shadow-[#03045E]/10' : ''
+      }`}
+      style={{ background: 'linear-gradient(135deg, #89CFF0 0%, #48CAE4 30%, #0096C7 70%, #4682B4 100%)' }}
       data-testid="main-header"
     >
-      <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24 py-2">
+      <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-12 py-3">
         <div className="flex items-center justify-between">
 
           {/* Logo */}
-          <Link to="/" className="flex flex-col items-start shrink-0 group" data-testid="logo-link">
+          <Link to="/" className="flex items-center gap-4 shrink-0 group" data-testid="logo-link">
             <img
-              src="/sophie_logo.jpg"
-              alt="Sophie Lamour - Coach de vie"
-              className="h-16 w-auto object-contain"
+              src="/sophie_logo.png"
+              alt="Sophie Lamour - Coaching"
+              className="h-[100px] w-auto object-contain"
               data-testid="header-logo"
             />
-            <span className="text-[11px] tracking-[0.18em] uppercase text-[#0077B6] font-light ml-0.5">
+            <span className="text-lg tracking-[0.35em] uppercase text-white/90 font-normal hidden sm:inline">
               Coaching
             </span>
           </Link>
@@ -80,10 +81,10 @@ const Header = () => {
                 key={link.path}
                 to={link.path}
                 data-testid={`nav-${link.path}`}
-                className={`text-xs lg:text-sm font-medium tracking-wide px-2 lg:px-3 py-2 rounded-lg transition-colors duration-200 whitespace-nowrap ${
+                className={`text-sm font-medium tracking-wide px-3 py-2 rounded-lg transition-colors duration-200 whitespace-nowrap ${
                   location.pathname === link.path
-                    ? 'text-[#0077B6] bg-[#CAF0F8]/40'
-                    : 'text-[#023E8A] hover:text-[#0077B6] hover:bg-[#CAF0F8]/30'
+                    ? 'text-white font-semibold'
+                    : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {link.label}
@@ -97,10 +98,10 @@ const Header = () => {
               onMouseLeave={handleServicesLeave}
             >
               <button
-                className={`flex items-center gap-1 text-xs lg:text-sm font-medium tracking-wide px-2 lg:px-3 py-2 rounded-lg transition-colors duration-200 whitespace-nowrap ${
+                className={`flex items-center gap-1 text-sm font-medium tracking-wide px-3 py-2 rounded-lg transition-colors duration-200 whitespace-nowrap ${
                   isServicePage
-                    ? 'text-[#0077B6] bg-[#CAF0F8]/40'
-                    : 'text-[#023E8A] hover:text-[#0077B6] hover:bg-[#CAF0F8]/30'
+                    ? 'text-white font-semibold'
+                    : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
                 data-testid="nav-services-dropdown"
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
@@ -121,7 +122,7 @@ const Header = () => {
                 >
                   <Link
                     to="/services"
-                    className="block px-4 py-2.5 text-xs lg:text-sm font-semibold text-[#03045E] hover:bg-[#CAF0F8]/40 transition-colors border-b border-[#CAF0F8]/50 mx-2 rounded-lg"
+                    className="block px-4 py-2.5 text-sm font-semibold text-[#03045E] hover:bg-[#CAF0F8]/40 transition-colors border-b border-[#CAF0F8]/50 mx-2 rounded-lg"
                   >
                     {t("Tous les services", "All Services")}
                   </Link>
@@ -130,7 +131,7 @@ const Header = () => {
                       key={sub.path}
                       to={sub.path}
                       data-testid={`nav-sub-${sub.path}`}
-                      className={`block px-4 py-2.5 text-xs lg:text-sm transition-colors mx-2 rounded-lg ${
+                      className={`block px-4 py-2.5 text-sm transition-colors mx-2 rounded-lg ${
                         location.pathname === sub.path
                           ? 'text-[#0077B6] bg-[#CAF0F8]/40 font-medium'
                           : 'text-[#023E8A] hover:text-[#0077B6] hover:bg-[#CAF0F8]/30'
@@ -148,10 +149,10 @@ const Header = () => {
                 key={link.path}
                 to={link.path}
                 data-testid={`nav-${link.path}`}
-                className={`text-xs lg:text-sm font-medium tracking-wide px-2 lg:px-3 py-2 rounded-lg transition-colors duration-200 whitespace-nowrap ${
+                className={`text-sm font-medium tracking-wide px-3 py-2 rounded-lg transition-colors duration-200 whitespace-nowrap ${
                   location.pathname === link.path
-                    ? 'text-[#0077B6] bg-[#CAF0F8]/40'
-                    : 'text-[#023E8A] hover:text-[#0077B6] hover:bg-[#CAF0F8]/30'
+                    ? 'text-white font-semibold'
+                    : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {link.label}
@@ -163,16 +164,16 @@ const Header = () => {
           <div className="flex items-center gap-2 sm:gap-3">
             <button
               onClick={toggleLanguage}
-              className="text-xs font-medium tracking-wide px-2.5 py-1.5 rounded-lg bg-[#CAF0F8] hover:bg-[#ADE8F4] transition-colors"
+              className="text-xs font-semibold tracking-wide px-2.5 py-1.5 rounded-lg bg-white/15 hover:bg-white/25 transition-colors"
               data-testid="language-toggle"
             >
-              <span className={language === 'fr' ? 'text-[#0077B6] font-bold' : 'text-[#023E8A]'}>FR</span>
+              <span className={language === 'fr' ? 'text-white font-bold' : 'text-white/70'}>FR</span>
               {' / '}
-              <span className={language === 'en' ? 'text-[#0077B6] font-bold' : 'text-[#023E8A]'}>EN</span>
+              <span className={language === 'en' ? 'text-white font-bold' : 'text-white/70'}>EN</span>
             </button>
 
             <button
-              className="md:hidden text-[#03045E] p-1"
+              className="md:hidden text-white p-1"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               data-testid="mobile-menu-toggle"
             >
@@ -183,7 +184,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 flex flex-col space-y-1 border-t border-[#CAF0F8] pt-4" data-testid="mobile-menu">
+          <nav className="md:hidden mt-4 pb-4 flex flex-col space-y-1 border-t border-white/20 pt-4" data-testid="mobile-menu">
             {navLinks.slice(0, 2).map((link) => (
               <Link
                 key={link.path}
@@ -191,8 +192,8 @@ const Header = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`text-sm font-medium tracking-wide px-3 py-2.5 rounded-lg transition-colors ${
                   location.pathname === link.path
-                    ? 'text-[#0077B6] bg-[#CAF0F8]/40'
-                    : 'text-[#023E8A] hover:bg-[#CAF0F8]/30'
+                    ? 'text-white font-semibold bg-white/15'
+                    : 'text-white/80 hover:bg-white/10'
                 }`}
               >
                 {link.label}
@@ -204,8 +205,8 @@ const Header = () => {
                 onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
                 className={`w-full flex items-center justify-between text-sm font-medium tracking-wide px-3 py-2.5 rounded-lg transition-colors ${
                   isServicePage
-                    ? 'text-[#0077B6] bg-[#CAF0F8]/40'
-                    : 'text-[#023E8A] hover:bg-[#CAF0F8]/30'
+                    ? 'text-white font-semibold bg-white/15'
+                    : 'text-white/80 hover:bg-white/10'
                 }`}
               >
                 Services
@@ -215,11 +216,11 @@ const Header = () => {
                 />
               </button>
               {isMobileServicesOpen && (
-                <div className="ml-3 mt-1 space-y-0.5 border-l-2 border-[#CAF0F8] pl-3">
+                <div className="ml-3 mt-1 space-y-0.5 border-l-2 border-white/20 pl-3">
                   <Link
                     to="/services"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block text-sm font-semibold text-[#03045E] px-3 py-2 rounded-lg hover:bg-[#CAF0F8]/30"
+                    className="block text-sm font-semibold text-white px-3 py-2 rounded-lg hover:bg-white/10"
                   >
                     {t("Tous les services", "All Services")}
                   </Link>
@@ -230,8 +231,8 @@ const Header = () => {
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={`block text-sm px-3 py-2 rounded-lg transition-colors ${
                         location.pathname === sub.path
-                          ? 'text-[#0077B6] font-medium bg-[#CAF0F8]/40'
-                          : 'text-[#023E8A] hover:bg-[#CAF0F8]/30'
+                          ? 'text-white font-medium bg-white/15'
+                          : 'text-white/70 hover:bg-white/10'
                       }`}
                     >
                       {sub.label}
@@ -248,8 +249,8 @@ const Header = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`text-sm font-medium tracking-wide px-3 py-2.5 rounded-lg transition-colors ${
                   location.pathname === link.path
-                    ? 'text-[#0077B6] bg-[#CAF0F8]/40'
-                    : 'text-[#023E8A] hover:bg-[#CAF0F8]/30'
+                    ? 'text-white font-semibold bg-white/15'
+                    : 'text-white/80 hover:bg-white/10'
                 }`}
               >
                 {link.label}
