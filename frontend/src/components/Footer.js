@@ -127,8 +127,16 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/20 pt-8 text-center text-white/60 text-sm">
+        <div className="border-t border-white/20 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-white/60 text-sm">
           <p>&copy; {new Date().getFullYear()} Sophie Lamour. {t("Tous droits r\u00e9serv\u00e9s.", "All rights reserved.")}</p>
+          <div className="flex gap-6">
+            <Link to="/privacy" className="hover:text-[#48CAE4] transition-colors" data-testid="footer-privacy-link">
+              {t("Politique de confidentialité", "Privacy Policy")}
+            </Link>
+            <Link to="/terms" className="hover:text-[#48CAE4] transition-colors" data-testid="footer-terms-link">
+              {t("CGU", "Terms")}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

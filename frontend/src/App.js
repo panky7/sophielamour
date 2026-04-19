@@ -26,6 +26,8 @@ import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import BlogEditor from './pages/BlogEditor';
 import TestimonialEditor from './pages/TestimonialEditor';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 import './App.css';
 
 function ScrollToTop() {
@@ -88,6 +90,8 @@ function App() {
                         <Route path="/blog/:slug" element={<BlogPost />} />
                         <Route path="/temoignages" element={<Testimonials />} />
                         <Route path="/contact" element={<Contact />} />
+                        <Route path="/privacy" element={<PrivacyPolicy />} />
+                        <Route path="/terms" element={<TermsOfService />} />
                       </Routes>
                     </main>
                     <Footer />
