@@ -4,8 +4,32 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { GraduationCap, User, Smile, Sparkles, X } from 'lucide-react';
 
+const certifications = [
+  {
+    titleFr: "Coach en parentalité",
+    titleEn: "Parenting Coach",
+    image: "/diploma_coach_parentalite.jpg"
+  },
+  {
+    titleFr: "Coach professionnel",
+    titleEn: "Professional Coach",
+    image: "/diploma_coach_pro.jpg"
+  },
+  {
+    titleFr: "Accompagnement Ikigai",
+    titleEn: "Ikigai Coaching",
+    image: "/diploma_ikigai.jpg"
+  },
+  {
+    titleFr: "Yoga du Rire",
+    titleEn: "Laughter Yoga",
+    image: "/diploma_yoga_du_rire.jpg"
+  }
+];
+
 const About = () => {
   const { t } = useLanguage();
+  const [lightboxImage, setLightboxImage] = useState(null);
 
   const values = [
     {
@@ -123,47 +147,54 @@ const About = () => {
               "Recognized training for professional and caring support."
             )}
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                title: t("Coach en parentalité", "Parenting Coach"),
-                file: "/diploma_coach_parentalite.pdf"
-              },
-              {
-                title: t("Coach professionnel", "Professional Coach"),
-                file: "/diploma_coach_pro.pdf"
-              },
-              {
-                title: t("Accompagnement Ikigai", "Ikigai Coaching"),
-                file: "/diploma_ikigai.pdf"
-              },
-              {
-                title: t("Yoga du Rire", "Laughter Yoga"),
-                file: "/diploma_yoga_du_rire.pdf"
-              }
-            ].map((cert, idx) => (
-              <motion.a
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {certifications.map((cert, idx) => (
+              <motion.button
                 key={idx}
-                href={cert.file}
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => setLightboxImage(cert.image)}
                 data-testid={`certification-card-${idx}`}
-                className="group bg-white rounded-2xl p-6 shadow-[0_8px_32px_rgba(44,44,42,0.04)] hover:shadow-[0_12px_40px_rgba(0,119,182,0.12)] transition-all duration-300 text-center flex flex-col items-center gap-3"
+                className="group bg-white rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(44,44,42,0.04)] hover:shadow-[0_12px_40px_rgba(0,119,182,0.12)] transition-all duration-300 text-left cursor-pointer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
               >
-                <div className="w-14 h-14 rounded-full bg-[#CAF0F8] flex items-center justify-center group-hover:bg-[#ADE8F4] transition-colors duration-300">
-                  <GraduationCap className="w-7 h-7 text-[#0077B6]" />
+                <div className="aspect-[4/3] overflow-hidden bg-[#F0F9FF]">
+                  <img
+                    src={cert.image}
+                    alt={t(cert.titleFr, cert.titleEn)}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-                <h3 className="text-base font-semibold text-[#03045E] leading-snug">{cert.title}</h3>
-                <span className="text-sm text-[#0077B6] font-medium group-hover:underline">
-                  {t("Voir le diplôme", "View diploma")}
-                </span>
-              </motion.a>
+                <div className="p-4 flex items-center gap-3">
+                  <GraduationCap className="w-5 h-5 text-[#0077B6] flex-shrink-0" />
+                  <h3 className="text-sm font-semibold text-[#03045E] leading-snug">{t(cert.titleFr, cert.titleEn)}</h3>
+                </div>
+              </motion.button>
             ))}
           </div>
+
+          {lightboxImage && (
+            <div
+              className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-4"
+              onClick={() => setLightboxImage(null)}
+              data-testid="diploma-lightbox"
+            >
+              <button
+                onClick={() => setLightboxImage(null)}
+                className="absolute top-6 right-6 text-white hover:text-[#48CAE4] transition-colors z-10"
+                data-testid="lightbox-close"
+              >
+                <X size={32} />
+              </button>
+              <img
+                src={lightboxImage}
+                alt="Diploma"
+                className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+          )}
         </div>
       </section>
 

@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, X } from 'lucide-react';
 
 const ServiceIkigai = () => {
   const { t } = useLanguage();
+  const [showDiploma, setShowDiploma] = useState(false);
 
   return (
     <>
@@ -99,12 +100,10 @@ const ServiceIkigai = () => {
             </div>
           </div>
 
-          <a
-            href="/diploma_ikigai.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => setShowDiploma(true)}
             data-testid="certification-badge-ikigai"
-            className="inline-flex items-center gap-3 bg-[#CAF0F8] border border-[#ADE8F4] rounded-2xl px-5 py-3 mb-8 hover:bg-[#ADE8F4] transition-colors duration-300"
+            className="inline-flex items-center gap-3 bg-[#CAF0F8] border border-[#ADE8F4] rounded-2xl px-5 py-3 mb-8 hover:bg-[#ADE8F4] transition-colors duration-300 cursor-pointer"
           >
             <GraduationCap className="w-5 h-5 text-[#0077B6] flex-shrink-0" />
             <span className="text-sm font-medium text-[#03045E]">
@@ -113,7 +112,14 @@ const ServiceIkigai = () => {
             <span className="text-xs text-[#0077B6] underline flex-shrink-0">
               {t("Voir", "View")}
             </span>
-          </a>
+          </button>
+
+          {showDiploma && (
+            <div className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-4" onClick={() => setShowDiploma(false)} data-testid="diploma-lightbox-ikigai">
+              <button onClick={() => setShowDiploma(false)} className="absolute top-6 right-6 text-white hover:text-[#48CAE4] transition-colors z-10"><X size={32} /></button>
+              <img src="/diploma_ikigai.jpg" alt="Diploma Ikigai" className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl" onClick={(e) => e.stopPropagation()} />
+            </div>
+          )}
 
           <div>
             <Link
