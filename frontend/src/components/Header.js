@@ -66,7 +66,7 @@ const Header = () => {
             <img
               src="/sophie_logo_full.png"
               alt="Sophie Lamour Coaching"
-              className="h-[110px] w-auto object-contain"
+              className="h-[56px] sm:h-[70px] md:h-[90px] lg:h-[110px] w-auto object-contain"
               data-testid="header-logo"
             />
           </Link>

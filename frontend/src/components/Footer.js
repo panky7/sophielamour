@@ -15,7 +15,7 @@ const Footer = () => {
                 <img
                   src="/sophie_logo_full.png"
                   alt="Sophie Lamour Coaching"
-                  className="h-20 w-auto object-contain"
+                  className="h-14 sm:h-16 md:h-20 w-auto object-contain"
                   data-testid="footer-logo"
                 />
             </Link>
