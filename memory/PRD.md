@@ -48,6 +48,7 @@ Build a modern, elegant, SEO-optimised life coaching website for Sophie Lamour. 
 ## Completed
 - All core pages, services, techniques
 - Logo with "Coach de vie & developpement" tagline
+- Updated logo to client's ChatGPT-generated transparent PNG (2026-04-28)
 - Favicon matching logo botanical element
 - Admin dashboard (blogs, testimonials, contact messages)
 - Blog CRUD with rich text editor
@@ -55,9 +56,12 @@ Build a modern, elegant, SEO-optimised life coaching website for Sophie Lamour. 
 - SEO: sitemap.xml, robots.txt, standardized meta titles
 - Backend modularized into route files
 - Gmail SMTP email notifications on contact form submission
-- "Mes certifications" section on About page with 4 diploma cards (2026-04-16)
-- Certification badges on all 4 service pages: Parentalite, Professionnel, Ikigai, Yoga du Rire (2026-04-16)
-- All 4 PDF diplomas accessible and downloadable from /frontend/public/
+- "Mes certifications" section on About page with 4 diploma images in lightbox (2026-04-22)
+- Certification badges on all 4 service pages with lightbox modals (2026-04-22)
+- Diplomas converted from PDF to JPG photo display with lightbox (2026-04-22)
+- Privacy Policy page (/privacy) and Terms of Service page (/terms) (2026-04-22)
+- Meta domain verification tag added for Facebook (2026-04-22)
+- Footer links to Privacy Policy and CGU (2026-04-22)
 
 ## P1 - Pending (Blocked on user input)
 - Facebook Feed Integration (needs Meta Developer credentials or manual approach decision)
